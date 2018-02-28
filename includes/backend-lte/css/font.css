@@ -1,0 +1,184 @@
+@font-face {
+    font-family: "ft9";
+    src: url('../fonts/RobotoSlab-Bold.ttf');
+}
+@font-face {
+    font-family: "ft10";
+    src: url('../fonts/RobotoSlab-Light.ttf');
+}
+@font-face {
+    font-family: "ft11";
+    src: url('../fonts/RobotoSlab-Regular.ttf');
+}
+@font-face {
+    font-family: "ft12";
+    src: url('../fonts/RobotoSlab-Thin.ttf');
+}
+@font-face {
+    font-family: "ft13";
+    src: url('../fonts/RobotoCondensed-Bold.ttf');
+}
+@font-face {
+    font-family: "ft14";
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: "ft15";
+    src: url('../fonts/New_Cicle_Gordita.ttf');
+}
+@font-face {
+    font-family: "ft16";
+    src: url('../fonts/roboto/Roboto-Black.ttf');
+}
+@font-face {
+    font-family: "ft17";
+    src: url('../fonts/roboto/Roboto-BlackItalic.ttf');
+}
+@font-face {
+    font-family: "ft18";
+    src: url('../fonts/roboto/Roboto-Bold.ttf');
+}
+@font-face {
+    font-family: "ft19";
+    src: url('../fonts/roboto/Roboto-BoldCondensed.ttf');
+}
+@font-face {
+    font-family: "ft20";
+    src: url('../fonts/roboto/Roboto-BoldCondensedItalic.ttf');
+}
+@font-face {
+    font-family: "ft21";
+    src: url('../fonts/roboto/Roboto-BoldItalic.ttf');
+}
+@font-face {
+    font-family: "ft22";
+    src: url('../fonts/roboto/Roboto-Condensed.ttf');
+}
+@font-face {
+    font-family: "ft23";
+    src: url('../fonts/roboto/Roboto-CondensedItalic.ttf');
+}
+@font-face {
+    font-family: "ft24";
+    src: url('../fonts/roboto/Roboto-Italic.ttf');
+}
+@font-face {
+    font-family: "ft25";
+    src: url('../fonts/roboto/Roboto-Light.ttf');
+}
+@font-face {
+    font-family: "ft26";
+    src: url('../fonts/roboto/Roboto-LightItalic.ttf');
+}
+@font-face {
+    font-family: "ft27";
+    src: url('../fonts/roboto/Roboto-Medium.ttf');
+}
+@font-face {
+    font-family: "ft28";
+    src: url('../fonts/roboto/Roboto-MediumItalic.ttf');
+}
+@font-face {
+    font-family: "ft29";
+    src: url('../fonts/roboto/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: "ft30";
+    src: url('../fonts/roboto/Roboto-Thin.ttf');
+}
+@font-face {
+    font-family: "ft31";
+    src: url('../fonts/roboto/Roboto-ThinItalic.ttf');
+}
+@font-face {
+         font-family: "jenis1";
+         src: url('../fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+         font-family: "jenis2";
+         src: url('../fonts/ColabReg.otf');
+}
+
+@font-face {
+         font-family: "jenis3";
+         src: url('../fonts/GrandHotel-Regular.otf');
+}
+
+@font-face {
+         font-family: "jenis4";
+         src: url('../fonts/Capture_it.ttf');
+}
+
+@font-face {
+         font-family: "jenis5";
+         src: url('../fonts/Existence-Light.otf');
+}
+
+@font-face {
+         font-family: "jenis6";
+         src: url('../fonts/Existence-StencilLight.otf');
+}
+
+@font-face {
+         font-family: "jenis7";
+         src: url('../fonts/Lobster_1.3.otf');
+}
+
+@font-face {
+         font-family: "jenis8";
+         src: url('../fonts/DroidSans.ttf');
+}
+
+@font-face {
+         font-family: "jenis9";
+         src: url('../fonts/Chunkfive.otf');
+}
+
+@font-face {
+         font-family: "jenis10";
+         src: url('../fonts/Sansation-Regular.ttf');
+}
+
+@font-face {
+         font-family: "jenis11";
+         src: url('../fonts/Sofia-Regular.otf');
+}
+
+@font-face {
+         font-family: "jenis12";
+         src: url('../fonts/Raleway-Light.ttf');
+}
+
+@font-face {
+         font-family: "jenis13";
+         src: url('../fonts/LeagueGothic-Regular.otf');
+}
+@font-face {
+    font-family: "d1";
+    src: url('../fonts/3D/ALBA____.ttf');
+}
+@font-face {
+    font-family: "d2";
+    src: url('../fonts/3D/BoyzRGrossShadowNF.ttf');
+}
+@font-face {
+    font-family: "d3";
+    src: url('../fonts/3D/Bullpen3D.ttf');
+}
+@font-face {
+    font-family: "d4";
+    src: url('../fonts/3D/Mona Shark.otf');
+}
+@font-face {
+    font-family: "d5";
+    src: url('../fonts/3D/planetbe.ttf');
+}
+@font-face {
+    font-family: "d6";
+    src: url('../fonts/3D/Sho-CardCapsNF.ttf');
+}
+@font-face {
+    font-family: "d7";
+    src: url('../fonts/3D/vtks chalk 79.ttf');
+}

@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "nova light";
+    src: url('../fonts/Proxima_Nova_Light.ttf');
+}
+
+@font-face {
+    font-family: "nova regular";
+    src: url('../fonts/Proxima_Nova_Regular.ttf');
+}
+
+@font-face {
+    font-family: "nova regular italic";
+    src: url('../fonts/Proxima_Nova_Regular_Italic.ttf');
+}
+
+@font-face {
+    font-family: "nova semibold";
+    src: url('../fonts/Proxima_Nova_Semibold.ttf');
+}
+
+@font-face {
+    font-family: "nova bold";
+    src: url('../fonts/Proxima_Nova_Bold.ttf');
+}
+
