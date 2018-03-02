@@ -8,22 +8,8 @@
             <div class="form-body">
               <?=form_open('',array('method'=>'post','id'=>'formtambahpegawai','role'=>'form'))?>
                   <div class="form-group">
-                     <label for="nip"></label>
-                     <input type="text" class="form-control" name="nip" placeholder="Nomor Induk Pegawai">
-                  </div>
-                  <div class="form-group">
-                     <label for="namapegawai">Nama Pegawai</label>
-                     <input type="text" class="form-control" name="namapegawai" placeholder="Nama Lengkap Pegawai">
-                  </div>
-                  <div class="form-group">
-                    <label for="jabatan">Bagian</label>
-                      <select class="form-control input-lg" name="jabatan" width="100%">
-                        <option value="">--Pilih Bagian--</option>
-                        <?php if($jabatan!=FALSE){
-                          foreach ($jabatan as $key) { ?>
-                            <option value="<?=$key->id_jabatan?>"><?=$key->nama_jabatan?></option>
-                        <?php  }} ?>
-                      </select>
+                     <label for="namapegawai">Nama Bagian</label>
+                     <input type="text" class="form-control" name="namabagian" placeholder="Masukan Bagian Kepegawaian">
                   </div>
                   <div class="row">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
@@ -38,7 +24,6 @@
                     </div>
                   <?php } ?>
                 <?=form_close()?>
-
             </div>
           </div>
         </div>

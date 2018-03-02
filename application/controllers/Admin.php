@@ -4,7 +4,7 @@
       parent:: __construct();
       $this->load->model('Tamu');
       $this->load->model('Pegawai');
-      $this->load->model('Jabatan');
+      $this->load->model('Bagian');
       $this->load->model('Pertanyaan');
       if(!$this->session->userdata('masuk_admin')){
         header('Location:'.base_url().'authenticate/index');
@@ -28,9 +28,9 @@
       if(isset($_POST['submit'])){
         $no_induk=$this->input->post('nip',TRUE);
         $nama_pegawai=$this->input->post('namapegawai',TRUE);
-        $id_jabatan=$this->input->post('jabatan',TRUE);
+        $id_bagian=$this->input->post('bagian',TRUE);
 
-        $insert=$this->Pegawai->insert($no_induk,$nama_pegawai,$id_jabatan);
+        $insert=$this->Pegawai->insert($no_induk,$nama_pegawai,$id_bagian);
         if($insert){
           $this->session->set_flashdata(array('msg'=>'success'));
         }else{
@@ -38,13 +38,27 @@
         }
         header('location'.base_url('admin/pegawai/tambahpegawai'));
       }
-      $data['jabatan']=$this->Jabatan->getAllData();
+      $data['bagian']=$this->Bagian->getAllData();
       $data['content']='admin/pegawai/tambahpegawai';
       $this->load->view('template/admin_template',$data);
     }
     function listPegawai(){
       $data['pegawai']=$this->Pegawai->getAllData();
       $data['content']='admin/pegawai/daftarpegawai';
+      $this->load->view('template/admin_template',$data);
+    }
+    function bagian(){
+      if(isset($_POST['submit'])){
+        $nama_bagian=$this->input->post('namabagian',TRUE);
+        $insert=$this->Bagian->insert($nama_bagian);
+        if($insert){
+          $this->session->set_flashdata(array('msg'=>'success'));
+        }else{
+          $this->session->set_flashdata(array('msg'=>'failed'));
+        }
+        header('location'.base_url('admin/pegawai/bagian'));
+      }
+      $data['content']='admin/pegawai/bagian';
       $this->load->view('template/admin_template',$data);
     }
     function pertanyaan(){

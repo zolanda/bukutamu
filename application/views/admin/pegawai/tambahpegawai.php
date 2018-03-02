@@ -16,12 +16,12 @@
                      <input type="text" class="form-control" name="namapegawai" placeholder="Nama Lengkap Pegawai">
                   </div>
                   <div class="form-group">
-                    <label for="jabatan">Bagian</label>
-                      <select class="form-control input-lg" name="jabatan" width="100%">
+                    <label for="bagian">Bagian</label>
+                      <select class="form-control input-lg" name="bagian" width="100%">
                         <option value="">--Pilih Bagian--</option>
-                        <?php if($jabatan!=FALSE){
-                          foreach ($jabatan as $key) { ?>
-                            <option value="<?=$key->id_jabatan?>"><?=$key->nama_jabatan?></option>
+                        <?php if($bagian!=FALSE){
+                          foreach ($bagian as $key) { ?>
+                            <option value="<?=$key->id_bagian?>"><?=$key->nama_bagian?></option>
                         <?php  }} ?>
                       </select>
                   </div>

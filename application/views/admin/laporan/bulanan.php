@@ -15,7 +15,7 @@
             <div class="box-body">
               <div class="col-sm-6">
                 <div id="container" style="width:100%; height:400px;">
-                  Cari Hari
+                  Cari Bulan
                   <div class="form-group">
                     <input type="date" class="form-control" id="hari" name="hari" placeholder="Berdasarkan Tanggal">
                   </div>

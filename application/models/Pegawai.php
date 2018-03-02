@@ -4,7 +4,7 @@
       parent::  __construct();
     }
     public function getAllData(){
-      $query="SELECT*FROM pegawai LEFT JOIN jabatan ON pegawai.id_jabatan=jabatan.id_jabatan";
+      $query="SELECT*FROM pegawai LEFT JOIN bagian ON pegawai.id_bagian=bagian.id_bagian";
       $result=$this->db->query($query);
       if($result->num_rows()>0){
         return $result->result();
@@ -12,8 +12,8 @@
         return FALSE;
       }
     }
-    public function insert($no_induk, $nama_pegawai, $id_jabatan){
-      $query="INSERT INTO pegawai(no_induk, nama_pegawai, id_jabatan) VALUES ('$no_induk','$nama_pegawai','$id_jabatan')";
+    public function insert($no_induk, $nama_pegawai, $id_bagian){
+      $query="INSERT INTO pegawai(no_induk, nama_pegawai, id_bagian) VALUES ('$no_induk','$nama_pegawai','$id_bagian')";
       return $this->db->query($query);
     }
   }

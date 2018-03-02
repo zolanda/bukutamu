@@ -47,7 +47,7 @@
               </li>
 			  <li class="treeview">
                 <a href="#">
-                <i class="fa fa-book"></i>
+                <i class="fa fa-credit-card"></i>
                 <span>Akun Pengguna</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -83,6 +83,7 @@
                 <ul class="treeview-menu">
                   <li><a href="<?=base_url()?>admin/tambahpegawai"><i class="fa fa-user-plus"></i>Tambah Pegawai</a></li>
                   <li><a href="<?=base_url()?>admin/listpegawai"><i class="fa fa-group"></i>Daftar Pegawai</a></li>
+									<li><a href="<?=base_url()?>admin/bagian"><i class="fa fa-user"></i>Bagian Kepegawaian</a></li>
                 </ul>
               </li>
               <li class="treeview">
@@ -127,7 +128,7 @@
 								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
 								<li> <a href="#"><i class="fa fa-user"></i> My Account</a> </li>
 								<li> <a href="#"><i class="fa fa-suitcase"></i> Profile</a> </li>
-								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+								<li> <a href="<?=base_url()?>authenticate/logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
 							</ul>
 						</li>
 					</ul>

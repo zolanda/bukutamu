@@ -10,7 +10,8 @@
             <th>NO</th>
             <th>Nomor Induk Pegawai</th>
             <th>Nama Pegawai</th>
-            <th>Jabatan</th>
+            <th>Bagian</th>
+            <th><center>Perintah</center></th>
           </tr>
         </thead>
         <tbody>
@@ -21,7 +22,13 @@
               <td><?=$i ?></td>
               <td><?=$peg->no_induk?></td>
               <td><?=$peg->nama_pegawai?></td>
-              <td><?=$peg->nama_jabatan?></td>
+              <td><?=$peg->nama_bagian?></td>
+              <td>
+                <center>
+                  <button href="#" data-toggle="popover" data-placement="left" data-content="Edit Pegawai" class="message btn btn-sm btn-warning" onclick=""><i class="fa fa-edit"></i></button>
+                  <button href="#" data-toggle="popover" data-placement="left" data-content="Edit Pegawai" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
+                </center>
+              </td>
             </tr>
             <?php $i++;}} ?>
         </tbody>
