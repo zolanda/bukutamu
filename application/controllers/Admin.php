@@ -76,7 +76,15 @@
       $data['content']='admin/pertanyaan';
       $this->load->view('template/admin_template',$data);
     }
-
+    function fetchDataPertanyaan(){
+      if(FALSE){
+        echo "<script>window.history.back()</script>";
+      } else {
+        $idPertanyaan=$this->input->post('idPertanyaan',TRUE);
+        $pertanyaan=$this->Pertanyaan->getPertanyaanById($idPertanyaan);
+        echo json_encode(['pertanyaan'=>$pertanyaan]);
+      }
+    }
     function laporanHarian(){
       $data['content']='admin/laporan/harian';
       $this->load->view('template/admin_template',$data);

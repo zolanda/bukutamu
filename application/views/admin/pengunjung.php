@@ -1,6 +1,4 @@
-<div id="page-wrapper">
-  <div class="wrapper">
-    <div class="content-wrapper">
+  <div class="content-wrapper">
         <div class="box-header with-border">
           <h3 class="box-title"> <i class="fa fa-street-view" aria-hidden="true"></i>Daftar Pengunjung</h3>
         </div>
@@ -32,8 +30,7 @@
           </tbody>
         </table>
     </div>
-  </div>
-</div>
+
 <script>
   $(document).ready(function(){
     $('#table').DataTable();

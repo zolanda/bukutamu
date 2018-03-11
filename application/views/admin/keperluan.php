@@ -1,5 +1,5 @@
-<div id="page-wrapper">
-    <div class="main-page">
+
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper" style="min-height: 916px;">
             <!-- Content Header (Page header) -->
@@ -66,7 +66,7 @@
                </div>
             </section>
          </div>
-</div>
+
         <!-- /.content-wrapper -->
 <script type="text/javascript">
   // FIX

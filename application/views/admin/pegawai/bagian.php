@@ -26,6 +26,35 @@
                 <?=form_close()?>
             </div>
           </div>
+          <div class="form title">
+            <h3><i class="fa fa-edit">Daftar Bagian Kepegawaian</i></h3>
+          </div>
+          <table id="table" class="table table-striped table bordered">
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>Bagian</th>
+                <th>Perintah</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php if($bagian!=FALSE){
+                $i=1;
+                foreach ($bagian as $bag) {?>
+                <tr>
+                  <td><?=$i?></td>
+                  <td><?=$bag->nama_bagian?></td>
+                  <td>
+                    <center>
+                    <button href="#" data-toggle="popover" data-placement="left" data-content="Edit Pegawai" class="message btn btn-sm btn-warning" onclick=""><i class="fa fa-edit"></i></button>
+                    <button href="#" data-toggle="popover" data-placement="left" data-content="Edit Pegawai" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
+                    </center>
+                  </td>
+                </tr>
+                <?php }} ?>
+
+            </tbody>
+          </table>
         </div>
       </div>
   </div>

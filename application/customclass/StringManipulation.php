@@ -18,5 +18,25 @@
         case '12':return $arraydate[2].' Desember '.$arraydate[0];break;
       }
     }
+
+    public function monthToString($month){
+      $arraydate=explode('-',$month);
+      $month=$arraydate[1];
+      switch($month){
+        case '01':return 'Januari '.$arraydate[0];break;
+        case '02':return 'Februari '.$arraydate[0];break;
+        case '03':return 'Maret '.$arraydate[0];break;
+        case '04':return 'April '.$arraydate[0];break;
+        case '05':return 'Mei '.$arraydate[0];break;
+        case '06':return 'Juni '.$arraydate[0];break;
+        case '07':return 'Juli '.$arraydate[0];break;
+        case '08':return 'Agustus '.$arraydate[0];break;
+        case '09':return 'September '.$arraydate[0];break;
+        case '10':return 'Oktober '.$arraydate[0];break;
+        case '11':return 'November '.$arraydate[0];break;
+        case '12':return 'Desember '.$arraydate[0];break;
+
+      }
+    }
   }
  ?>

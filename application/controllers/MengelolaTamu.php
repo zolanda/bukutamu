@@ -74,5 +74,10 @@ class MengelolaTamu extends CI_Controller{
     $this->load->view('template/main_template',$data);
   }
 
+  public function cobamonthpicker(){
+    $data['content']='cobamonthpicker';
+    $this->load->view('template/main_template',$data);
+  }
+
 }
  ?>

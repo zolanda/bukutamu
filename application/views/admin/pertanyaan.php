@@ -1,5 +1,4 @@
-<div id="page-wrapper">
-    <div class="wrapper">
+<div class="content-wrapper">
       <section class="content-header">
         <h1>
           <i class="fa fa-vcard-o">Pertanyaan</i>
@@ -43,7 +42,7 @@
                             <td><?=$tanya->pertanyaan?></td>
                             <td>
                               <center>
-                                <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Pertanyaan" data-original-title="" class="message btn btn-sm btn-warning" onclick=""><i class="fa fa-edit" aria-hidden="true"> </i><//<button type="button" name="button"></button>
+                                <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Pertanyaan" data-original-title="" class="message btn btn-sm btn-warning" onclick="editPertanyaan('<?=$tanya->id_pertanyaan?>')"><i class="fa fa-edit" aria-hidden="true"> </i><//<button type="button" name="button"></button>
                                 <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Daftar Jawaban" data-original-title="" class="message btn btn-sm btn-primary" onclick=""><i class="fa fa-th" aria-hidden="true"> </i></button>
                                 <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Pertanyaan" data-original-title="" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
                               </center>
@@ -88,4 +87,17 @@
         </div>
       </div>
     </div>
-</div>
+
+<script>
+  function editPertanyaan(x){
+    $.ajax({
+      method:'post',
+      url:'<?=base_url()?>Admin/fetchDataPertanyaan',
+      dataType:'json',
+      data:{'idPertanyaan': x},
+      success:function(data){
+        alert();
+      }
+    })
+  }
+</script>

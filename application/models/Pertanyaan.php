@@ -13,6 +13,16 @@
         return FALSE;
       }
     }
+
+    public function getPertanyaanById($id){
+      $query="SELECT * FROM pertanyaan WHERE id_pertanyaan='$id'";
+      $result=$this->db->query($query);
+      if($result->num_rows()>0){
+        return $result->row_array();
+      }else{
+        return FALSE;
+      }
+    }
     function insert($pertanyaan){
       $query="INSERT INTO pertanyaan(pertanyaan) VALUES ('$pertanyaan')";
       return $this->db->query($query);
