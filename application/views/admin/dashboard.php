@@ -1,4 +1,4 @@
-<div id="page-wrapper">
+<div class="content-wrapper">
   <div class="main-page">
   <div class="col_3">
       <div class="col-md-3 widget widget1">

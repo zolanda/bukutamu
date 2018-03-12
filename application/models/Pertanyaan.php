@@ -27,5 +27,10 @@
       $query="INSERT INTO pertanyaan(pertanyaan) VALUES ('$pertanyaan')";
       return $this->db->query($query);
     }
+
+    public function update($pertanyaan, $idpertanyaan){
+      $query="UPDATE pertanyaan SET pertanyaan='$pertanyaan' WHERE id_pertanyaan='$idpertanyaan' ";
+      return $this->db->query($query);
+    }
   }
  ?>

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="<?=base_url()?>includes/library/css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -179,8 +180,8 @@
   </footer>
 
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
+  <!-- <aside class="control-sidebar control-sidebar-dark">
+
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
       <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
       <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
@@ -188,8 +189,8 @@
     <div class="tab-content">
       <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
     </div>
-  </aside>
-  <div class="control-sidebar-bg"></div>
+  </aside> -->
+  <!-- <div class="control-sidebar-bg"></div> -->
 </div>
 <!-- ./wrapper -->
 
@@ -210,7 +211,6 @@
 <script src="<?=base_url()?>template_admin/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/moment/min/moment.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-
 <script src="<?=base_url()?>template_admin/plugins/iCheck/icheck.min.js"></script>
 <script src="<?=base_url()?>template_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -218,5 +218,7 @@
 <script src="<?=base_url()?>template_admin/dist/js/adminlte.min.js"></script>
 <script src="<?=base_url()?>template_admin/dist/js/pages/dashboard.js"></script>
 <script src="<?=base_url()?>template_admin/dist/js/demo.js"></script>
+<script src="<?=base_url()?>template_admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?=base_url()?>template_admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 </body>
 </html>

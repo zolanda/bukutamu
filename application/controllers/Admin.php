@@ -77,7 +77,7 @@
       $this->load->view('template/admin_template',$data);
     }
     function fetchDataPertanyaan(){
-      if(FALSE){
+      if(!isset($_POST['idPertanyaan'])){
         echo "<script>window.history.back()</script>";
       } else {
         $idPertanyaan=$this->input->post('idPertanyaan',TRUE);
@@ -85,6 +85,23 @@
         echo json_encode(['pertanyaan'=>$pertanyaan]);
       }
     }
+    function editPertanyaan(){
+      // echo header('location'.base_url('admin/pertanyaan'));
+      if(isset($_POST['update'])) {
+        $pertanyaan=$this->input->post('pertanyaan',TRUE);
+        $idpertanyaan=$this->input->post('ideditpertanyaan',TRUE);
+        $update=$this->Pertanyaan->update($pertanyaan, $idpertanyaan);
+        if($update){
+          $this->session->set_flashdata(array('msg_editpertanyaan'=>'success'));
+        }else{
+          $this->session->set_flashdata(array('msg_editpertanyaan'=>'failed'));
+        }
+      }
+      echo "<script>window.location.replace('".base_url()."admin/pertanyaan')</script>";
+
+      // die('test');
+    }
+
     function laporanHarian(){
       $data['content']='admin/laporan/harian';
       $this->load->view('template/admin_template',$data);
