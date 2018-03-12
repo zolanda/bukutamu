@@ -163,7 +163,7 @@
           <ul class="treeview-menu">
             <li><a href="<?=base_url()?>admin/laporanharian"><i class="fa fa-file-pdf-o"></i>Harian</a></li>
             <li><a href="<?=base_url()?>admin/laporanbulanan"><i class="fa fa-file-pdf-o"></i>Bulanan</a></li>
-            <li><a href="#"><i class="fa fa-file-pdf-o"></i>Tahunan</a></li>
+            <li><a href="<?=base_url()?>admin/laporantahunan"><i class="fa fa-file-pdf-o"></i>Tahunan</a></li>
             <li><a href="#"><i class="fa fa-file-pdf-o"></i>Custom</a></li>
           </ul>
         </li>

@@ -32,5 +32,10 @@
       $query="UPDATE pertanyaan SET pertanyaan='$pertanyaan' WHERE id_pertanyaan='$idpertanyaan' ";
       return $this->db->query($query);
     }
+
+    public function hapus($id){
+    $query="DELETE FROM pertanyaan WHERE id_pertanyaan='$id'";
+    return $this->db->query($query);
   }
+}
  ?>

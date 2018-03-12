@@ -3,7 +3,7 @@
       <div class="row">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-bar-chart"></i>Laporan Harian </h3>
+            <h3 class="box-title"><i class="fa fa-bar-chart"></i>Laporan Per Tahun </h3>
           </div>
           <div class="box-body">
             <div class="col-sm-12">
@@ -11,19 +11,18 @@
                 Data pengujung yang muncul sesuai dengan tahun yang Anda pilih.
               </div>
             </div>
-            <div class="box-body">
-              <div class="col-sm-6">
-                <div id="container" style="width:100%; height:400px;">
-                  Cari Tahun
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="tahun" placeholder="Berdasarkan Bulan">
+            <div class="form-group">
+              <label for="bulan">Cari Tahun</label>
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control" id="tahun" name="tahun" placeholder="Berdasarkan Tahun">
                   </div>
-                  <div id="download">Download
-                    <a onclick="downloadTahunan()"><img src="<?php echo base_url('includes/icons/pdf.png')?>"></a>
-                  </div>
-                </div>
-              </div>
             </div>
+              <div id="download">Download
+                  <a onclick="downloadTahunan()"><img src="<?php echo base_url('includes/icons/pdf.png')?>"></a>
+              </div>
           </div>
         </div>
       </div>
@@ -31,15 +30,15 @@
   </div>
 <script>
   // alert($('#hari').val());
-  $('#bulan').datepicker({
-    format:"yyyy-mm",
+  $('#tahun').datepicker({
+    format:"yyyy",
     startView:"years",
-    minViewMode:"months",
+    minViewMode:"years",
     autoclose:true,
     orientation:"botton left"
   });
-  $('#bulan').change(function(){
-    var a= $('#bulan').val();
+  $('#tahun').change(function(){
+    var a= $('#tahun').val();
     if(a==''){
       $('#download').hide();
     }else{
@@ -53,10 +52,10 @@
     var a=$('#tahun').val();
     window.location.replace('<?=base_url()?>Laporan/printLaporanTahunan/'+a);
   }
-  $('Default').MonthPicker();
-  $('#Modal').dialog({
-    autoOpen: false,
-    title: 'MonthPicker Dialog Test',
-    modal: true
-});
+  // $('Default').MonthPicker();
+//   $('#Modal').dialog({
+//     autoOpen: false,
+//     title: 'MonthPicker Dialog Test',
+//     modal: true
+// });
 </script>

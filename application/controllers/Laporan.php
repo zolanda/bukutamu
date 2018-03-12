@@ -132,5 +132,55 @@
       $this->pdf->writeHTMl($html);
       $this->pdf->Output('Rekap_arsip.pdf');
     }
+    function printLaporanTahunan($tahun){
+      $this->pdf->SetTitle('Rekap');
+      $this->pdf->AddPage();
+      $this->pdf->image(base_url().'includes/logo.png',25,12,18,23);
+      $this->judul('PEMERINTAH PROVINSI JAWA TENGAH','DINAS KEARSIPAN DAN PERPUSTAKAAN','Jl. Dr. SETIABUDI No. 201C SRONDOL SEMARANG','TELP.(024) 7473746 , 7474710 Fax. (024) 7473800','Email:dinas.arpusjateng@gmail.com');
+      $this->garis();
+      $this->pdf->SetAutoPageBreak(TRUE,PDF_MARGIN_BOTTOM);
+      // $stringdate=$this->stringmanipulate->monthToString($tanggal);
+      $html='<br><br><h4>Daftar Pengunjung pada tahun : '.$tahun.'</h4>';
+      $datapengunjung=$this->Tamu->getTamuByTanggal($tanggal);
+      // die(print_r($datapengunjung));
+      // $stringtable='';
+      if($datapengunjung!=FALSE){
+        $stringloop='';
+        $i=1;
+        foreach ($datapengunjung as $peng) {
+          $stringloop='<tr>
+          <td height="30" width="30" align="center">'.$i.' </td>
+          <td width="100" align="center">'.$stringdate.'</td>
+          <td width="60" align="center">'.explode(' ',$peng->waktu)[1].'</td>
+          <td width="120" align="center">'.$peng->nama_keperluan.'</td>
+          <td width="70" align="center">'.$peng->instansi.'</td>
+          <td width="100" align="center">'.$peng->nama_pegawai.'</td>
+          <td width="60" align="center">'.$peng->banyak_tamu.'</td>
+          </tr>';
+          $i++;
+          $stringtable=$stringtable.''.$stringloop;
+        }
+      }
+      $html.='
+      <table cellspacing="0" `cellpadding="2" border="1" align="justify">
+      <tr>
+      <td height="30" width="30" align="center">NO </td>
+      <td width="100" align="center">TANGGAL</td>
+      <td width="60" align="center">WAKTU</td>
+      <td width="120" align="center">KEGIATAN</td>
+      <td width="70" align="center">ASAL</td>
+      <td width="100" align="center">MENEMUI</td>
+      <td width="60" align="center">BANYAK</td>
+      </tr>'.
+      $stringtable.'
+      <tr height="10">
+      <td width="480" align="right">JUMLAH</td>
+      <td width="60" align="center">0</td>
+      </tr>
+      </table>
+      ';
+      $this->pdf->writeHTMl($html);
+      $this->pdf->Output('Rekap_arsip.pdf');
+    }
   }
  ?>

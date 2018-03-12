@@ -3,7 +3,7 @@
       <div class="row">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-bar-chart"></i>Laporan Harian </h3>
+            <h3 class="box-title"><i class="fa fa-bar-chart"></i>Laporan Bulanan </h3>
           </div>
           <div class="box-body">
             <div class="col-sm-12">
@@ -11,19 +11,18 @@
                 Data pengujung yang muncul sesuai dengan bulan yang Anda pilih.
               </div>
             </div>
-            <div class="box-body">
-              <div class="col-sm-6">
-                <div id="container" style="width:100%; height:400px;">
-                  Cari Bulan
-                  <div class="form-group">
+            <div class="form-group">
+              <label for="bulan">Cari Bulan</label>
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
                     <input type="text" class="form-control" id="bulan" name="bulan" placeholder="Berdasarkan Bulan">
                   </div>
-                  <div id="download">Download
-                    <a onclick="downloadBulanan()"><img src="<?php echo base_url('includes/icons/pdf.png')?>"></a>
-                  </div>
-                </div>
-              </div>
             </div>
+              <div id="download">Download
+                  <a onclick="downloadBulanan()"><img src="<?php echo base_url('includes/icons/pdf.png')?>"></a>
+              </div>
           </div>
         </div>
       </div>

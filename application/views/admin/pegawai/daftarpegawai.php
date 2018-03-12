@@ -5,8 +5,8 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li class="active">Daftar Pegawai</li>
       </ol>
-  </section>
-  <section class="content">
+  <!-- </section>
+  <section class="content"> -->
     <div class="row">
       <div class="col-xs-12">
         <div class="box">

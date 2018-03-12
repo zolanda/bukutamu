@@ -98,9 +98,18 @@
         }
       }
       echo "<script>window.location.replace('".base_url()."admin/pertanyaan')</script>";
-
       // die('test');
     }
+
+    function hapusPertanyaan(){
+      $delete=$this->Pertanyaan->hapus($id);
+      if($delete){
+        $this->session->set_flashdata(array('msg_delete'=>'success'));
+      }else{
+        $this->session->set_flashdata(array('msg_delete'=>'failed'));
+      }
+      header('location'.base_url('admin/pertanyaan'));
+  }
 
     function laporanHarian(){
       $data['content']='admin/laporan/harian';
@@ -109,6 +118,11 @@
 
     function laporanBulanan(){
       $data['content']='admin/laporan/bulanan';
+      $this->load->view('template/admin_template',$data);
+    }
+
+    function laporanTahunan(){
+      $data['content']='admin/laporan/tahunan';
       $this->load->view('template/admin_template',$data);
     }
   }
