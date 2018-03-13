@@ -141,16 +141,16 @@
       $this->pdf->SetAutoPageBreak(TRUE,PDF_MARGIN_BOTTOM);
       // $stringdate=$this->stringmanipulate->monthToString($tanggal);
       $html='<br><br><h4>Daftar Pengunjung pada tahun : '.$tahun.'</h4>';
-      $datapengunjung=$this->Tamu->getTamuByTanggal($tanggal);
+      $datapengunjung=$this->Tamu->getTamuByTahun($tahun);
       // die(print_r($datapengunjung));
       // $stringtable='';
       if($datapengunjung!=FALSE){
         $stringloop='';
         $i=1;
         foreach ($datapengunjung as $peng) {
-          $stringloop='<tr>
+          $stringloop=$stringloop.'<tr>
           <td height="30" width="30" align="center">'.$i.' </td>
-          <td width="100" align="center">'.$stringdate.'</td>
+          <td width="100" align="center">'.$tahun.'</td>
           <td width="60" align="center">'.explode(' ',$peng->waktu)[1].'</td>
           <td width="120" align="center">'.$peng->nama_keperluan.'</td>
           <td width="70" align="center">'.$peng->instansi.'</td>
@@ -158,7 +158,6 @@
           <td width="60" align="center">'.$peng->banyak_tamu.'</td>
           </tr>';
           $i++;
-          $stringtable=$stringtable.''.$stringloop;
         }
       }
       $html.='
@@ -171,14 +170,14 @@
       <td width="70" align="center">ASAL</td>
       <td width="100" align="center">MENEMUI</td>
       <td width="60" align="center">BANYAK</td>
-      </tr>'.
-      $stringtable.'
+      </tr>'.$stringloop.'
       <tr height="10">
       <td width="480" align="right">JUMLAH</td>
       <td width="60" align="center">0</td>
       </tr>
       </table>
       ';
+
       $this->pdf->writeHTMl($html);
       $this->pdf->Output('Rekap_arsip.pdf');
     }

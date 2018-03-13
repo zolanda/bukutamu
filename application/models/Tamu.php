@@ -39,5 +39,15 @@
       }
     }
 
+    public function getTamuByTahun($tahun){
+      $query="SELECT * FROM tamu LEFT JOIN keperluan ON keperluan.id_keperluan=tamu.id_keperluan LEFT JOIN pegawai ON tamu.no_induk=pegawai.no_induk WHERE SUBSTRING_INDEX(waktu,'-',1)='$tahun'";
+      $result=$this->db->query($query);
+      if($result->num_rows()>0){
+        return $result->result();
+      }else{
+        return FALSE;
+      }
+    }
+
 }
  ?>

@@ -58,6 +58,7 @@
         }
         header('location'.base_url('admin/pegawai/bagian'));
       }
+      $data['bagian']=$this->Bagian->getAllData();
       $data['content']='admin/pegawai/bagian';
       $this->load->view('template/admin_template',$data);
     }
@@ -102,13 +103,16 @@
     }
 
     function hapusPertanyaan(){
+      $id=$this->input->post('hapuspertanyaan',TRUE);
       $delete=$this->Pertanyaan->hapus($id);
       if($delete){
         $this->session->set_flashdata(array('msg_delete'=>'success'));
       }else{
         $this->session->set_flashdata(array('msg_delete'=>'failed'));
       }
-      header('location'.base_url('admin/pertanyaan'));
+      // header('location'.base_url('admin/pertanyaan'));
+      echo "<script>window.location.replace('".base_url()."admin/pertanyaan')</script>";
+
   }
 
     function laporanHarian(){

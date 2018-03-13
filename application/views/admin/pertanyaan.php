@@ -47,9 +47,9 @@
                             <td><?=$tanya->pertanyaan?></td>
                             <td>
                               <center>
-                                <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Pertanyaan" data-original-title="" class="message btn btn-sm btn-warning" onclick="editPertanyaan('<?=$tanya->id_pertanyaan?>')"><i class="fa fa-edit" aria-hidden="true"> </i></button>
+                                <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Pertanyaan" data-original-title="" class="message btn btn-sm btn-warning" onclick="editPertanyaan('<?=$tanya->id_pertanyaan?>')" ><i class="fa fa-edit" aria-hidden="true"> </i></button>
                                 <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Daftar Jawaban" data-original-title="" class="message btn btn-sm btn-primary" onclick=""><i class="fa fa-th" aria-hidden="true"> </i></button>
-                                <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Pertanyaan" data-original-title="" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
+                                <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Pertanyaan" data-original-title="" class="message btn btn-sm btn-danger" onclick="hapusPertanyaan('<?=$tanya->id_pertanyaan?>')"><i class="fa fa-trash-o"></i></button>
                               </center>
                             </td>
                           </tr>
@@ -115,7 +115,7 @@
             <p>Apakah Anda yakin akan menghapus pertanyaan tersebut ?</p>
           </div>
           <?=form_open(base_url().'Admin/hapusPertanyaan',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
-          <input type="hidden" id="deletepertanyaan" name="id" value="112">
+          <input type="hidden" id="deletepertanyaan" name="hapuspertanyaan" value="">
           <div class="modal-footer">
             <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tidak</button>
             <button type="submit" class="btn btn-info" >Ya</button>
@@ -147,13 +147,8 @@
       }
     })
   }
-  $(document).ready(function()
-{
-    $("button").click(function()
-    {
-        //Say - $('p').get(0).id - this delete item id
-        $("#deletepertanyaan").val( $('p').get(0).id );
-        $('#ModalHapusPertanyaan').modal('show');
-    });
-});
+  function hapusPertanyaan(value){
+    $("#deletepertanyaan").val(value);
+    $('#ModalHapusPertanyaan').modal('show');
+  }
 </script>

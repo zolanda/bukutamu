@@ -7,7 +7,7 @@ class Bagian extends CI_Model
   }
 
   public function getAllData(){
-    $query="SELECT*FROM bagian ORDER BY nama_bagian ASC";
+    $query="SELECT*FROM bagian ORDER BY id_bagian ASC";
     $result=$this->db->query($query);
     if($result->num_rows()>0){
       return $result->result();
