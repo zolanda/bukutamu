@@ -6,7 +6,23 @@
   <title>Admin | Dashboard</title>
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <script src="<?=base_url()?>template_admin/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="<?=base_url()?>template_admin/bower_components/jquery/dist/jquery-3.3.1.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> -->
+
+  <!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+
+
+
+  <!-- <script src="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script> -->
+
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/Ionicons/css/ionicons.min.css">
@@ -15,8 +31,8 @@
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/morris.js/morris.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/jvectormap/jquery-jvectormap.css">
   <script src="<?=base_url()?>includes/library/js/bootstrap-datepicker.js"></script>
-  <link rel="stylesheet" href="<?=base_url()?>includes/library/css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="<?=base_url()?>includes/library/css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Google Font -->
@@ -40,7 +56,7 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?=base_url()?>template_admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <!-- <img src="<?=base_url()?>template_admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
               <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
@@ -66,9 +82,7 @@
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+          
         </ul>
       </div>
     </nav>
@@ -80,7 +94,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?=base_url()?>template_admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -164,7 +178,7 @@
             <li><a href="<?=base_url()?>admin/laporanharian"><i class="fa fa-file-pdf-o"></i>Harian</a></li>
             <li><a href="<?=base_url()?>admin/laporanbulanan"><i class="fa fa-file-pdf-o"></i>Bulanan</a></li>
             <li><a href="<?=base_url()?>admin/laporantahunan"><i class="fa fa-file-pdf-o"></i>Tahunan</a></li>
-            <li><a href="#"><i class="fa fa-file-pdf-o"></i>Custom</a></li>
+            <li><a href="<?=base_url()?>admin/laporancustom"><i class="fa fa-file-pdf-o"></i>Custom</a></li>
           </ul>
         </li>
       </ul>
@@ -210,7 +224,6 @@
 <script src="<?=base_url()?>template_admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/moment/min/moment.min.js"></script>
-<script src="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="<?=base_url()?>template_admin/plugins/iCheck/icheck.min.js"></script>
 <script src="<?=base_url()?>template_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>

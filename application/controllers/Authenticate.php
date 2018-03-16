@@ -5,6 +5,9 @@
       $this->load->model('admin');
     }
     public function index(){
+      if($this->session->userdata('masuk_admin')){
+        header('Location:'.base_url().'admin/dashboard');
+      }
        $this->load->view('admin/login');
     }
     public function login(){

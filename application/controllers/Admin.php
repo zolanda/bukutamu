@@ -114,7 +114,10 @@
       echo "<script>window.location.replace('".base_url()."admin/pertanyaan')</script>";
 
   }
-
+    function jawaban(){
+      $data['content']='admin/jawaban';
+      $this->load->view('template/admin_template',$data);
+    }
     function laporanHarian(){
       $data['content']='admin/laporan/harian';
       $this->load->view('template/admin_template',$data);
@@ -129,5 +132,10 @@
       $data['content']='admin/laporan/tahunan';
       $this->load->view('template/admin_template',$data);
     }
+    function laporanCustom(){
+      $data['content']='admin/laporan/custom';
+      $this->load->view('template/admin_template',$data);
+    }
+
   }
   ?>

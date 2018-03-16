@@ -28,7 +28,6 @@
         return FALSE;
       }
     }
-
     public function getTamuByTanggal($tanggal){
       $query="SELECT * FROM tamu LEFT JOIN keperluan ON keperluan.id_keperluan=tamu.id_keperluan LEFT JOIN pegawai ON tamu.no_induk=pegawai.no_induk WHERE tamu.waktu LIKE '%".$tanggal."%'";
       $result=$this->db->query($query);
@@ -38,9 +37,17 @@
         return FALSE;
       }
     }
-
     public function getTamuByTahun($tahun){
       $query="SELECT * FROM tamu LEFT JOIN keperluan ON keperluan.id_keperluan=tamu.id_keperluan LEFT JOIN pegawai ON tamu.no_induk=pegawai.no_induk WHERE SUBSTRING_INDEX(waktu,'-',1)='$tahun'";
+      $result=$this->db->query($query);
+      if($result->num_rows()>0){
+        return $result->result();
+      }else{
+        return FALSE;
+      }
+    }
+    public function getTamuByRangeTanggal($tanggal, $tanggal2){
+      $query="SELECT*FROM tamu LEFT JOIN keperluan ON keperluan.id_keperluan=tamu.id_keperluan LEFT JOIN pegawai ON tamu.no_induk=pegawai.no_induk WHERE SUBSTRING_INDEX(waktu,' ',1) BETWEEN '$tanggal' AND '$tanggal2'";
       $result=$this->db->query($query);
       if($result->num_rows()>0){
         return $result->result();

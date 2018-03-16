@@ -50,6 +50,28 @@
       </div>
     </div>
   </section>
+  <!-- Modal Edit Pegawai -->
+  <div id="ModalEditPegawai" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Perbarui Data PegaWai</h4>
+        </div>
+        <div class="modal-body">
+          <p>Detail Pegawai</p>
+          <?=form_open(base_url().'Admin/editPertanyaan',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+          <input class="form-control" type="text" id="nomorinduk">
+          <input class="form-control" type="text" id="namapegawai">
+          <input class="form-control" type="text" readonly>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
+          <input type="submit" class="btn btn-default" name="update" value="Simpan"/>
+          <?=form_close()?>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
   $(document).ready(function(){
