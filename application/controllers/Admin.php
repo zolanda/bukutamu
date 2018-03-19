@@ -6,6 +6,7 @@
       $this->load->model('Pegawai');
       $this->load->model('Bagian');
       $this->load->model('Pertanyaan');
+      $this->load->model('Jawaban');
       if(!$this->session->userdata('masuk_admin')){
         header('Location:'.base_url().'authenticate/index');
       }
@@ -47,6 +48,42 @@
       $data['content']='admin/pegawai/daftarpegawai';
       $this->load->view('template/admin_template',$data);
     }
+    function fetchDataPegawai(){
+      if(!isset($_POST['nomorinduk'])){
+        echo "<script>window.history.back()</script>";
+      } else {
+        $no_induk=$this->input->post('nomorinduk',TRUE);
+        $pegawai=$this->Pegawai->getPegawaiById($no_induk);
+
+        echo json_encode(['pegawai'=>$pegawai]);
+      }
+    }
+    function editPegawai(){
+      if(isset($_POST['updatePegawai'])) {
+        $nomorinduk=$this->input->post('nomorinduk',TRUE);
+        $pegawai=$this->input->post('nama_pegawai',TRUE);
+        // $bagian=$this->input->post('bagian',TRUE);
+        $updatePegawai=$this->Pegawai->update($nomorinduk, $pegawai);
+        if($updatePegawai){
+          $this->session->set_flashdata(array('msg_editpertanyaan'=>'success'));
+        }else{
+          $this->session->set_flashdata(array('msg_editpertanyaan'=>'failed'));
+        }
+      }
+      echo "<script>window.location.replace('".base_url()."admin/listpegawai')</script>";
+      // die('test');
+    }
+    function hapusPegawai(){
+      $id=$this->input->post('hapuspegawai',TRUE);
+      $delete=$this->Pegawai->hapus($id);
+      if($delete){
+        $this->session->set_flashdata(array('msg_delete'=>'success'));
+      }else{
+        $this->session->set_flashdata(array('msg_delete'=>'failed'));
+      }
+      // header('location'.base_url('admin/pertanyaan'));
+      echo "<script>window.location.replace('".base_url()."admin/listpegawai')</script>";
+    }
     function bagian(){
       if(isset($_POST['submit'])){
         $nama_bagian=$this->input->post('namabagian',TRUE);
@@ -61,6 +98,27 @@
       $data['bagian']=$this->Bagian->getAllData();
       $data['content']='admin/pegawai/bagian';
       $this->load->view('template/admin_template',$data);
+    }
+    function fetchBagian(){
+      if(!isset($_POST['idBagian'])){
+        echo "<script>window.history.back()</script>";
+      }else{
+        $idBagian=$this->input->post('idBagian',TRUE);
+        $bagian=$this->Bagian->getBagianById($id);
+        echo json_encode(['namabagian'=>$nama_bagian]);
+      }
+    }
+
+    function hapusBagian(){
+      $id=$this->input->post('hapusbagian',TRUE);
+      $delete=$this->Bagian->hapus($id);
+      if($delete){
+        $this->session->set_flashdata(array('msg_delete'=>'success'));
+      }else{
+        $this->session->set_flashdata(array('msg_delete'=>'failed'));
+      }
+      // header('location'.base_url('admin/pertanyaan'));
+      echo "<script>window.location.replace('".base_url()."admin/bagian')</script>";
     }
     function pertanyaan(){
       if(isset($_POST['simpanpertanyaan' ])){
@@ -114,7 +172,8 @@
       echo "<script>window.location.replace('".base_url()."admin/pertanyaan')</script>";
 
   }
-    function jawaban(){
+    function jawaban($idpertanyaan){
+      $data['jawaban']=$this->Jawaban->getJawabanByIdPertanyaan($idpertanyaan);
       $data['content']='admin/jawaban';
       $this->load->view('template/admin_template',$data);
     }

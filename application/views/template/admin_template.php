@@ -82,7 +82,7 @@
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          
+
         </ul>
       </div>
     </nav>
@@ -207,10 +207,10 @@
   <!-- <div class="control-sidebar-bg"></div> -->
 </div>
 <!-- ./wrapper -->
-
+<!--
 <script>
   $.widget.bridge('uibutton', $.ui.button);
-</script>
+</script> -->
 <script src="<?=base_url()?>template_admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/select2/dist/js/select2.full.min.js"></script>
 <script src="<?=base_url()?>template_admin/plugins/input-mask/jquery.inputmask.js"></script>
@@ -229,7 +229,7 @@
 <script src="<?=base_url()?>template_admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/fastclick/lib/fastclick.js"></script>
 <script src="<?=base_url()?>template_admin/dist/js/adminlte.min.js"></script>
-<script src="<?=base_url()?>template_admin/dist/js/pages/dashboard.js"></script>
+<!-- <script src="<?=base_url()?>template_admin/dist/js/pages/dashboard.js"></script> -->
 <script src="<?=base_url()?>template_admin/dist/js/demo.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>

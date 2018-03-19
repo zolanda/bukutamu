@@ -51,19 +51,84 @@
                       <td><?=$bag->nama_bagian?></td>
                       <td>
                         <center>
-                          <button href="#" data-toggle="popover" data-placement="left" data-content="Edit Pegawai" class="message btn btn-sm btn-warning" onclick=""><i class="fa fa-edit"></i></button>
-                          <button href="#" data-toggle="popover" data-placement="left" data-content="Edit Pegawai" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
+                          <button href="#" data-toggle="popover" data-placement="left" data-content="Edit Bagian Pegawai" class="message btn btn-sm btn-warning" onclick="editBagian('<?=$bag->id_bagian?>')"><i class="fa fa-edit"></i></button>
+                          <button href="#" data-toggle="popover" data-placement="left" data-content="Hapus Bagian Pegawai" class="message btn btn-sm btn-danger" onclick="hapusBagian('<?=$bag->id_bagian?>')"><i class="fa fa-trash-o"></i></button>
                         </center>
                       </td>
                     </tr>
                   <?php }} ?>
-
                 </tbody>
               </table>
             </div>
-
         </div>
       </div>
     </div>
   </section>
+  <!-- Modal Edit Pertanyaan -->
+  <div id="ModalEditBagian" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Perbarui Bagian Kepegawaian</h4>
+        </div>
+        <div class="modal-body">
+          <p>Detail Bagian Kepegawaian</p>
+          <?=form_open(base_url().'Admin/editBagian',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+          <input class="form-control" type="text" id="detailbagian" name="bagian" placeholder="Masukkan Bagian">
+          <input type="hidden" name="ideditbagian" id="ideditbagian" value="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
+          <input type="submit" class="btn btn-default" name="update" value="Simpan"/>
+          <?=form_close()?>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Hapus Bagian Pegawai -->
+  <div id="ModalHapusBagian" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Konfirmasi Penghapusan Bagian Pegawai</h4>
+        </div>
+        <div class="modal-body">
+          <p>Apakah Anda yakin akan menghapus bagian kepegawaian tersebut ?</p>
+        </div>
+        <?=form_open(base_url().'Admin/hapusBagian',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
+        <input type="hidden" id="deletebagian" name="hapusbagian" value="">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tidak</button>
+          <button type="submit" class="btn btn-info" >Ya</button>
+          <?=form_close()?>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover({
+    trigger:"hover"
+  });
+});
+function editBagian(x){
+  $.ajax({
+    method:'post',
+    url:'<?=base_url()?>Admin/fetchBagian',
+    dataType:'json',
+    data:{'idBagian': x},
+    success:function(data){
+      // alert();
+      console.log(data);
+      $('#ideditbagian').val(data.bagian.id_bagian);
+      $('#detailbagian').val(data.bagian.nama_bagian);
+    $('#ModalEditBagian').modal('show');
+    }
+  })
+}
+function hapusBagian(value){
+  $('#deletebagian').val(value);
+  $('#ModalHapusBagian').modal('show');
+}
+</script>

@@ -48,7 +48,7 @@
                             <td>
                               <center>
                                 <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Pertanyaan" data-original-title="" class="message btn btn-sm btn-warning" onclick="editPertanyaan('<?=$tanya->id_pertanyaan?>')" ><i class="fa fa-edit" aria-hidden="true"> </i></button>
-                                <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Daftar Jawaban" data-original-title="" class="message btn btn-sm btn-primary" onclick=""><i class="fa fa-th" aria-hidden="true"> </i></button>
+                                <a href="<?=base_url()?>Admin/jawaban/<?=$tanya->id_pertanyaan?>" data-toggle="popover" data-placement="left" title="" data-content="Daftar Jawaban" data-original-title="" class="message btn btn-sm btn-primary"><i class="fa fa-th" aria-hidden="true"> </i></a>
                                 <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Pertanyaan" data-original-title="" class="message btn btn-sm btn-danger" onclick="hapusPertanyaan('<?=$tanya->id_pertanyaan?>')"><i class="fa fa-trash-o"></i></button>
                               </center>
                             </td>
