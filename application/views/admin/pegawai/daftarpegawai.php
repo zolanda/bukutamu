@@ -15,7 +15,7 @@
               Daftar Pegawai Dinas Kearsipan dan Perpustakaan
             </div>
             <div class="box-body">
-              <table id="table" class="table table bordered table-striped" cellspacing="0" width="100%">
+              <table id="table" class="table table-bordered table-striped" cellspacing="0" width="100%">
                 <thead>
                   <tr>
                     <th>NO</th>

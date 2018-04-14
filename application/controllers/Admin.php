@@ -19,6 +19,10 @@
       $data['content']='admin/dashboard';
       $this->load->view('template/admin_template',$data);
     }
+    function editprofile(){
+      $data['content']='admin/profile';
+      $this->load->view('template/admin_template',$data);
+    }
 
     function listpengunjung(){
       $data['pengunjung']=$this->Tamu->getAllData();
@@ -104,9 +108,21 @@
         echo "<script>window.history.back()</script>";
       }else{
         $idBagian=$this->input->post('idBagian',TRUE);
-        $bagian=$this->Bagian->getBagianById($id);
-        echo json_encode(['namabagian'=>$nama_bagian]);
+        $bagian=$this->Bagian->getBagianById($idBagian);
+        echo json_encode(['bagian'=>$nama_bagian]);
       }
+    }
+    function editBagian(){
+      if(isset($_POST['updateBagian'])){
+        // $idbagian=$this->input->post('ideditbagian',TRUE);
+        $namabagian=$this->input->post('detailbagian',TRUE);
+        $update=$this->Bagian->update($id,$namabagian);
+        if($update){
+          $this->session->set_flashdata(array('msg_editbagian'=>'success'));
+        }else{
+          $this->session->set_flashdata(array('msg_editbagian'=>'failed'));
+        }
+      }echo "<script>window.location.replace('".base_url()."admin/pegawai/bagian')</script>";
     }
 
     function hapusBagian(){

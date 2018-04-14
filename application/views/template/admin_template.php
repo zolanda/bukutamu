@@ -9,20 +9,13 @@
   <script src="<?=base_url()?>template_admin/bower_components/jquery/dist/jquery-3.3.1.min.js"></script>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> -->
 
-  <!-- Include Required Prerequisites -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
-
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-
-
-
   <!-- <script src="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script> -->
-
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/Ionicons/css/ionicons.min.css">
@@ -116,7 +109,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a href="#">
+          <a href="<?=base_url()?>admin/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -195,7 +188,6 @@
 
   <!-- Control Sidebar -->
   <!-- <aside class="control-sidebar control-sidebar-dark">
-
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
       <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
       <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
@@ -227,11 +219,16 @@
 <script src="<?=base_url()?>template_admin/plugins/iCheck/icheck.min.js"></script>
 <script src="<?=base_url()?>template_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="<?=base_url()?>template_admin/bower_components/chart.js/Chart.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/fastclick/lib/fastclick.js"></script>
 <script src="<?=base_url()?>template_admin/dist/js/adminlte.min.js"></script>
 <!-- <script src="<?=base_url()?>template_admin/dist/js/pages/dashboard.js"></script> -->
-<script src="<?=base_url()?>template_admin/dist/js/demo.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?=base_url()?>template_admin/dist/js/demo.js"></script>
+<script src="<?=base_url()?>template_admin/bower_components/Flot/jquery.flot.js"></script>
+<script src="<?=base_url()?>template_admin/bower_components/Flot/jquery.flot.resize.js"></script>
+<script src="<?=base_url()?>template_admin/bower_components/Flot/jquery.flot.pie.js"></script>
+<script src="<?=base_url()?>template_admin/bower_components/Flot/jquery.flot.categories.js"></script>
 </body>
-</html>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

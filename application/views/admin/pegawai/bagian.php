@@ -79,7 +79,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
-          <input type="submit" class="btn btn-default" name="update" value="Simpan"/>
+          <input type="submit" class="btn btn-default" name="updateBagian" value="Simpan"/>
           <?=form_close()?>
         </div>
       </div>

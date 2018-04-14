@@ -32,6 +32,9 @@ class Bagian extends CI_Model
       return FALSE;
     }
   }
+  public function update($id, $namabagian){
+    $query="UPDATE bagian SET nama_bagian='$namabagian' WHERE $id_bagian='$id'";
+  }
 }
 
  ?>
