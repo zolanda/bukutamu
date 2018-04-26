@@ -186,11 +186,15 @@
       }
       // header('location'.base_url('admin/pertanyaan'));
       echo "<script>window.location.replace('".base_url()."admin/pertanyaan')</script>";
-
   }
     function jawaban($idpertanyaan){
       $data['jawaban']=$this->Jawaban->getJawabanByIdPertanyaan($idpertanyaan);
       $data['content']='admin/jawaban';
+      $this->load->view('template/admin_template',$data);
+    }
+
+    function kebutuhan(){
+      $data['content']='admin/kebutuhan';
       $this->load->view('template/admin_template',$data);
     }
     function laporanHarian(){

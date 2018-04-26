@@ -117,7 +117,7 @@
                       <h4><center>Terima kasih atas partisipasinya</center></h4>
                       <center>
                         <h5>Tekan Mulai untuk Mengisi Kuesioner</h5>
-                        <h4><a href="#" class="btn btn-lg bg-olive animsition-link" data-animsition-out-class="overlay-slide-out-top" data-animsition-out-duration="2000"><i class="fa fa-paper-plane" id="mulai"></i>
+                        <h4><a href="" class="btn btn-lg bg-olive animsition-link" data-animsition-out-class="overlay-slide-out-top" data-animsition-out-duration="2000"><i class="fa fa-paper-plane" id="mulai"></i>
                         Mulai </a></h4>
                         <!-- <a href="<?php echo base_url('welcome/form_buku')?>" class="btn bg-olive btn-lg animsition-link" data-animsition-out-class="overlay-slide-out-top" data-animsition-out-duration="2000"><i class="fa fa-paper-plane"></i> Mulai</a> -->
                       </center>

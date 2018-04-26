@@ -139,7 +139,7 @@
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-map-o"></i> Keperluan</a></li>
             <li><a href="<?=base_url()?>admin/pertanyaan"><i class="fa fa-map-o"></i> Pertanyaan</a></li>
-            <li><a href="#"><i class="fa fa-map-o"></i> Kebutuhan</a></li>
+            <li><a href="<?=base_url()?>admin/kebutuhan"><i class="fa fa-map-o"></i> Kebutuhan</a></li>
           </ul>
         </li>
         <li class="">

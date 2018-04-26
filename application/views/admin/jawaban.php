@@ -12,7 +12,7 @@
       <div class="col-sm-12">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title" <i class="fa fa-folder-open-o" ></i>List Pertanyaan</h3>
+            <h3 class="box-title" <i class="fa fa-folder-open-o" ></i>List Jawaban</h3>
           </div>
           <div class="box-body">
             <div class="body">
@@ -28,15 +28,32 @@
                 <th>No</th>
                 <th>Nama Jawaban</th>
                 <th>Point</th>
-                <th>Perintah</th>
+                <th><center>Perintah</center></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>A. Puas</td>
-                <td>1</td>
-              </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>A. Puas<td>
+                    <!-- <td>1</td> -->
+                    <td>
+                      <center>
+                        <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Jawaban" data-original-title="" class="message btn btn-sm btn-warning" onclick="" ><i class="fa fa-edit" aria-hidden="true"> </i></button>
+                        <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Jawaban" data-original-title="" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>B. Tidak Puas<td>
+                    <!-- <td>1</td> -->
+                    <td>
+                      <center>
+                        <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Jawaban" data-original-title="" class="message btn btn-sm btn-warning" onclick="" ><i class="fa fa-edit" aria-hidden="true"> </i></button>
+                        <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Jawaban" data-original-title="" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
+                      </center>
+                    </td>
+                  </tr>
             </tbody>
           </table>
         </div>
