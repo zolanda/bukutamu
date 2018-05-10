@@ -72,19 +72,15 @@
                 <div class="tab-pane" name="kues" id="kues<?= $i?>">
                   <h4>Jawablah pertanyaan di bawah dengan memilih lingkaran yang berada disamping kiri option A atau B! </h4>
                   <h4 class="fpns"> <?= $key->pertanyaan ?></h4>
-                  <div class="panel panel-default">
-                    <div class="panel-body" style="padding:10px;">
-                      <input type="hidden" name="idlistper" value="idlistper">
-                      <input type="radio" class="check" name="<?=$key ->id_pertanyaan ?>" value="Yes" id="check" oninput="this.className = ''">
-                      A. Puas
+                  <?php foreach($jawaban[$key->id_pertanyaan] as $j){?>
+                    <div class="panel panel-default">
+                      <div class="panel-body" style="padding:10px;">
+                        <input type="hidden" name="idlistper" value="idlistper">
+                        <input type="radio" class="check" name="<?=$key ->id_pertanyaan ?>" value="<?=$j->id_jawaban?>" id="check" oninput="this.className = ''">
+                        <?=$j->jawaban?>
+                      </div>
                     </div>
-                  </div>
-                  <div class="panel panel-default">
-                    <div class="panel-body" style="padding:10px;">
-                      <input type="radio" class="check" name="<?=$key ->id_pertanyaan ?>" value="No" id="check"oninput="this.className = ''">
-                      B. Tidak Puas
-                    </div>
-                  </div>
+                  <?php } ?>
                   <div>
                     <div>
                       <?php if($i!=1){ ?>

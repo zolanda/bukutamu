@@ -18,7 +18,7 @@
             <?=form_open('',array('method'=>'post','id'=>'selection','role'=>'form-horizontal'))?>
               <div class="box-body">
                 <div class="form-group">
-                  <label class="col-sm-2 control-label"Username</label>
+                  <label class="col-sm-2 control-label">Username</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="user" name="user" disabled value="">
                   </div>

@@ -22,7 +22,8 @@
          $session=array(
            'id'=>$login['id_admin'],
            'username'=>$username,
-           'masuk_admin'=>true //untuk cek, masuknya benar atau tidak
+           'masuk_admin'=>true, //untuk cek, masuknya benar atau tidak
+           'nama_user'=>$login['nama_admin'],
          );
          $this->session->set_userdata($session);
          header('Location:'.base_url().'admin/dashboard');

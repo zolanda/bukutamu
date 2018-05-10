@@ -32,28 +32,21 @@
               </tr>
             </thead>
             <tbody>
+              <?php if($jawaban!=FALSE){
+                $i=1;
+                foreach($jawaban as $jawab){?>
                   <tr>
-                    <td>1</td>
-                    <td>A. Puas<td>
-                    <!-- <td>1</td> -->
+                    <td><?=$i++?></td>
+                    <td><?=$jawab->jawaban?><td>
+                    <!-- <td></td> -->
                     <td>
-                      <center>
-                        <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Jawaban" data-original-title="" class="message btn btn-sm btn-warning" onclick="" ><i class="fa fa-edit" aria-hidden="true"> </i></button>
-                        <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Jawaban" data-original-title="" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
-                      </center>
+                        <center>
+                          <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Jawaban" data-original-title="" class="message btn btn-sm btn-warning" onclick="editJawaban('<?=$jawab->id_jawaban?>')" ><i class="fa fa-edit" aria-hidden="true"> </i></button>
+                          <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Jawaban" data-original-title="" class="message btn btn-sm btn-danger" onclick="hapusJawaban('<?=$jawab->id_jawaban?>')"><i class="fa fa-trash-o"></i></button>
+                        </center>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>B. Tidak Puas<td>
-                    <!-- <td>1</td> -->
-                    <td>
-                      <center>
-                        <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Jawaban" data-original-title="" class="message btn btn-sm btn-warning" onclick="" ><i class="fa fa-edit" aria-hidden="true"> </i></button>
-                        <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Jawaban" data-original-title="" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
-                      </center>
-                    </td>
-                  </tr>
+              <?php }} ?>
             </tbody>
           </table>
         </div>
@@ -61,3 +54,72 @@
     </div>
   </section>
 </div>
+<!-- Modal Edit jawaban -->
+<div id="ModalEditJawaban" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Jawaban</h4>
+      </div>
+      <div class="modal-body">
+        <p>Detail Jawaban</p>
+        <?=form_open(base_url().'Admin/editJawaban',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+        <input class="form-control" type="text" id="detailjawaban" name="jawaban" value="">
+        <input type="hidden" name="ideditjawaban" id="ideditjawaban"value="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
+        <input type="submit" class="btn btn-default" name="update" value="Simpan"/>
+        <?=form_close()?>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Konfirmasi Hapus Pertanyaan -->
+<div id="ModalHapusJawaban" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Konfirmasi Penghapusan</h4>
+      </div>
+      <div class="modal-body">
+        <p>Apakah Anda yakin akan menghapus jawaban tersebut ?</p>
+      </div>
+      <?=form_open(base_url().'Admin/hapusJawaban',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
+      <input type="hidden" id="deletejawaban" name="hapusjawaban" value="">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tidak</button>
+        <button type="submit" class="btn btn-info" >Ya</button>
+        <?=form_close()?>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover({
+      trigger:"hover"
+    });
+  });
+  function editJawaban(x){
+    $.ajax({
+      method:'post',
+      url:'<?=base_url()?>Admin/fetchJawaban',
+      dataType:'json',
+      data:{'idJawaban':x},
+      success:function(data){
+        console.log(data.jawaban);
+        $('#ideditjawaban').val(data.jawaban.id_jawaban);
+        $('#detailjawaban').val(data.jawaban.jawaban);
+        $('#ModalEditJawaban').modal('show');
+      }
+    })
+  }
+  function hapusJawaban(value){
+    $("#deletejawaban").val(value);
+    $('#ModalHapusJawaban').modal('show');
+  }
+
+</script>

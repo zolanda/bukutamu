@@ -188,9 +188,53 @@
       echo "<script>window.location.replace('".base_url()."admin/pertanyaan')</script>";
   }
     function jawaban($idpertanyaan){
-      $data['jawaban']=$this->Jawaban->getJawabanByIdPertanyaan($idpertanyaan);
+      if(isset($_POST['simpanjawaban' ])){
+        $jawaban=$this->input->post('jawaban',TRUE);
+        $insert=$this->Jawaban->insert($jawaban);
+        if($insert){
+          $this->session->set_flashdata(array('msg'=>'success'));
+        }else{
+          $this->session->set_flashdata(array('msg'=>'failed'));
+        }
+        header('location'.base_url('admin/jawaban'));
+      }
+      $data['jawaban']=$this->Jawaban->getJawabanByPertanyaan($idpertanyaan);
       $data['content']='admin/jawaban';
       $this->load->view('template/admin_template',$data);
+    }
+    function fetchJawaban(){
+      if(!isset($_POST['idJawaban'])){
+        echo "<script>window.history.back()</script>";
+      } else {
+        $idJawaban=$this->input->post('idJawaban',TRUE);
+        $jawaban=$this->Jawaban->getJawabanById($idJawaban);
+        echo json_encode(['jawaban'=>$jawaban]);
+      }
+    }
+    function editJawaban(){
+      if(isset($_POST['update'])) {
+        $jawaban=$this->input->post('detailjawaban',TRUE);
+        $idjawaban=$this->input->post('ideditjawaban',TRUE);
+        $update=$this->Jawaban->update($jawaban,$idjawaban);
+        if($update){
+          $this->session->set_flashdata(array('msg_editjawaban'=>'success'));
+        }else{
+          $this->session->set_flashdata(array('msg_editjawaban'=>'failed'));
+        }
+      }
+      echo "<script>window.location.replace('".base_url()."admin/jawaban')</script>";
+      // die('test');
+    }
+    function hapusJawaban(){
+      $id=$this->input->post('hapusjawaban',TRUE);
+      $delete=$this->Jawaban->hapus($id);
+      if($delete){
+        $this->session->set_flashdata(array('msg_delete'=>'success'));
+      }else{
+        $this->session->set_flashdata(array('msg_delete'=>'failed'));
+      }
+      // header('location'.base_url('admin/pertanyaan'));
+      echo "<script>window.history.back()</script>";
     }
 
     function kebutuhan(){

@@ -7,6 +7,7 @@ class MengelolaTamu extends CI_Controller{
     $this->load->model('keperluan');
     $this->load->model('pertanyaan');
     $this->load->model('jawaban');
+    $this->load->model('jawabanpengunjung');
   }
   public function index(){
     $data['title']='Buku Tamu Elektronik';
@@ -59,12 +60,22 @@ class MengelolaTamu extends CI_Controller{
     if($check==FALSE){
       echo "<script>window.history.back()</script>";
     }
-    $data['pertanyaan']=$this->pertanyaan->getAllPertanyaan();
+    $pertanyaan = $this->pertanyaan->getAllPertanyaan();
+    foreach ($pertanyaan as $p){
+      $j=$this->jawaban->getJawabanByPertanyaan($p->id_pertanyaan);
+      if($j!=false){
+        foreach($j as $j){
+          $jawaban[$p->id_pertanyaan][$j->id_jawaban]=$j;
+        }
+      }
+    }
+    $data['pertanyaan']=$pertanyaan;
+    $data['jawaban']=$jawaban;
     if(isset($_POST['submit'])){
         if($data['pertanyaan']!=FALSE){
           foreach ($data['pertanyaan'] as $key){
             $jawaban=$_POST[$key->id_pertanyaan];
-            $this->jawaban->insert($jawaban, $id_pengunjung, $key->id_pertanyaan);
+            $this->jawabanpengunjung->insert($jawaban, $check['id_tamu'] );
           }
         }
         header('location:'.base_url());
