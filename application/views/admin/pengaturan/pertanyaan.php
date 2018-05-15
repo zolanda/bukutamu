@@ -48,7 +48,7 @@
                             <td>
                               <center>
                                 <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Pertanyaan" data-original-title="" class="message btn btn-sm btn-warning" onclick="editPertanyaan('<?=$tanya->id_pertanyaan?>')" ><i class="fa fa-edit" aria-hidden="true"> </i></button>
-                                <a href="<?=base_url()?>Admin/jawaban/<?=$tanya->id_pertanyaan?>" data-toggle="popover" data-placement="left" title="" data-content="Daftar Jawaban" data-original-title="" class="message btn btn-sm btn-primary"><i class="fa fa-th" aria-hidden="true"> </i></a>
+                                <a href="<?=base_url()?>MengelolaPengaturan/jawaban/<?=$tanya->id_pertanyaan?>" data-toggle="popover" data-placement="left" title="" data-content="Daftar Jawaban" data-original-title="" class="message btn btn-sm btn-primary"><i class="fa fa-th" aria-hidden="true"> </i></a>
                                 <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Pertanyaan" data-original-title="" class="message btn btn-sm btn-danger" onclick="hapusPertanyaan('<?=$tanya->id_pertanyaan?>')"><i class="fa fa-trash-o"></i></button>
                               </center>
                             </td>
@@ -92,7 +92,7 @@
           </div>
           <div class="modal-body">
             <p>Detail Pertanyaan</p>
-            <?=form_open(base_url().'Admin/editPertanyaan',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+            <?=form_open(base_url().'MengelolaPengaturan/editPertanyaan',array('method'=>'post','id'=>'selection','role'=>'form'))?>
             <input class="form-control" type="text" id="detailpertanyaan" name="pertanyaan" placeholder="Masukkan Pertanyaan">
             <input type="hidden" name="ideditpertanyaan" id="ideditpertanyaan" value="">
           </div>
@@ -114,7 +114,7 @@
           <div class="modal-body">
             <p>Apakah Anda yakin akan menghapus pertanyaan tersebut ?</p>
           </div>
-          <?=form_open(base_url().'Admin/hapusPertanyaan',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
+          <?=form_open(base_url().'MengelolaPengaturan/hapusPertanyaan',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
           <input type="hidden" id="deletepertanyaan" name="hapuspertanyaan" value="">
           <div class="modal-footer">
             <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tidak</button>
@@ -135,7 +135,7 @@
   function editPertanyaan(x){
     $.ajax({
       method:'post',
-      url:'<?=base_url()?>Admin/fetchDataPertanyaan',
+      url:'<?=base_url()?>MengelolaPengaturan/fetchDataPertanyaan',
       dataType:'json',
       data:{'idPertanyaan': x},
       success:function(data){

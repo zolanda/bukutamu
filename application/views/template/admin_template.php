@@ -127,8 +127,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-map-o"></i> Keperluan</a></li>
-            <li><a href="<?=base_url()?>admin/pertanyaan"><i class="fa fa-map-o"></i> Pertanyaan</a></li>
-            <li><a href="<?=base_url()?>admin/kebutuhan"><i class="fa fa-map-o"></i> Kebutuhan</a></li>
+            <li><a href="<?=base_url()?>MengelolaPengaturan/pertanyaan"><i class="fa fa-map-o"></i> Pertanyaan</a></li>
+            <li><a href="<?=base_url()?>MengelolaPengaturan/kebutuhan"><i class="fa fa-map-o"></i> Kebutuhan</a></li>
           </ul>
         </li>
         <li class="">
@@ -144,9 +144,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url()?>admin/tambahpegawai"><i class="fa fa-user-plus"></i> Tambah Pegawai</a></li>
-            <li><a href="<?=base_url()?>admin/listpegawai"><i class="fa fa-group"></i> Daftar Pegawai</a></li>
-            <li><a href="<?=base_url()?>admin/bagian"><i class="fa fa-user"></i> Bagian Kepegawaian</a></li>
+            <li><a href="<?=base_url()?>MengelolaPegawai/tambahpegawai"><i class="fa fa-user-plus"></i> Tambah Pegawai</a></li>
+            <li><a href="<?=base_url()?>MengelolaPegawai/listpegawai"><i class="fa fa-group"></i> Daftar Pegawai</a></li>
+            <li><a href="<?=base_url()?>MengelolaPegawai/bagian"><i class="fa fa-user"></i> Bagian Kepegawaian</a></li>
           </ul>
         </li>
         <li class="treeview">

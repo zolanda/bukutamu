@@ -84,7 +84,7 @@
       </div>
       <div class="modal-body">
         <p>Detail Jawaban</p>
-        <?=form_open(base_url().'Admin/editJawaban',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+        <?=form_open(base_url().'MengelolaPengaturan/editJawaban',array('method'=>'post','id'=>'selection','role'=>'form'))?>
         <input class="form-control" type="text" id="detailjawaban" name="jawaban" value="">
         <input type="hidden" name="ideditjawaban" id="ideditjawaban"value="">
       </div>
@@ -107,7 +107,7 @@
       <div class="modal-body">
         <p>Apakah Anda yakin akan menghapus jawaban tersebut ?</p>
       </div>
-      <?=form_open(base_url().'Admin/hapusJawaban',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
+      <?=form_open(base_url().'MengelolaPengaturan/hapusJawaban',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
       <input type="hidden" id="deletejawaban" name="hapusjawaban" value="">
       <div class="modal-footer">
         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tidak</button>
@@ -127,7 +127,7 @@
   function editJawaban(x){
     $.ajax({
       method:'post',
-      url:'<?=base_url()?>Admin/fetchJawaban',
+      url:'<?=base_url()?>MengelolaPengaturan/fetchJawaban',
       dataType:'json',
       data:{'idJawaban':x},
       success:function(data){

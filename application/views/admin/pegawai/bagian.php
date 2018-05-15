@@ -73,7 +73,7 @@
         </div>
         <div class="modal-body">
           <p>Detail Bagian Kepegawaian</p>
-          <?=form_open(base_url().'Admin/editBagian',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+          <?=form_open(base_url().'MengelolaPegawai/editBagian',array('method'=>'post','id'=>'selection','role'=>'form'))?>
           <input class="form-control" type="text" id="detailbagian" name="bagian" placeholder="Masukkan Bagian">
           <input type="hidden" name="ideditbagian" id="ideditbagian" value="">
         </div>
@@ -95,7 +95,7 @@
         <div class="modal-body">
           <p>Apakah Anda yakin akan menghapus bagian kepegawaian tersebut ?</p>
         </div>
-        <?=form_open(base_url().'Admin/hapusBagian',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
+        <?=form_open(base_url().'MengelolaPegawai/hapusBagian',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
         <input type="hidden" id="deletebagian" name="hapusbagian" value="">
         <div class="modal-footer">
           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tidak</button>
@@ -115,7 +115,7 @@ $(document).ready(function(){
 function editBagian(x){
   $.ajax({
     method:'post',
-    url:'<?=base_url()?>Admin/fetchBagian',
+    url:'<?=base_url()?>MengelolaPegawai/fetchBagian',
     dataType:'json',
     data:{'idBagian': x},
     success:function(data){
