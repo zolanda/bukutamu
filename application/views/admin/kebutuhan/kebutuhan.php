@@ -35,9 +35,9 @@
                     <td>Penilaian Kepuasan Masyarakat Tahun 2017</td>
                      <td>
                       <center>
-                        <button href="" data-toggle="popover" data-placement="left" title="" data-content="Hasil." data-original-title="" class="message btn btn-sm bg-olive" onclick=""><i class="fa fa-bar-chart-o"></i></button>
-                        <button href="" data-toggle="popover" data-placement="left" title="" data-content="Edit Kebutuhan." data-original-title="" class="message btn btn-sm bg-orange" onclick=""><i class="fa fa-edit"></i></button>
-                        <button href="" data-toggle="popover" data-placement="left" title="" data-content="Hapus Kebutuhan." data-original-title="" class="message btn btn-sm bg-red" onclick=""><i class="fa fa-trash"></i></button>
+                        <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hasil" data-original-title="" class="message btn btn-sm bg-olive" onclick=""><i class="fa fa-bar-chart-o"></i></button>
+                        <button href="" data-toggle="popover" data-placement="left" title="" data-content="Edit Kebutuhan" data-original-title="" class="message btn btn-sm bg-orange" onclick=""><i class="fa fa-edit"></i></button>
+                        <button href="" data-toggle="popover" data-placement="left" title="" data-content="Hapus Kebutuhan" data-original-title="" class="message btn btn-sm bg-red" onclick=""><i class="fa fa-trash"></i></button>
                       </center>
                     </td>
                   </tr>

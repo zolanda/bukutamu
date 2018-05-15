@@ -107,7 +107,7 @@
           <td width="100" align="center">'.$peng->nama_pegawai.'</td>
           <td width="60" align="center">'.$peng->banyak_tamu.'</td>
           </tr>';
-          $i++
+          $i++;
           $stringtable=$stringtable.''.$stringloop;
         }
       }

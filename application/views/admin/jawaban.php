@@ -54,6 +54,27 @@
     </div>
   </section>
 </div>
+<!-- Modal Tambah Pertanyaan-->
+<div id="ModalTambahJawaban" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Tambah Pilihan Jawaban</h4>
+      </div>
+      <div class="modal-body">
+        <p>Jawaban</p>
+        <?=form_open('',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+        <input class="form-control" type="text" name="jawaban" placeholder="Masukkan Jawaban">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-default" name="simpanjawaban">Simpan</button>
+        <?=form_close()?>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Modal Edit jawaban -->
 <div id="ModalEditJawaban" class="modal fade" role="dialog">
   <div class="modal-dialog">

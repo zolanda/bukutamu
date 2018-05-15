@@ -11,7 +11,6 @@
         header('Location:'.base_url().'authenticate/index');
       }
     }
-
     function page(){
       $this->load->view('template/admin_template');
     }
@@ -23,7 +22,6 @@
       $data['content']='admin/profile';
       $this->load->view('template/admin_template',$data);
     }
-
     function listpengunjung(){
       $data['pengunjung']=$this->Tamu->getAllData();
       $data['content']='admin/pengunjung';
@@ -190,7 +188,9 @@
     function jawaban($idpertanyaan){
       if(isset($_POST['simpanjawaban' ])){
         $jawaban=$this->input->post('jawaban',TRUE);
-        $insert=$this->Jawaban->insert($jawaban);
+        $id_pengunjung=$this->input->post('id_pengunjung',TRUE);
+        $id_pertanyaan=$this->input->post('id_pertanyaan',TRUE);
+        $insert=$this->Jawaban->insert($jawaban,$id_pengunjung,$id_pertanyaan);
         if($insert){
           $this->session->set_flashdata(array('msg'=>'success'));
         }else{
@@ -238,7 +238,7 @@
     }
 
     function kebutuhan(){
-      $data['content']='admin/kebutuhan';
+      $data['content']='admin/kebutuhan/kebutuhan';
       $this->load->view('template/admin_template',$data);
     }
     function laporanHarian(){
@@ -259,6 +259,5 @@
       $data['content']='admin/laporan/custom';
       $this->load->view('template/admin_template',$data);
     }
-
   }
   ?>
