@@ -7,9 +7,47 @@
       $this->load->model('Bagian');
       $this->load->model('Pertanyaan');
       $this->load->model('Jawaban');
+      $this->load->model('Keperluan');
       if(!$this->session->userdata('masuk_admin')){
         header('Location:'.base_url().'authenticate/index');
       }
+    }
+    function keperluan(){
+      if(isset($_POST['simpankeperluan'])){
+        $keperluan=$this->input->post('keperluan',TRUE);
+        $insert=$this->Keperluan->insert($keperluan);
+        if($insert){
+          $this->session->set_flashdata(array('msg'=>'success'));
+        }else{
+          $this->session->set_flashdata(array('msg'=>'failed'));
+        }
+        header('locatioon'.base_url('admin/pengaturan/keperluan'));
+      }
+      $data['keperluan']=$this->Keperluan->getData();
+      $data['content']='admin/pengaturan/keperluan';
+      $this->load->view('template/admin_template',$data);
+    }
+    function fetchDataKeperluan(){
+      if(!isset($_POST['idKeperluan'])){
+        echo "<script>window.history.back()</script>";
+      }else{
+        $idKeperluan=$this->input->post('idKeperluan',TRUE);
+        $keperluan=$this->Keperluan->getKeperluanById($idKeperluan);
+        echo json_encode(['keperluan'=>$keperluan]);
+      }
+    }
+    function editKeperluan(){
+      if(isset($_POST['update'])){
+        $keperluan=$this->input->post('keperluan',TRUE);
+        $idkeperluan=$this->input->post('ideditkeperluan',TRUE);
+        $update=$this->Keperluan->update($keperluan,$idkeperluan);
+        if($update){
+          $this->session->set_flashdata(array('msg_editkeperluan'=>'success'));
+        }else{
+          $this->session->set_flashdata(array('msg_editkeperluan'=>'failed'));
+        }
+      }
+      echo "<script>window.location.replace('".base_url()."admin/pengaturan/keperluan')</script>";
     }
     function pertanyaan(){
       if(isset($_POST['simpanpertanyaan' ])){

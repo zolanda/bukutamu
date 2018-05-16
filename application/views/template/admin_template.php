@@ -126,7 +126,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-map-o"></i> Keperluan</a></li>
+            <li><a href="<?=base_url()?>MengelolaPengaturan/keperluan"><i class="fa fa-map-o"></i> Keperluan</a></li>
             <li><a href="<?=base_url()?>MengelolaPengaturan/pertanyaan"><i class="fa fa-map-o"></i> Pertanyaan</a></li>
             <li><a href="<?=base_url()?>MengelolaPengaturan/kebutuhan"><i class="fa fa-map-o"></i> Kebutuhan</a></li>
           </ul>

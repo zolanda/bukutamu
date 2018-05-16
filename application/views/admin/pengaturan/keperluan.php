@@ -1,123 +1,131 @@
-
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="min-height: 916px;">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-              <h1>
-                <i class="fa fa-vcard-o" aria-hidden="true"></i> Keperluan
-              </h1>
-              <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fa fa-vcard-o" aria-hidden="true"></i> Pengaturan</a></li>
-                <li class="active"><i class="fa fa-folder-open-o" aria-hidden="true"></i> List Keperluan</li>
-              </ol>
-              <br>
-              <div class="row">
-                <div class="col-sm-12">
-                   <div class="box">
-                     <div class="box-header with-border">
-                       <h3 class="box-title"><i class="fa fa-folder-open-o" aria-hidden="true"></i> List Pengaturan</h3>
-                       <div class="box-title pull-right">
-                       </div>
-                     </div>
-                     <div class="box-body">
-                       <div class="row">
-                         <div class="col-md-3">
-                                <div class="box box-solid">
-                                  <div class="box-header a with-border">
-                                      <h3 class="box-title">Pencarian</h3>
-                                  </div>
-                                  <div class="box-body">
-                                      <input type="text" name="namakeperluan" id="namakeperluan" class="form-control" placeholder="Nama keperluan">
-                                    <br>
-                                    <input type="text" name="jum" id="jum" class="form-control" placeholder="Tampilkan lebih banyak" value="12">
-                                    <br>
-                                    <button class="btn btn-block btn-primary" onclick="searchkeperluan()">Cari</button>
-                                    <br>
-                                  </div>
-                                </div>
-                                <div class="box box-solid">
-                                  <div class="box-header a with-border">
-                                    <h3 class="box-title">Tambah keperluan</h3>
-                                  </div>
-                                  <div class="box-body">
-                                    <a onclick='add_keperluan()' class="message" href="#" data-toggle="popover" data-placement="right" title="" data-content="Tambahkan keperluan." data-original-title=""><button class="btn btn-sm bg-green margin"><i class="zmdi zmdi-accounts-add"></i> <i class="fa fa-plus-square"></i></button></a>
-                                  </div>
-                                </div>
-                                <div class="box box-solid">
-                                  <div class="box-header a with-border">
-                                    <h3 class="box-title">Hapus keperluan</h3>
-                                  </div>
-                                  <div class="box-body">
-                                    <button onclick='confirm()' href="#" data-toggle="popover" data-placement="right" title="" data-content="keperluan akan dihapus." data-original-title="" class="message btn bg-red margin btn-sm"><i class="fa fa-trash-o"></i></button>
-                                  </div>
-                                </div>
-                         </div>
-                         <div class="col-md-9">
-                           <h4>Daftar Keperluan</h4>
-                           <div id="place"></div>
-                         </div>
-                         <br><br>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-            </section>
-         </div>
-
-        <!-- /.content-wrapper -->
-<script type="text/javascript">
-  // FIX
-  function add_keperluan(){
-    data={judul:'Tambah keperluan Baru',name:' '};
-    $("#tombol").html('');
-    modal_ajax(data,'POST','<?php echo base_url('pengaturan/add_keperluan')?>','html','#preview',0);
-  }
-  $(".message").popover({ trigger: "hover" });
-
-  // FIX
-  function refreshkeperluan(){
-    $.ajax({
-      type:"POST",
-      url :"<?php echo base_url('pengaturan/show_keperluan')?>",
-      data:{
-      },
-      dataType:"html",
-      beforeSend:function(){
-        $("#place").html(loading);
-      },
-      success:function(data){
-        $("#place").html(data);
-      },
-      error:function(){
-        $("#place").html(gagalkoneksi);
-      }
-    })
-  }
-
-  refreshkeperluan();
-
-  // FIX
-  function searchkeperluan(){
-      var namakeperluan = $("#namakeperluan").val();
-      var jum = $("#jum").val();
-      data={keperluan:namakeperluan,jum:jum};
-      show_ajax('POST','<?php echo base_url('pengaturan/show_keperluan')?>',data,'html','#place');
-  }
-
-  // FIX
-  function confirm(){
-      var data = $("#selection").serializeArray();
-      var judul= 'Konfirmasi Penghapusan';
-      var name = 'Beberapa keperluan';
-      var b = [];
-      jQuery.each( data, function( i, data ) {
-        b.push(data.value);
-      });
-      a={data:b,judul:judul,name:name};
-      console.log(a);
-      modal_ajax(a,'POST','<?php echo base_url('pengaturan/databeberapakeperluan')?>','html','#preview',0);
-  }
+<div class="content-wrapper">
+    <section class="content-header">
+      <h3><i class="fa fa-vcard-o"></i>Keperluan</h3>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a hred="#"><i class="fa fa-vcard-o"></i>Pengaturan</a></li>
+        <li class="active"><i class="fa fa-folder-open-o"></i>List Keperluan</li>
+      </ol>
+    </section>
+    <section class="content">
+      <?php if($this->session->flashdata('msg')=='success'){ ?>
+        <div class="callout callout-success">
+          <h4>Keperluan Berhasil Disimpan!</h4>
+        </div>
+      <?php } else if($this->session->flashdata('msg')=='failed'){ ?>
+        <div class="callout callout-danger">
+          <h4>Keperluan gagal disimpan!</h4>
+        </div>
+      <?php } ?>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title"><i class="fa fa-folder-open-o"></i> List Keperluan</h3>
+                </div>
+                <div class="box-body">
+                  <div class="body">
+                    <div class="col-cs-12">
+                      <button type="button" class="btn btn-success" style="margin-right:5px"name="button" data-toggle="modal" data-target="#ModalTambahKeperluan"><span><i class="fa fa-plus-square"></i></span> Tambah</button>
+                    </div>
+                  </div>
+                  <br>
+                  <table class="table table-bordered  table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Nama Keperluan</th>
+                        <th><center>Perintah</center></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php if($keperluan!=FALSE){
+                        $i=1;
+                        foreach($keperluan as $kpln){?>
+                          <tr>
+                            <td><?=$i++?></td>
+                            <td><?=$kpln->nama_keperluan?></td>
+                            <td>
+                              <center>
+                                <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Keperluan" data-original-title="" class="message btn btn-sm btn-warning" onclick="editKeperluan('<?=$kpln->id_keperluan?>')"><i class="fa fa-edit" aria-hidden="true"> </i></button>
+                                <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Hapus Keperluan" data-original-title="" class="message btn btn-sm btn-danger" onclick=""><i class="fa fa-trash-o"></i></button>
+                              </center>
+                            </td>
+                          </tr>
+                      <?php }} ?>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+</section>
+<!-- Modal Tambah Keperluan   -->
+<div id="ModalTambahKeperluan" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Tambah Keperluan Baru</h4>
+      </div>
+      <div class="modal-body">
+        <p>Keperluan</p>
+        <?=form_open('',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+        <input class="form-control" type="text" name="keperluan" placeholder="Masukkan Keperluan Baru">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-info" name="simpankeperluan">Simpan</button>
+        <?=form_close()?>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Edit Pertanyaan -->
+<div id="ModalEditKeperluan" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Perbarui Keperluan</h4>
+      </div>
+      <div class="modal-body">
+        <p>Detail Keperluan</p>
+        <?=form_open(base_url().'MengelolaPengaturan/editKeperluan',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+        <input class="form-control" type="text" id="detailkeperluan" name="keperluan" placeholder="Masukkan Keperluan">
+        <input type="hidden" name="ideditpertanyaan" id="ideditpertanyaan" value="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
+        <input type="submit" class="btn btn-info" name="update" value="Simpan"/>
+        <?=form_close()?>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover({
+    trigger:"hover"
+  });
+});
+function editKeperluan(x){
+  $.ajax({
+    method:'post',
+    url:'<?=base_url()?>MengelolaPengaturan/fetchDataKeperluan',
+    dataType:'json',
+    data:{'idKeperluan': x},
+    success:function(data){
+      // alert();
+      console.log(data);
+      $('#ideditkeperluan').val(data.keperluan.id_keperluan);
+      $('#detailkeperluan').val(data.keperluan.nama_keperluan);
+    $('#ModalEditKeperluan').modal('show');
+    }
+  })
+}
+// function hapusPertanyaan(value){
+//   $("#deletepertanyaan").val(value);
+//   $('#ModalHapusPertanyaan').modal('show');
+// }
 </script>
