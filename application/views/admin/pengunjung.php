@@ -1,9 +1,9 @@
 <div class="content-wrapper">
     <section class="content-header">
       <!-- <div class="box-header with-border"> -->
-        <h1 class="box-title"> <i class="fa fa-street-view"></i>Daftar Pengunjung</h1>
+        <h1 class="box-title"><i class="fa fa-street-view"></i>Daftar Pengunjung</h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
           <li class="active">Pengunjung</li>
         </ol>
     </section>
@@ -48,9 +48,6 @@
             </div>
           </div>
       </section>
-
-
-
 </div>
 
 <script>

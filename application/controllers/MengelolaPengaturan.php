@@ -21,7 +21,7 @@
         }else{
           $this->session->set_flashdata(array('msg'=>'failed'));
         }
-        header('locatioon'.base_url('admin/pengaturan/keperluan'));
+        header('locatioon'.base_url('MengelolaPengaturan/keperluan'));
       }
       $data['keperluan']=$this->Keperluan->getData();
       $data['content']='admin/pengaturan/keperluan';
@@ -31,8 +31,8 @@
       if(!isset($_POST['idKeperluan'])){
         echo "<script>window.history.back()</script>";
       }else{
-        $idKeperluan=$this->input->post('idKeperluan',TRUE);
-        $keperluan=$this->Keperluan->getKeperluanById($idKeperluan);
+        $id=$this->input->post('idKeperluan',TRUE);
+        $keperluan=$this->Keperluan->getKeperluanById($id);
         echo json_encode(['keperluan'=>$keperluan]);
       }
     }
@@ -47,8 +47,19 @@
           $this->session->set_flashdata(array('msg_editkeperluan'=>'failed'));
         }
       }
-      echo "<script>window.location.replace('".base_url()."admin/pengaturan/keperluan')</script>";
+      echo "<script>window.location.replace('".base_url()."MengelolaPengaturan/keperluan')</script>";
     }
+    function hapusKeperluan(){
+      $id=$this->input->post('hapuskeperluan',TRUE);
+      $delete=$this->Keperluan->hapus($id);
+      if($delete){
+        $this->session->set_flashdata(array('msg_delete'=>'success'));
+      }else{
+        $this->session->set_flashdata(array('msg_delete'=>'failed'));
+      }
+      // header('location'.base_url('admin/pertanyaan'));
+      echo "<script>window.location.replace('".base_url()."MengelolaPengaturan/keperluan')</script>";
+  }
     function pertanyaan(){
       if(isset($_POST['simpanpertanyaan' ])){
         $pertanyaan=$this->input->post('pertanyaan',TRUE);
@@ -58,7 +69,7 @@
         }else{
           $this->session->set_flashdata(array('msg'=>'failed'));
         }
-        header('location'.base_url('admin/pengaturan/pertanyaan'));
+        header('location'.base_url('MengelolaPengaturan/pertanyaan'));
       }
       $data['pertanyaan']=$this->Pertanyaan->getAllPertanyaan();
       $data['content']='admin/pengaturan/pertanyaan';
@@ -85,7 +96,7 @@
           $this->session->set_flashdata(array('msg_editpertanyaan'=>'failed'));
         }
       }
-      echo "<script>window.location.replace('".base_url()."admin/pengaturan/pertanyaan')</script>";
+      echo "<script>window.location.replace('".base_url()."MengelolaPengaturan/pertanyaan')</script>";
       // die('test');
     }
 
@@ -98,7 +109,7 @@
         $this->session->set_flashdata(array('msg_delete'=>'failed'));
       }
       // header('location'.base_url('admin/pertanyaan'));
-      echo "<script>window.location.replace('".base_url()."admin/pengaturan/pertanyaan')</script>";
+      echo "<script>window.location.replace('".base_url()."MengelolaPengaturan/pertanyaan')</script>";
   }
     function jawaban($idpertanyaan){
       if(isset($_POST['simpanjawaban' ])){
@@ -153,6 +164,10 @@
     }
     function kebutuhan(){
       $data['content']='admin/pengaturan/kebutuhan/kebutuhan';
+      $this->load->view('template/admin_template',$data);
+    }
+    function hasil(){
+      $data['content']='admin/pengaturan/kebutuhan/hasil';
       $this->load->view('template/admin_template',$data);
     }
   }

@@ -1,6 +1,11 @@
 <div class="content-wrapper">
   <section class="content-header">
       <h3><i class="fa fa-user-plus"> </i>Tambah Bagian Kepegawaian</h3>
+      <ol class="breadcrumb">
+        <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-table"></i>Pegawai</a></li>
+        <li class="active"><i class="fa fa-user"></i>Bagian</li>
+      </ol>
   </section>
   <section class="content">
     <div class="box box-default">

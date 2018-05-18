@@ -2,8 +2,9 @@
   <section class="content-header">
     <h1><i class="fa fa-user-plus"></i>Tambah Pegawai</h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</li>
-      <li class="active">Tambah Pegawai</li>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="#"><i class="fa fa-table"></i>Pegawai</a></li>
+      <li class="active"><i class="fa fa-user-plus"></i>Tambah Pegawai</li>
     </ol>
   </section>
   <section class="content">

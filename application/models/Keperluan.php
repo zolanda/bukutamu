@@ -29,5 +29,9 @@
       $query="UPDATE keperluan SET nama_keperluan='$keperluan' WHERE id_keperluan='$idkeperluan'";
       return $this->db->query($query);
     }
+    public function hapus($id){
+    $query="DELETE FROM keperluan WHERE id_keperluan='$id'";
+    return $this->db->query($query);
+  }
   }
  ?>

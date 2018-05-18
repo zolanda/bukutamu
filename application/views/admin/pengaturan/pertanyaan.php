@@ -2,7 +2,7 @@
     <section class="content-header">
       <h3><i class="fa fa-vcard-o"></i> Pertanyaan</h3>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
         <li><a hred="#"><i class="fa fa-vcard-o"></i>Pengaturan</a></li>
         <li class="active"><i class="fa fa-folder-open-o"></i>List Pertanyaan</li>
       </ol>

@@ -1,12 +1,14 @@
 <div class="content-wrapper">
-  <section class="content-header">
-      <h3 class="box-title"><i class="fa fa-edit"></i>Daftar Pegawai</h3>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Daftar Pegawai</li>
-      </ol>
-  <!-- </section>
-  <section class="content"> -->
+    <section class="content-header">
+      <!-- <div class="box-header with-border"> -->
+        <h1 class="box-title"><i class="fa fa-edit"></i>Daftar Pegawai</h1>
+        <ol class="breadcrumb">
+          <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li><a href="#"><i class="fa fa-table"></i>Pegawai</a></li>
+          <li class="active"><i class="fa fa-group"></i> Daftar Pegawai</li>
+        </ol>
+    </section>
+  <section class="content">
     <div class="row">
       <div class="col-xs-12">
         <div class="box">
@@ -55,18 +57,18 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Perbarui Data PegaWai</h4>
+          <h4 class="modal-title">Perbarui Data Pegawai</h4>
         </div>
         <div class="modal-body">
           <p>Detail Pegawai</p>
-          <?=form_open(base_url().'Admin/editPegawai',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+          <?=form_open(base_url().'MengelolaPegawai/editPegawai',array('method'=>'post','id'=>'selection','role'=>'form'))?>
           <input class="form-control" type="hidden" id="nomorinduk" name="nomorinduk">
           <input class="form-control" type="text" id="namapegawai" name="nama_pegawai">
           <input class="form-control" type="text" disabled id="bagian">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
-          <input type="submit" class="btn btn-default" name="updatePegawai" value="Simpan"/>
+          <input type="submit" class="btn btn-info" name="updatePegawai" value="Simpan"/>
           <?=form_close()?>
         </div>
       </div>
@@ -82,7 +84,7 @@
         <div class="modal-body">
           <p>Apakah Anda yakin akan menghapus nama pegawai tersebut ?</p>
         </div>
-        <?=form_open(base_url().'Admin/hapusPegawai',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
+        <?=form_open(base_url().'MengelolaPegawai/hapusPegawai',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
         <input type="hidden" id="deletepegawai" name="hapuspegawai" value="">
         <div class="modal-footer">
           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tidak</button>
@@ -106,7 +108,7 @@
  function editPegawai(x){
    $.ajax({
      method:'post',
-     url:'<?=base_url()?>Admin/fetchDataPegawai',
+     url:'<?=base_url()?>MengelolaPegawai/fetchDataPegawai',
      dataType:'json',
      data:{'nomorinduk':x},
      success:function(data){

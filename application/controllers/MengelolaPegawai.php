@@ -56,7 +56,7 @@
           $this->session->set_flashdata(array('msg_editpertanyaan'=>'failed'));
         }
       }
-      echo "<script>window.location.replace('".base_url()."admin/listpegawai')</script>";
+      echo "<script>window.location.replace('".base_url()."MengelolaPegawai/listpegawai')</script>";
       // die('test');
     }
     function hapusPegawai(){
@@ -68,7 +68,7 @@
         $this->session->set_flashdata(array('msg_delete'=>'failed'));
       }
       // header('location'.base_url('admin/pertanyaan'));
-      echo "<script>window.location.replace('".base_url()."admin/listpegawai')</script>";
+      echo "<script>window.location.replace('".base_url()."MengelolaPegawai/listpegawai')</script>";
     }
     function bagian(){
       if(isset($_POST['submit'])){
@@ -79,7 +79,7 @@
         }else{
           $this->session->set_flashdata(array('msg'=>'failed'));
         }
-        header('location'.base_url('admin/pegawai/bagian'));
+        header('location'.base_url('MengelolaPegawai/bagian'));
       }
       $data['bagian']=$this->Bagian->getAllData();
       $data['content']='admin/pegawai/bagian';
@@ -104,7 +104,7 @@
         }else{
           $this->session->set_flashdata(array('msg_editbagian'=>'failed'));
         }
-      }echo "<script>window.location.replace('".base_url()."admin/pegawai/bagian')</script>";
+      }echo "<script>window.location.replace('".base_url()."MengelolaPegawai/bagian')</script>";
     }
 
     function hapusBagian(){
@@ -116,7 +116,7 @@
         $this->session->set_flashdata(array('msg_delete'=>'failed'));
       }
       // header('location'.base_url('admin/pertanyaan'));
-      echo "<script>window.location.replace('".base_url()."admin/bagian')</script>";
+      echo "<script>window.location.replace('".base_url()."MengelolaPegawai/bagian')</script>";
     }
   }
   ?>
