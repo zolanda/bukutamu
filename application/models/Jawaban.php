@@ -5,7 +5,7 @@ class Jawaban extends CI_Model{
     }
 
     public function insert($jawaban, $id_pengunjung, $id_pertanyaan){
-      $query="INSERT INTO jawaban (jawaban, id_pengunjung, id_pertanyaan, waktu) VALUES
+      $query="INSERT INTO jawaban LEFT JOIN JawabanPengunjung (jawaban, id_pengunjung, id_pertanyaan, waktu) VALUES
       ('$jawaban', '$id_pengunjung','$id_pertanyaan',NOW())";
       return $this->db->query($query);
     }

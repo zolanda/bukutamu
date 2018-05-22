@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
   <link href="<?= base_url()?>/includes/backend-lte/css/_all-skins.min.css" rel="stylesheet">
   <link href="<?= base_url()?>/includes/backend-lte/css/animate.css" rel="stylesheet">
-
   <script src="<? base_url()?>/includes/backend-lte/js/jquery.js"></script>
   <script src="<?= base_url()?>/includes/backend-lte/js/select2.full.min.js"></script>
   <script src="<?= base_url()?>/includes/backend-lte/js/bootstrap.min.js"></script>
@@ -133,45 +132,5 @@
         </form>
     </div>
 </div>
-<script type="text/javascript">
-//   $(function() {
-//     $(".loading").hide();
-//     $('form').submit(function(event){
-//       event.preventDefault();
-//       var submit_url = $(this).attr('action');
-//       var $form_inputs = $(this).find(':input');
-//       var form_data = {};
-//       $form_inputs.each(function() {
-//          form_data[this.name] = $(this).val();
-//       });
-//       $.ajax({
-//           url: submit_url,
-//           type: 'POST',
-//           data: form_data,
-//         beforeSend:function(data){
-//           $(".proses").hide();
-//           $(".loading").show();
-//         },
-//         success:function(data){
-//         $(".proses").show();
-//         $(".loading").hide();
-//         // If the returned login value successul.
-//         if (data){
-//           // Empty the login form content and replace it will a successful login message.
-//           $('#messages').show();
-//           var t = setTimeout(function() {
-//             window.location.href=submit_url;
-//           }, 1);
-//           // Hide any error message that may be showing.
-//           $('#message_e').hide();
-//         } else {
-//           // Show an error message stating the users login credentials were invalid.
-//           notify('danger','Your submitted login details are incorrect.')
-//         }
-//       }
-//     });
-//   })
-// });
-</script>
 </body>
 </html>

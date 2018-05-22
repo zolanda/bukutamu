@@ -2,7 +2,7 @@
   class Authenticate extends CI_Controller{
     function __construct(){
       parent::__construct();
-      $this->load->model('admin');
+      $this->load->model('AdminModel','admin');
     }
     public function index(){
       if($this->session->userdata('masuk_admin')){

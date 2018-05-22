@@ -8,6 +8,9 @@
       $this->load->model('Pertanyaan');
       $this->load->model('Jawaban');
       $this->load->model('Keperluan');
+      $this->load->model('Kebutuhan');
+      $this->load->model('JawabanPengunjung');
+      $this->load->model('ListPertanyaan');
       if(!$this->session->userdata('masuk_admin')){
         header('Location:'.base_url().'authenticate/index');
       }
@@ -163,6 +166,27 @@
       echo "<script>window.history.back()</script>";
     }
     function kebutuhan(){
+      if(isset($_POST['submit'])){
+        $purpose=$this->input->post('kebutuhan',TRUE);
+        $autoincr=$this->input->post('idkebutuhanincr',TRUE);
+        $getpertanyaan=$this->input->post('pertanyaan[]',TRUE);
+        foreach ($getpertanyaan as $gettanya){
+          $insertpertanyaan=$this->ListPertanyaan->insert($gettanya,$autoincr+1);
+        }
+        // die(print_r($getpertanyaan));
+        $insert=$this->Kebutuhan->insert($purpose);
+        if($insert){
+          $this->session->set_flashdata(array('msg'=>'success'));
+        }else{
+          $this->session->set_flashdata(array('msg'=>'failed'));
+        }
+        header('location:'.base_url('MengelolaPengaturan/kebutuhan'));
+      }
+      $getautoincrement=$this->Kebutuhan->getAutoIncrement();
+      // die(print_r($getautoincrement));
+      $data['autoincr']=$getautoincrement;
+      $data['kebutuhan']=$this->Kebutuhan->getAllData();
+      $data['pertanyaan']=$this->Pertanyaan->getAllPertanyaan();
       $data['content']='admin/pengaturan/kebutuhan/kebutuhan';
       $this->load->view('template/admin_template',$data);
     }

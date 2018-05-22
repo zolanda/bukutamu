@@ -13,7 +13,6 @@
         return FALSE;
       }
     }
-
     public function getPertanyaanById($id){
       $query="SELECT * FROM pertanyaan WHERE id_pertanyaan='$id'";
       $result=$this->db->query($query);
