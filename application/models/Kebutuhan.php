@@ -26,5 +26,22 @@ class Kebutuhan extends CI_Model{
       return FALSE;
     }
   }
+  public function getKebutuhanById($id){
+    $query="SELECT*FROM kebutuhan WHERE id_kebutuhan='$id'";
+    $result=$this->db->query($query);
+    if($result->num_rows()>0){
+      return $result->row_array();
+    }else{
+      return FALSE;
+    }
+  }
+  public function update($kebutuhan,$idkebutuhan){
+    $query="UPDATE kebutuhan SET purpose='$kebutuhan' WHERE id_kebutuhan='$idkebutuhan'";
+    return $this->db->query($query);
+  }
+  public function hapus($id){
+    $query="DELETE FROM kebutuhan WHERE id_kebutuhan='$id'";
+    return $this->db->query($query);
+  }
 }
  ?>

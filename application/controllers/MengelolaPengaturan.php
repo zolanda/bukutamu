@@ -190,6 +190,41 @@
       $data['content']='admin/pengaturan/kebutuhan/kebutuhan';
       $this->load->view('template/admin_template',$data);
     }
+    function fetchDataKebutuhan(){
+      if(!isset($_POST['idKebutuhan'])){
+        echo "<script>window.history.back()</script>";
+      }else{
+        $idKebutuhan=$this->input->post('idKebutuhan',TRUE);
+        $kebutuhan=$this->Kebutuhan->getKebutuhanById($idKebutuhan);
+        echo json_encode(['kebutuhan'=>$kebutuhan]);
+      }
+    }
+    function editKebutuhan(){
+      if(isset($_POST['submit'])){
+        $kebutuhan=$this->input->post('detailkebutuhan',TRUE);
+        $idkebutuhan=$this->input->post('idkebutuhanincr',TRUE);
+        // die(print_r($idkebutuhan));
+        $update=$this->Kebutuhan->update($kebutuhan,$idkebutuhan);
+        if($update){
+          if($update){
+            $this->session->set_flashdata(array('msg_editkebutuhan'=>'success'));
+          }else{
+            $this->session->set_flashdata(array('msg_editkebutuhan'=>'failed'));
+          }
+        }
+      }
+      echo "<script>window.location.replace('".base_url()."MengelolaPengaturan/kebutuhan')</script>";
+    }
+    function hapusKebutuhan(){
+      $id=$this->input->post('hapuskebutuhan',TRUE);
+      $delete=$this->Kebutuhan->hapus($id);
+      if ($delete){
+        $this->session->set_flashdata(array('msg_delete'=>'success'));
+      }else{
+        $this->session->set_flashdata(array('msg_delete'=>'failed'));
+      }
+      echo "<script>window/history.back()</script>";
+    }
     function hasil(){
       $data['content']='admin/pengaturan/kebutuhan/hasil';
       $this->load->view('template/admin_template',$data);

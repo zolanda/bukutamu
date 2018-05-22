@@ -10,11 +10,11 @@
     <section class="content">
       <?php if($this->session->flashdata('msg')=='success'){ ?>
         <div class="callout callout-success">
-          <h4>Kebutuhan Berhasil Disimpan!</h4>
+          <h4>Kebutuhan Berhasil disimpan!</h4>
         </div>
       <?php } else if($this->session->flashdata('msg')=='failed'){ ?>
         <div class="callout callout-danger">
-          <h4>Kebutuhan gagal disimpan!</h4>
+          <h4>Kebutuhan Gagal disimpan!</h4>
         </div>
       <?php } ?>
       <div class="row">
@@ -49,8 +49,8 @@
                         <td>
                           <center>
                             <button href="<?=base_url()?>MengelolaPengaturan/hasil" data-toggle="popover" data-placement="left" title="" data-content="Hasil" data-original-title="" class="message btn btn-sm bg-olive" onclick=""><i class="fa fa-bar-chart-o"></i></button>
-                            <button href="" data-toggle="popover" data-placement="left" title="" data-content="Edit Kebutuhan" data-original-title="" class="message btn btn-sm bg-orange" onclick=""><i class="fa fa-edit"></i></button>
-                            <button href="" data-toggle="popover" data-placement="left" title="" data-content="Hapus Kebutuhan" data-original-title="" class="message btn btn-sm bg-red" onclick=""><i class="fa fa-trash"></i></button>
+                            <button href="" data-toggle="popover" data-placement="left" title="" data-content="Edit Kebutuhan" data-original-title="" class="message btn btn-sm bg-orange" onclick="editKebutuhan('<?=$kbutuhn->id_kebutuhan?>')"><i class="fa fa-edit"></i></button>
+                            <button href="" data-toggle="popover" data-placement="left" title="" data-content="Hapus Kebutuhan" data-original-title="" class="message btn btn-sm bg-red" onclick="hapusKebutuhan('<?=$kbutuhn->id_kebutuhan?>')"><i class="fa fa-trash"></i></button>
                           </center>
                         </td>
                       </tr>
@@ -93,12 +93,76 @@
       </div>
     </div>
 </div>
+<!-- Modal Edit Kebutuhan-->
+<div id="ModalEditKebutuhan" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Perbarui Kebutuhan</h4>
+      </div>
+      <div class="modal-body">
+        <p>Detail Kebutuhan</p>
+        <?=form_open(base_url().'MengelolaPengaturan/editKebutuhan',array('method'=>'post','id'=>'selection','role'=>'form'))?>
+        <input class="form-control" type="text" id="detailkebutuhan" name="detailkebutuhan" placeholder="Deskripsikan dengan singkat kebutuhan IKM">
+        <input type="hidden" name="idkebutuhanincr" id="idkebutuhan" value="">
+      </div>
+      <div class="form-group">
+        <label><span style="margin-left:18px"> Centang Pertanyaan</span></label>
+        <?php foreach($pertanyaan as $data) {?>
+        <blockquote>
+          <input type="checkbox" name="pertanyaan[]" value="<?=$data->id_pertanyaan ?>"> <?=ucwords($data->pertanyaan)?>
+        </blockquote>
+      <?php } ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tidak</button>
+        <input type="submit" class="btn btn-info" name="submit" value="Ya">
+        <?=form_close()?>
+    </div>
+  </div>
+</div>
+<!-- Modal Hapus Kebutuhan -->
+<div id="ModalHapusKebutuhan" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class-"modal-title">Konfirmasi Penghapusan Kebutuhan</h4>
+      </div>
+      <div class="modal-body">
+        <p>Apakah anda yakin akan menghapus kebutuhan tersebut?</p>
+      </div>
+      <?=form_open(base_url().'MengelolaPengaturan/hapusKebutuhan',array('method'=>'post','id'=>'delete_data','role'=>'form'))?>
+      <input type="hidden" id="deletekebutuhan" name="hapuskebutuhan" value="">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" name="button">Tidak</button>
+        <button type="submit" class="btn btn-info">Ya</button>
+      </div>
+      <?=form_close()?>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
-<?php if($this->session->flashdata('msg')!=''){ ?>
-    if(msg=="success"){
-      alert('Kebutuhan berhasil ditambah');
-    }else{
-      alert('Kebutuhan tidak dapat ditambahkan');
-  }
-  <?php } ?>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover({
+    trigger:"hover"
+  });
+});
+function editKebutuhan(x){
+  $.ajax({
+    method:'post',
+    url:'<?=base_url()?>MengelolaPengaturan/fetchDataKebutuhan',
+    dataType:'json',
+    data:{'idKebutuhan':x},
+    success:function(data){
+      console.log(data);
+      $('#idkebutuhan').val(x);
+      $('#detailkebutuhan').val(data.kebutuhan.purpose);
+      $('#ModalEditKebutuhan').modal('show');
+    }
+  })
+}
+function hapusKebutuhan(value){
+  $('#deletekebutuhan').val(value);
+  $('#ModalHapusKebutuhan').modal('show');
+}
 </script>
