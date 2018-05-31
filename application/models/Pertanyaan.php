@@ -13,6 +13,17 @@
         return FALSE;
       }
     }
+
+    public function getIdPertanyaan(){
+      $query="SELECT id_pertanyaan FROM pertanyaan";
+      $result=$this->db->query($query);
+      if($result->num_rows()>0){
+        return $result->result();
+      }else{
+        return FALSE;
+      }
+    }
+
     public function getPertanyaanById($id){
       $query="SELECT * FROM pertanyaan WHERE id_pertanyaan='$id'";
       $result=$this->db->query($query);

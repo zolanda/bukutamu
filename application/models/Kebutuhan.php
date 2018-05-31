@@ -18,7 +18,7 @@ class Kebutuhan extends CI_Model{
     }
   }
   public function getAllData(){
-    $query="SELECT*FROM kebutuhan";
+    $query="SELECT*FROM kebutuhan ORDER BY id_kebutuhan DESC";
     $result=$this->db->query($query);
     if($result->num_rows()>0){
       return $result->result();

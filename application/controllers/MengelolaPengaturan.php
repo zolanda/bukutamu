@@ -10,7 +10,7 @@
       $this->load->model('Keperluan');
       $this->load->model('Kebutuhan');
       $this->load->model('JawabanPengunjung');
-      $this->load->model('ListPertanyaan');
+      $this->load->model('ListPertanyaan','listpertanyaan');
       if(!$this->session->userdata('masuk_admin')){
         header('Location:'.base_url().'authenticate/index');
       }
@@ -171,7 +171,7 @@
         $autoincr=$this->input->post('idkebutuhanincr',TRUE);
         $getpertanyaan=$this->input->post('pertanyaan[]',TRUE);
         foreach ($getpertanyaan as $gettanya){
-          $insertpertanyaan=$this->ListPertanyaan->insert($gettanya,$autoincr+1);
+          $insertpertanyaan=$this->listpertanyaan->insert($gettanya,$autoincr+1);
         }
         // die(print_r($getpertanyaan));
         $insert=$this->Kebutuhan->insert($purpose);
@@ -191,12 +191,13 @@
       $this->load->view('template/admin_template',$data);
     }
     function fetchDataKebutuhan(){
-      if(!isset($_POST['idKebutuhan'])){
+    if(!isset($_POST['idKebutuhan'])){
         echo "<script>window.history.back()</script>";
       }else{
         $idKebutuhan=$this->input->post('idKebutuhan',TRUE);
         $kebutuhan=$this->Kebutuhan->getKebutuhanById($idKebutuhan);
-        echo json_encode(['kebutuhan'=>$kebutuhan]);
+        $listpertanyaan=$this->listpertanyaan->getListPertanyaanByKebutuhan($idKebutuhan);
+        echo json_encode(['kebutuhan'=>$kebutuhan,'pertanyaan'=>$listpertanyaan]);
       }
     }
     function editKebutuhan(){
@@ -205,7 +206,14 @@
         $idkebutuhan=$this->input->post('idkebutuhanincr',TRUE);
         // die(print_r($idkebutuhan));
         $update=$this->Kebutuhan->update($kebutuhan,$idkebutuhan);
-        if($update){
+        $delete=$this->listpertanyaan->deleteByKebutuhan($idkebutuhan);
+        $pertanyaan = $this->input->post('pertanyaan[]');
+        // die(print_r($pertanyaan));
+        foreach ($pertanyaan as $idpertanyaan) {
+          $updateListPertanyaan = $this->listpertanyaan->insert($idpertanyaan,$idkebutuhan);
+          // die();
+        }
+        if($update && $updateListPertanyaan){
           if($update){
             $this->session->set_flashdata(array('msg_editkebutuhan'=>'success'));
           }else{

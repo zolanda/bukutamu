@@ -81,6 +81,9 @@
     <!-- /.container -->
 </footer>
 </body>
+<script type="text/javascript" src="<?=base_url()?>includes/template_admin/chartjs/chart.js">
+
+</script>
 <script type="text/javascript">
     $("#place").hide();
     $('#webTicker').webTicker();

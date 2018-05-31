@@ -63,7 +63,7 @@
                       </div>
                       <div class="form-group">
                         <label class="fpns">PEGAWAI YANG INGIN ANDA TEMUI ?</label>
-                        <select type="text" class="form-control input-lg" placeholder="Boleh tidak diisi" id="pejabat" name="pejabat" width="100px">
+                        <select type="text" class="form-control input-lg" placeholder="Boleh tidak diisi" id="pejabat" name="pejabat">
                           <option value="0">--Pilih--</option>
                           <?php if($pegawai!=FALSE){
                             foreach ($pegawai as $key){?>

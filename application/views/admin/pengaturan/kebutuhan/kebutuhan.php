@@ -74,13 +74,14 @@
           <p>Kebutuhan IKM</p>
           <?=form_open('',array('method'=>'post','id'=>'selection','role'=>'form'))?>
           <input class="form-control" type="text" name="kebutuhan" placeholder="Deskripsikan dengan singkat kebutuhan IKM">
+          <input class="form-control" type="text" name="tahunkebutuhan" placeholder="">
           <input type="hidden" name="idkebutuhanincr" id="idkebutuhanincr" value="<?=$autoincr['AUTO_INCREMENT']?>">
         </div>
         <div class="form-group">
           <label><span style="margin-left:18px"> Centang Pertanyaan</span></label>
           <?php foreach($pertanyaan as $data) {?>
           <blockquote>
-            <input type="checkbox" name="pertanyaan[]" value="<?=$data->id_pertanyaan ?>"> <?=ucwords($data->pertanyaan)?>
+            <input type="checkbox"  name="pertanyaan[]" value="<?=$data->id_pertanyaan ?>"> <?=ucwords($data->pertanyaan)?>
           </blockquote>
         <?php } ?>
         </div>
@@ -110,7 +111,7 @@
         <label><span style="margin-left:18px"> Centang Pertanyaan</span></label>
         <?php foreach($pertanyaan as $data) {?>
         <blockquote>
-          <input type="checkbox" name="pertanyaan[]" value="<?=$data->id_pertanyaan ?>"> <?=ucwords($data->pertanyaan)?>
+          <input type="checkbox" id="idpertanyaan<?=$data->id_pertanyaan?>" name="pertanyaan[]" value="<?=$data->id_pertanyaan ?>"> <?=ucwords($data->pertanyaan)?>
         </blockquote>
       <?php } ?>
       </div>
@@ -120,6 +121,7 @@
         <?=form_close()?>
     </div>
   </div>
+</div>
 </div>
 <!-- Modal Hapus Kebutuhan -->
 <div id="ModalHapusKebutuhan" class="modal fade" role="dialog">
@@ -148,13 +150,19 @@ $(document).ready(function(){
   });
 });
 function editKebutuhan(x){
+  $('[name="pertanyaan[]"]').prop('checked',false);
   $.ajax({
     method:'post',
     url:'<?=base_url()?>MengelolaPengaturan/fetchDataKebutuhan',
     dataType:'json',
     data:{'idKebutuhan':x},
+    // console.log(data);
     success:function(data){
-      console.log(data);
+      if(data.pertanyaan!=false){
+        $.each(data.pertanyaan,function(index,item){
+          $('#idpertanyaan'+item.id_pertanyaan).prop('checked',true);
+        })
+      }
       $('#idkebutuhan').val(x);
       $('#detailkebutuhan').val(data.kebutuhan.purpose);
       $('#ModalEditKebutuhan').modal('show');

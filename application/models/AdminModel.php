@@ -24,8 +24,8 @@
     public function updatePassword($id_admin,$password){
       $query="UPDATE admin SET password = ? WHERE id_admin=?";
       return $this->db->query($query,[$password,$id_admin]);
-
     }
+    
   }
 
  ?>

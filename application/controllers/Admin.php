@@ -21,6 +21,7 @@
       $data['content']='admin/dashboard';
       $this->load->view('template/admin_template',$data);
     }
+
     function editprofile(){
       if(isset($_POST['submit'])){
         $this->form_validation->set_rules('oldpassword','oldpassword','required|min_length[5]|max_length[18]|trim|strip_tags',array(''));
@@ -56,11 +57,20 @@
           $data['content']='admin/profile';
           $this->load->view('template/admin_template',$data);
       }
-
+    function fetchDataPengunjungTahun(){
+        if(!isset($_POST['tahun'])){
+          echo "<script>window.history.back()</script>";
+        }else{
+          $tahun=$this->input->post('tahun',TRUE);
+          $data=$this->Tamu->getTamuBySumTahun($tahun);
+          echo json_encode($data);
+        }
+    }
     function listpengunjung(){
       $data['pengunjung']=$this->Tamu->getAllData();
       $data['content']='admin/pengunjung';
       $this->load->view('template/admin_template',$data);
     }
+
 }
   ?>

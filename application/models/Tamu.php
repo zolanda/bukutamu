@@ -56,5 +56,15 @@
       }
     }
 
+    public function getTamuBySumTahun($tahun){
+      $query="SELECT  SUBSTRING_INDEX(SUBSTRING_INDEX(waktu,'-',2),'-',-1) AS bulan, COUNT(*) AS jumlah FROM tamu WHERE SUBSTRING_INDEX(waktu,'-',1)='$tahun' GROUP BY SUBSTRING_INDEX(SUBSTRING_INDEX(waktu,'-',2),'-',-1)";
+      $result=$this->db->query($query);
+      if($result->num_rows()>0){
+        return $result->result();
+      }else{
+        return FALSE;
+      }
+    }
+
 }
  ?>
