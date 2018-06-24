@@ -13,8 +13,9 @@ class ListPertanyaan extends CI_Model{
     return $this->db->query($query);
   }
 
+
   public function getListPertanyaanByKebutuhan($idKebutuhan){
-    $query="SELECT id_pertanyaan FROM list_pertanyaan WHERE id_kebutuhan='$idKebutuhan'";
+    $query="SELECT * FROM list_pertanyaan LEFT JOIN pertanyaan ON pertanyaan.id_pertanyaan=list_pertanyaan.id_pertanyaan WHERE id_kebutuhan='$idKebutuhan'";
     $result=$this->db->query($query);
     if($result->num_rows()>0){
       return $result->result();

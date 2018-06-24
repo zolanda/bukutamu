@@ -16,7 +16,7 @@
                   <h3 class="box-title">Data Tamu dan Pengunjung Dinas Kearsipan dan Perpustakaan</h3>
                 </div>
                 <div class="box-body">
-                  <table id="table" class="table table-bordered tabe-striped" cellspacing="0" width="100%">
+                  <table id="table" class="table table-bordered table-striped" cellspacing="0" width="100%">
                     <thead>
                       <tr>
                         <th>NO</th>

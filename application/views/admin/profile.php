@@ -3,8 +3,8 @@
     <h3>Edit Profile</h3>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-      <li><a href="#"><i class="fa fa-vcard-o"></i>Profile</li>
-      <li class="active">Edit Profile</li>
+      <li><a href="#"><i class="fa fa-vcard-o"></i>Profile</a></li>
+      <li class="active">Edit Profile</i>
     </ol>
   </section>
   <section class="content">
@@ -24,12 +24,12 @@
               </div>
             <?php } ?>
               <div class="box-body">
-                <!-- <div class="form-group">
+                <div class="form-group">
                   <label class="col-sm-2 control-label">Username</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="user" name="user" disabled value="">
+                    <input type="text" class="form-control" id="user" name="user" disabled value="<?=$nama_admin?>">
                   </div>
-                </div> -->
+                </div>
                 <br>
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Password Lama</label>
@@ -50,7 +50,7 @@
                   </div>
                 </div>
                 <?=$this->session->flashdata('msg_editprofile')?>
-                <div class="form-group">
+                <div>
                   <button type="button" class="btn btn-danger pull-left">Batal</button>
                   <button type="submit" class="btn btn-success pull-right" name="submit">Simpan</button>
                 </div>

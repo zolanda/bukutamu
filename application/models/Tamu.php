@@ -66,5 +66,29 @@
       }
     }
 
+    public function getTamuBySumBulan($val){
+      $query="SELECT  SUBSTRING_INDEX(waktu,' ',1) AS hari, COUNT(*) AS jumlah  FROM tamu WHERE SUBSTRING_INDEX(waktu,'-',2)='$val' GROUP BY SUBSTRING_INDEX(waktu,' ',1)";
+      $result=$this->db->query($query);
+      if($result->num_rows()>0){
+        return $result->result();
+      }else{
+        return FALSE;
+      }
+    }
+
+    public function getResponden($waktu){
+      $query="SELECT * FROM tamu WHERE no_pengunjung!='' AND SUBSTRING_INDEX(waktu,'-',1)='$waktu'";
+      $result=$this->db->query($query);
+      if($result->num_rows()>0){
+        return $result->result();
+      }else{
+        return FALSE;
+      }
+    }
+
+    // public function getCountPerTahun($tahun){
+    //   $query = "SELECT COUNT(*) FROM tamu ";
+    // }
+
 }
  ?>

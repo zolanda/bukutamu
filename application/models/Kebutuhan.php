@@ -3,12 +3,12 @@ class Kebutuhan extends CI_Model{
   function __construct(){
     parent::__construct();
   }
-  public function insert($purpose){
-    $query="INSERT INTO kebutuhan (purpose, created) VALUES ('$purpose',NOW())";
+  public function insert($purpose,$tahun){
+    $query="INSERT INTO kebutuhan (purpose, created, tahun) VALUES ('$purpose',NOW(), '$tahun')";
     return $this->db->query($query);
   }
+
   public function getAutoIncrement(){
-    // $query="SELECT  MAX(id_kebutuhan) FROM kebutuhan";
     $query="SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA='bukutamu' AND TABLE_NAME='kebutuhan'";
     $result=$this->db->query($query);
     if($result->num_rows()>0){
@@ -35,8 +35,8 @@ class Kebutuhan extends CI_Model{
       return FALSE;
     }
   }
-  public function update($kebutuhan,$idkebutuhan){
-    $query="UPDATE kebutuhan SET purpose='$kebutuhan' WHERE id_kebutuhan='$idkebutuhan'";
+  public function update($kebutuhan,$tahun,$idkebutuhan){
+    $query="UPDATE kebutuhan SET purpose='$kebutuhan' , tahun='$tahun' WHERE id_kebutuhan='$idkebutuhan'";
     return $this->db->query($query);
   }
   public function hapus($id){

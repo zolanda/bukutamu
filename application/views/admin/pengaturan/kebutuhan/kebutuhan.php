@@ -35,6 +35,7 @@
                   <tr>
                     <th><center>No</center></th>
                     <th><center>Kebutuhan</center></th>
+                    <th>Tahun</th>
                     <th><center>Perintah</center></th>
                   </tr>
                 </thead>
@@ -46,9 +47,10 @@
                       <tr>
                         <td><?=$i++?></td>
                         <td><?=$kbutuhn->purpose?></td>
+                        <td><?=$kbutuhn->tahun?></td>
                         <td>
                           <center>
-                            <button href="<?=base_url()?>MengelolaPengaturan/hasil" data-toggle="popover" data-placement="left" title="" data-content="Hasil" data-original-title="" class="message btn btn-sm bg-olive" onclick=""><i class="fa fa-bar-chart-o"></i></button>
+                            <a href="<?=base_url()?>MengelolaPengaturan/hasil/<?=$kbutuhn->id_kebutuhan?>" data-toggle="popover" data-placement="left" title="" data-content="Hasil" data-original-title="" class="message btn btn-sm bg-olive" onclick=""><i class="fa fa-bar-chart-o"></i></a>
                             <button href="" data-toggle="popover" data-placement="left" title="" data-content="Edit Kebutuhan" data-original-title="" class="message btn btn-sm bg-orange" onclick="editKebutuhan('<?=$kbutuhn->id_kebutuhan?>')"><i class="fa fa-edit"></i></button>
                             <button href="" data-toggle="popover" data-placement="left" title="" data-content="Hapus Kebutuhan" data-original-title="" class="message btn btn-sm bg-red" onclick="hapusKebutuhan('<?=$kbutuhn->id_kebutuhan?>')"><i class="fa fa-trash"></i></button>
                           </center>
@@ -73,8 +75,16 @@
         <div class="modal-body">
           <p>Kebutuhan IKM</p>
           <?=form_open('',array('method'=>'post','id'=>'selection','role'=>'form'))?>
-          <input class="form-control" type="text" name="kebutuhan" placeholder="Deskripsikan dengan singkat kebutuhan IKM">
-          <input class="form-control" type="text" name="tahunkebutuhan" placeholder="">
+          <div class="form-group">
+            <input class="form-control" type="text" name="kebutuhan" placeholder="Deskripsikan dengan singkat kebutuhan IKM">
+          </div>
+            <div class="form-group ">
+              <select class="form-control" type="text" name="tahunkebutuhan">
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+              </select>
+            </div>
           <input type="hidden" name="idkebutuhanincr" id="idkebutuhanincr" value="<?=$autoincr['AUTO_INCREMENT']?>">
         </div>
         <div class="form-group">
@@ -104,7 +114,16 @@
       <div class="modal-body">
         <p>Detail Kebutuhan</p>
         <?=form_open(base_url().'MengelolaPengaturan/editKebutuhan',array('method'=>'post','id'=>'selection','role'=>'form'))?>
-        <input class="form-control" type="text" id="detailkebutuhan" name="detailkebutuhan" placeholder="Deskripsikan dengan singkat kebutuhan IKM">
+        <div class="form-group">
+          <input class="form-control" type="text" id="detailkebutuhan" name="detailkebutuhan" placeholder="Deskripsikan dengan singkat kebutuhan IKM">
+        </div>
+        <div class="form-group">
+          <select class="form-control" type="text" name="thnkebutuhan" id="tahunkebutuhan">
+            <option value="2016" id="year1">2016</option>
+            <option value="2017" id="year2">2017</option>
+            <option value="2018" id="year3">2018</option>
+          </select>
+        </div>
         <input type="hidden" name="idkebutuhanincr" id="idkebutuhan" value="">
       </div>
       <div class="form-group">
@@ -165,6 +184,11 @@ function editKebutuhan(x){
       }
       $('#idkebutuhan').val(x);
       $('#detailkebutuhan').val(data.kebutuhan.purpose);
+      $('[id^="year"]').each(function(){
+        if($(this).val()==data.kebutuhan.tahun){
+          $(this).prop('selected',true);
+        }
+      })
       $('#ModalEditKebutuhan').modal('show');
     }
   })

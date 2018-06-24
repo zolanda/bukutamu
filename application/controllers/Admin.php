@@ -29,13 +29,16 @@
         $this->form_validation->set_rules('confirmpassword','confirmpassword', 'required|min_length[5]|max_length[18]|trim|strip_tags',array(''));
         if($this->form_validation->run()!=FALSE){
           $oldpass=$this->input->post('oldpassword',TRUE);
+          //die(print_r($oldpass));
           $newpass=$this->input->post('newpassword',TRUE);
           // die();
           $konfirmasi=$this->input->post('confirmpassword',TRUE);
-          $lama=md5('arpusda' .$oldpass.'rahasia');
-          $baru=md5('arpusda'.$newpass.'rahasia');
-          $konf=md5('arpusda'.$konfirmasi.'rahasia');
-          $cek=$this->Admin->getUsernameById($this->session->userdata('id_admin',$lama));
+          $lama=md5($oldpass);
+          $baru=md5($newpass);
+          $konf=md5($konfirmasi);
+          $cek=$this->Admin->cek_login($this->session->userdata('username'),$lama);
+          // die(print_r($cek));
+          // die();
           if($baru!=$konf){
             $this->session->set_flashdata(['msg_editprofile'=>'<div class="alert alert-danger"><p>Password Baru dan Konfirmasi Password tidak sesuai</p></div>']);
           }else if($cek==false){
@@ -55,6 +58,7 @@
         header('Location:'.base_url().'Admin/editprofile');
       }
           $data['content']='admin/profile';
+          $data['nama_admin']=$this->session->username;
           $this->load->view('template/admin_template',$data);
       }
     function fetchDataPengunjungTahun(){
@@ -66,6 +70,7 @@
           echo json_encode($data);
         }
     }
+
     function listpengunjung(){
       $data['pengunjung']=$this->Tamu->getAllData();
       $data['content']='admin/pengunjung';

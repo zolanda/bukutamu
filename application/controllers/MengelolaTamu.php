@@ -1,7 +1,10 @@
 <?php
+include APPPATH.'customclass/StringManipulation.php';
 class MengelolaTamu extends CI_Controller{
+  private $stringmanipulate;
   function __construct(){
     parent :: __construct();
+    $this->stringmanipulate=new StringManipulation();
     $this->load->model('tamu');
     $this->load->model('pegawai');
     $this->load->model('keperluan');
@@ -88,6 +91,95 @@ class MengelolaTamu extends CI_Controller{
   public function cobamonthpicker(){
     $data['content']='cobamonthpicker';
     $this->load->view('template/main_template',$data);
+  }
+  public function getdatapengunjungpertahun(){
+    if(!$this->input->post('tahun')){
+      echo "<script>window.history.back()</script>";
+    }
+    $tahun = $this->input->post('tahun');
+    $data = $this->tamu->getTamuBySumTahun($tahun);
+    $array = [
+      // die(print_r($data[0]));
+      "januari"=>0,
+      "februari"=>0,
+      "maret"=>0,
+      "april"=>0,
+      "mei"=>0,
+      "juni"=>0,
+      "juli"=>0,
+      "agustus"=>0,
+      "september"=>0,
+      "oktober"=>0,
+      "november"=>0,
+      "desember"=>0,
+    ];
+
+    if(isset($data[0])){
+      $array["januari"]=$data[0]->jumlah;
+    }
+    if(isset($data[1])){
+      $array['februari']=$data[1]->jumlah;
+    }
+    if(isset($data[2])){
+      $array['maret']=$data[2]->jumlah;
+    }
+    if(isset($data[3])){
+      $array['april']=$data[3]->jumlah;
+    }
+    if(isset($data[4])){
+      $array['mei']=$data[4]->jumlah;
+    }
+    if(isset($data[5])){
+      $array['juni']=$data[5]->jumlah;
+    }
+    if(isset($data[6])){
+      $array['juli']=$data[6]->jumlah;
+    }
+    if(isset($data[7])){
+      $array['agustus']=$data[7]->jumlah;
+    }
+    if(isset($data[8])){
+      $array['september']=$data[8]->jumlah;
+    }
+    if(isset($data[9])){
+      $array['oktober']=$data[9]->jumlah;
+    }
+    if(isset($data[10])){
+      $array['november']=$data[10]->jumlah;
+    }
+    if(isset($data[11])){
+      $array['desember']=$data[11]->jumlah;
+    }
+    echo json_encode($array);
+  }
+
+  function getDataPengunjungPerBulan(){
+    if(!$this->input->post('tahun')){
+      echo "<script>window.history.back()</script>";
+    }else{
+      $tahun = $this->input->post('tahun', TRUE);
+      $bulan = $this->input->post('bulan', TRUE);
+      $val = $tahun.'-'.$bulan;
+      // $val="2018-02";
+      $data = $this->tamu->getTamuBySumBulan($val);
+      // $tahun = "2018";
+      // $bulan = "02";
+      $array = [];
+      $arrayhari=[];
+      $banyakhari = cal_days_in_month(CAL_GREGORIAN,$bulan, $tahun);
+      for($i=1;$i<=$banyakhari;$i++){
+        $array[$val.'-'.$this->stringmanipulate->addDigit($i)]=0;
+        array_push($arrayhari,$this->stringmanipulate->addDigit($i));
+      }
+      if($data!=false){
+        foreach ($data as $data) {
+          $array[$data->hari]=$data->jumlah;
+        }
+      }
+      $response['data']=$array;
+      $response['hari']=$arrayhari;
+      echo json_encode($response);
+    }
   }
 
 }

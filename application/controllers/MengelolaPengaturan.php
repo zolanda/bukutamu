@@ -152,7 +152,6 @@
         }
       }
       echo "<script>window.location.replace('".base_url()."admin/pengaturan/jawaban')</script>";
-      // die('test');
     }
     function hapusJawaban(){
       $id=$this->input->post('hapusjawaban',TRUE);
@@ -162,19 +161,19 @@
       }else{
         $this->session->set_flashdata(array('msg_delete'=>'failed'));
       }
-      // header('location'.base_url('admin/pertanyaan'));
       echo "<script>window.history.back()</script>";
     }
     function kebutuhan(){
       if(isset($_POST['submit'])){
         $purpose=$this->input->post('kebutuhan',TRUE);
+        $tahun=$this->input->post('tahunkebutuhan',TRUE);
         $autoincr=$this->input->post('idkebutuhanincr',TRUE);
         $getpertanyaan=$this->input->post('pertanyaan[]',TRUE);
+        $insert=$this->Kebutuhan->insert($purpose,$tahun);
+        // $lastid=$this->Kebutuhan->getAutoIncrement();
         foreach ($getpertanyaan as $gettanya){
-          $insertpertanyaan=$this->listpertanyaan->insert($gettanya,$autoincr+1);
+          $insertpertanyaan=$this->listpertanyaan->insert($gettanya,$autoincr);
         }
-        // die(print_r($getpertanyaan));
-        $insert=$this->Kebutuhan->insert($purpose);
         if($insert){
           $this->session->set_flashdata(array('msg'=>'success'));
         }else{
@@ -203,15 +202,13 @@
     function editKebutuhan(){
       if(isset($_POST['submit'])){
         $kebutuhan=$this->input->post('detailkebutuhan',TRUE);
+        $tahun=$this->input->post('thnkebutuhan',TRUE);
         $idkebutuhan=$this->input->post('idkebutuhanincr',TRUE);
-        // die(print_r($idkebutuhan));
-        $update=$this->Kebutuhan->update($kebutuhan,$idkebutuhan);
+        $update=$this->Kebutuhan->update($kebutuhan,$tahun,$idkebutuhan);
         $delete=$this->listpertanyaan->deleteByKebutuhan($idkebutuhan);
         $pertanyaan = $this->input->post('pertanyaan[]');
-        // die(print_r($pertanyaan));
         foreach ($pertanyaan as $idpertanyaan) {
           $updateListPertanyaan = $this->listpertanyaan->insert($idpertanyaan,$idkebutuhan);
-          // die();
         }
         if($update && $updateListPertanyaan){
           if($update){
@@ -226,6 +223,7 @@
     function hapusKebutuhan(){
       $id=$this->input->post('hapuskebutuhan',TRUE);
       $delete=$this->Kebutuhan->hapus($id);
+      $delete2=$this->listpertanyaan->deleteByKebutuhan($id);
       if ($delete){
         $this->session->set_flashdata(array('msg_delete'=>'success'));
       }else{
@@ -233,7 +231,11 @@
       }
       echo "<script>window/history.back()</script>";
     }
-    function hasil(){
+    function hasil($idkebutuhan){
+      $kebutuhan=$this->Kebutuhan->getKebutuhanById($idkebutuhan);
+      $data['responden']=$this->Tamu->getResponden($kebutuhan['tahun']);
+      // die(print_r($data['responden']));
+      $data['listpertanyaan']=$this->listpertanyaan->getListPertanyaanByKebutuhan($idkebutuhan);
       $data['content']='admin/pengaturan/kebutuhan/hasil';
       $this->load->view('template/admin_template',$data);
     }

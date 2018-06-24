@@ -38,5 +38,13 @@
 
       }
     }
+
+    public function addDigit($param){
+      if(strlen($param)==1){
+        return '0'.$param;
+      }else{
+        return $param;
+      }
+    }
   }
  ?>
