@@ -85,10 +85,14 @@
         return FALSE;
       }
     }
-
-    // public function getCountPerTahun($tahun){
-    //   $query = "SELECT COUNT(*) FROM tamu ";
-    // }
-
+    public function getTamuByKeperluan($val){
+      $query="SELECT COUNT(*) AS data, keperluan.nama_keperluan AS name FROM tamu LEFT JOIN keperluan ON tamu.id_keperluan=keperluan.id_keperluan WHERE SUBSTRING_INDEX(waktu,'-',2)='$val' GROUP BY nama_keperluan ";
+      $result=$this->db->query($query);
+      if($result->num_rows()>0){
+        return $result->result();
+      }else{
+        return FALSE;
+      }
+    }
 }
  ?>

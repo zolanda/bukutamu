@@ -30,7 +30,7 @@
                     <input type="text" class="form-control" id="user" name="user" disabled value="<?=$nama_admin?>">
                   </div>
                 </div>
-                <br>
+                
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Password Lama</label>
                   <div class="col-sm-10">

@@ -181,6 +181,28 @@ class MengelolaTamu extends CI_Controller{
       echo json_encode($response);
     }
   }
+  function getDataKeperluan(){
+    if(!$this->input->post('tahun')){
+      echo "<script>window.history.back()</script>";
+    }else {
+      $tahun=$this->input->post('tahun',TRUE);
+      $bulan=$this->input->post('bulan',TRUE);
+      $val=$tahun.'-'.$bulan;
+      $result=[];
+      // $val='2018-01';
+      $data=$this->tamu->getTamuByKeperluan($val);
+      if($data!=false){
+        foreach($data as $val){
+          $array['data']=[(int)$val->data];
+          $array['name']=$val->name;
+          array_push($result,$array);
+        }
+      }else{
+        $result=false;
+      }
+      echo json_encode($result);
+    }
+  }
 
 }
  ?>
