@@ -53,6 +53,7 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user-circle-o"></i>
               <span class="hidden-xs"><?php echo $this->session->userdata('nama_user') ?></span>
             </a>
             <ul class="dropdown-menu">
@@ -69,10 +70,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<?=base_url()?>admin/editprofile" class="btn btn-default btn-flat">Profile</a>
+                  <a href="<?=base_url()?>admin/editprofile" class="btn btn-default bg-green"><i class="fa fa-key"></i>Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?=base_url()?>authenticate/logout" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?=base_url()?>authenticate/logout" class="btn btn-default bg-red"><i class="fa fa-sign-out"></i>Sign out</a>
                 </div>
               </li>
             </ul>
@@ -102,7 +103,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a href="<?=base_url()?>Admin/dashboard">
+          <a href="<?=base_url()?>admin/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -179,23 +180,6 @@
     reserved.
   </footer>
 
-  <!-- Control Sidebar -->
-  <!-- <aside class="control-sidebar control-sidebar-dark">
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-    </div>
-  </aside> -->
-  <!-- <div class="control-sidebar-bg"></div> -->
-</div>
-<!-- ./wrapper -->
-<!--
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script> -->
 <script src="<?=base_url()?>template_admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/select2/dist/js/select2.full.min.js"></script>
 <script src="<?=base_url()?>template_admin/plugins/input-mask/jquery.inputmask.js"></script>
@@ -223,10 +207,5 @@
 <script src="<?=base_url()?>template_admin/bower_components/Flot/jquery.flot.resize.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/Flot/jquery.flot.pie.js"></script>
 <script src="<?=base_url()?>template_admin/bower_components/Flot/jquery.flot.categories.js"></script>
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script> -->
-
 </body>
 </html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

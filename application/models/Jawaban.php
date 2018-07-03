@@ -4,9 +4,9 @@ class Jawaban extends CI_Model{
       parent::__construct();
     }
 
-    public function insert($jawaban, $id_pengunjung, $id_pertanyaan){
-      $query="INSERT INTO jawaban LEFT JOIN JawabanPengunjung (jawaban, id_pengunjung, id_pertanyaan, waktu) VALUES
-      ('$jawaban', '$id_pengunjung','$id_pertanyaan',NOW())";
+    public function insert($jawaban, $id_pertanyaan, $point){
+      $query="INSERT INTO jawaban (jawaban, id_pertanyaan, poin) VALUES
+      ('$jawaban','$id_pertanyaan','$point')";
       return $this->db->query($query);
     }
     public function getJawabanByPertanyaan($idpertanyaan){
@@ -27,8 +27,8 @@ class Jawaban extends CI_Model{
         return FALSE;
       }
     }
-    public function update($jawaban, $idjawaban){
-      $query="UPDATE jawaban SET jawaban='$jawaban' WHERE id_jawaban='$idjawaban' ";
+    public function update($jawaban, $idjawaban, $point){
+      $query="UPDATE jawaban SET jawaban='$jawaban' , poin='$point' WHERE id_jawaban='$idjawaban' ";
       return $this->db->query($query);
     }
     public function hapus($id){

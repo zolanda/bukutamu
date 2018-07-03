@@ -25,7 +25,7 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>No</th>
+                <th><center>No</center></th>
                 <th>Nama Jawaban</th>
                 <th>Point</th>
                 <th><center>Perintah</center></th>
@@ -36,9 +36,9 @@
                 $i=1;
                 foreach($jawaban as $jawab){?>
                   <tr>
-                    <td><?=$i++?></td>
+                    <td><center><?=$i++;?></center></td>
                     <td><?=$jawab->jawaban?><td>
-                    <!-- <td></td> -->
+                    <td><?=$jawab->poin?></td>
                     <td>
                         <center>
                           <button href="#" data-toggle="popover" data-placement="left" title="" data-content="Edit Jawaban" data-original-title="" class="message btn btn-sm btn-warning" onclick="editJawaban('<?=$jawab->id_jawaban?>')" ><i class="fa fa-edit" aria-hidden="true"> </i></button>
@@ -66,10 +66,13 @@
         <p>Jawaban</p>
         <?=form_open('',array('method'=>'post','id'=>'selection','role'=>'form'))?>
         <input class="form-control" type="text" name="jawaban" placeholder="Masukkan Jawaban">
+        <input class="form-control" type="hidden" name="idpertanyaan" value="<?=$idpertanyaan?>">
+        <br>
+        <input class="form-control" type="number" name="point" placeholder="Masukkan Poin dari Jawaban" value="">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-default" name="simpanjawaban">Simpan</button>
+        <button type="submit" class="btn btn-default" name="simpanjawaban" value="submit">Simpan</button>
         <?=form_close()?>
       </div>
     </div>
@@ -85,8 +88,10 @@
       <div class="modal-body">
         <p>Detail Jawaban</p>
         <?=form_open(base_url().'MengelolaPengaturan/editJawaban',array('method'=>'post','id'=>'selection','role'=>'form'))?>
-        <input class="form-control" type="text" id="detailjawaban" name="jawaban" value="">
+        <input class="form-control" type="text" id="detailjawaban" name="detailjawaban" value="">
         <input type="hidden" name="ideditjawaban" id="ideditjawaban"value="">
+        <br>
+        <input class="form-control" type="number" id="point" name="point" placeholder="Masukkan Poin dari Jawaban" value="">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
@@ -134,6 +139,7 @@
         console.log(data.jawaban);
         $('#ideditjawaban').val(data.jawaban.id_jawaban);
         $('#detailjawaban').val(data.jawaban.jawaban);
+        $('#point').val(data.jawaban.poin);
         $('#ModalEditJawaban').modal('show');
       }
     })

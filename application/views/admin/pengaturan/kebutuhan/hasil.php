@@ -1,9 +1,9 @@
-<div class="content-wrapper">
+<div class="content-wrapper" style="min-height:916px;">
   <section class="content-header">
-    <h3><i class="fa fa-vcard-o">Kebutuhan</i></h3>
+    <h3><i class="fa fa-vcard-o"></i>Kebutuhan</h3>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</li></a>
-      <li><a href="#"><i class="fa fa-vcard-o"></i>Pengaturan</li></a>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+      <li><a href="#"><i class="fa fa-vcard-o"></i>Pengaturan</a></li>
       <li class="active"><i class="fa fa-folder-open-o"></i>List Kebutuhan</li>
     </ol>
   </section>
@@ -15,14 +15,10 @@
             <h3 class="box-title"><i class="fa fa-folder-open-o"></i>List Kebutuhan</h3>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="invoice">
-      <div class="row">
-        <div class="col-sm-12">
+        <div class="box-body">
           <h2 class="page-header">
             <i class="fa fa-globe" > Hasil Indeks Kepuasan Masyarakat</i>
-              <!-- <input type="hidden" name="idkeb" value=""> -->
+            <!-- <input type="hidden" name="idkeb" value=""> -->
             <small class="pull-right">Date : 2/10/2018</small>
           </h2>
         </div>
@@ -98,6 +94,7 @@
           <div id="hasilgrafik"></div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 </div>

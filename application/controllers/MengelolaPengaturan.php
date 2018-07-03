@@ -60,7 +60,6 @@
       }else{
         $this->session->set_flashdata(array('msg_delete'=>'failed'));
       }
-      // header('location'.base_url('admin/pertanyaan'));
       echo "<script>window.location.replace('".base_url()."MengelolaPengaturan/keperluan')</script>";
   }
     function pertanyaan(){
@@ -115,18 +114,21 @@
       echo "<script>window.location.replace('".base_url()."MengelolaPengaturan/pertanyaan')</script>";
   }
     function jawaban($idpertanyaan){
+      // die(print_r($_POST['simpanjawaban' ]));
       if(isset($_POST['simpanjawaban' ])){
         $jawaban=$this->input->post('jawaban',TRUE);
-        $id_pengunjung=$this->input->post('id_pengunjung',TRUE);
-        $id_pertanyaan=$this->input->post('id_pertanyaan',TRUE);
-        $insert=$this->Jawaban->insert($jawaban,$id_pengunjung,$id_pertanyaan);
+        $id_pertanyaan=$this->input->post('idpertanyaan',TRUE);
+        $point=$this->input->post('point',TRUE);
+        // die(print_r($point));
+        $insert=$this->Jawaban->insert($jawaban,$id_pertanyaan,$point);
         if($insert){
           $this->session->set_flashdata(array('msg'=>'success'));
         }else{
           $this->session->set_flashdata(array('msg'=>'failed'));
         }
-        header('location'.base_url('admin/pengaturan/jawaban'));
+        header('location:'.base_url('MengelolaPengaturan/jawaban/'.$idpertanyaan.''));
       }
+      $data['idpertanyaan']=$idpertanyaan;
       $data['jawaban']=$this->Jawaban->getJawabanByPertanyaan($idpertanyaan);
       $data['content']='admin/pengaturan/jawaban';
       $this->load->view('template/admin_template',$data);
@@ -144,14 +146,15 @@
       if(isset($_POST['update'])) {
         $jawaban=$this->input->post('detailjawaban',TRUE);
         $idjawaban=$this->input->post('ideditjawaban',TRUE);
-        $update=$this->Jawaban->update($jawaban,$idjawaban);
+        $point=$this->input->post('point',TRUE);
+        $update=$this->Jawaban->update($jawaban,$idjawaban,$point);
         if($update){
           $this->session->set_flashdata(array('msg_editjawaban'=>'success'));
         }else{
           $this->session->set_flashdata(array('msg_editjawaban'=>'failed'));
         }
       }
-      echo "<script>window.location.replace('".base_url()."admin/pengaturan/jawaban')</script>";
+      echo "<script>window.history.back()</script>";
     }
     function hapusJawaban(){
       $id=$this->input->post('hapusjawaban',TRUE);
