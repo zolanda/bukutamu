@@ -29,22 +29,20 @@
         $this->form_validation->set_rules('confirmpassword','confirmpassword', 'required|min_length[5]|max_length[18]|trim|strip_tags',array(''));
         if($this->form_validation->run()!=FALSE){
           $oldpass=$this->input->post('oldpassword',TRUE);
-          //die(print_r($oldpass));
           $newpass=$this->input->post('newpassword',TRUE);
-          // die();
           $konfirmasi=$this->input->post('confirmpassword',TRUE);
           $lama=md5($oldpass);
           $baru=md5($newpass);
           $konf=md5($konfirmasi);
           $cek=$this->Admin->cek_login($this->session->userdata('username'),$lama);
-          // die(print_r($cek));
-          // die();
+
           if($baru!=$konf){
             $this->session->set_flashdata(['msg_editprofile'=>'<div class="alert alert-danger"><p>Password Baru dan Konfirmasi Password tidak sesuai</p></div>']);
           }else if($cek==false){
             $this->session->set_flashdata(['msg_editprofile'=>'<div class="alert alert-danger"><p>Password Lama tidak sesuai</p></div>']);
           }else{
-            $update=$this->Admin->updatePassword($this->session->userdata('id_admin'),$baru);
+            $update=$this->Admin->updatePassword($this->session->userdata('id'),$baru);
+            // die(print_r($this->session->userdata('id')));
             if($update!=false){
               $this->session->set_flashdata(['msg_editprofile'=>'<div class="alert alert-success"><p>Password berhasil diubah</p></div>']);
             }else{

@@ -34,7 +34,9 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Pertanyaan</th>
+                <!-- <th>Pertanyaan</th>
+                <th>Responden Tidak Puas</th> -->
+                <th>Responden Puas</th>
                 <th>Nilai Total</th>
                 <th>Rata - rata</th>
                 <th>Hasil</th>
@@ -44,16 +46,25 @@
               <!-- <?php // die(print_r($listpertanyaan)) ?> -->
               <?php if($listpertanyaan!=FALSE){
                 $i=1;
-                foreach($listpertanyaan as $listper){ ?>
+                foreach($listpertanyaan['hasil'] as $listper){ ?>
                   <tr>
                     <td><?=$i++?></td>
-                    <td><?=$listper->pertanyaan?></td>
-                    <td>40</td>
-                    <td>32</td>
-                    <td>Puas</td>
+                    <td><?=$listper['pertanyaan']?></td>
+                    <td><?=$listper['nilai']?></td>
+                    <td><?=$listper['rata']?></td>
+                    <td><?php if(($listper['rata'])>=1.5){
+                      echo "Puas";
+                      }  else{
+                        echo "Tidak Puas";
+                      }
+                    ?></td>
                   </tr>
                 <?php }
               } ?>
+              <tr>
+                <td colspan="2">Total</td>
+                <td><?=$listpertanyaan['hasil2']?></td>
+              </tr>
             </tbody>
           </table>
         </div>

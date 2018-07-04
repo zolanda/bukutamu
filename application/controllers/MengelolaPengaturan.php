@@ -238,9 +238,34 @@
       $kebutuhan=$this->Kebutuhan->getKebutuhanById($idkebutuhan);
       $data['responden']=$this->Tamu->getResponden($kebutuhan['tahun']);
       // die(print_r($data['responden']));
-      $data['listpertanyaan']=$this->listpertanyaan->getListPertanyaanByKebutuhan($idkebutuhan);
+      $listpertanyaan=$this->listpertanyaan->getListPertanyaanByKebutuhan($idkebutuhan);
+      if($listpertanyaan!=false){
+        $hitung=$this->hitungNilaiTotal($listpertanyaan);
+      }
+      $data['listpertanyaan']=$hitung;
       $data['content']='admin/pengaturan/kebutuhan/hasil';
       $this->load->view('template/admin_template',$data);
+    }
+    function hitungNilaiTotal($listpertanyaan){
+      $arraynilai=array();
+      $objek=array();
+      $hasil=array();
+      $total=0;
+      foreach($listpertanyaan as $listtanya){
+        $objek['pertanyaan']=$listtanya->pertanyaan;
+        $objek['nilai']=$this->JawabanPengunjung->getNilaiTotal($listtanya->id_pertanyaan)['nilai'];
+        $nilai2=$this->JawabanPengunjung->countResponden($listtanya->id_pertanyaan)['jmlresponden'];
+        if($nilai2 == 0){
+          $objek['rata']=0;
+        }else{
+          $objek['rata']=$objek['nilai']/ $nilai2;
+        }
+        $total=$total+$objek['nilai'];
+        array_push($arraynilai,$objek);
+      }
+      $hasil['hasil']=$arraynilai;
+      $hasil['hasil2']=$total;
+      return $hasil;
     }
   }
   ?>
