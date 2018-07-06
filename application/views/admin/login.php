@@ -95,10 +95,11 @@
   </style>
   <body class="hold-transition content-background">
     <div class="login-box">
-      <div class="login-logo cover" style="padding-left:90px;">
-        <a class="oxygen600"><b>E-</b>VISITOR</a>
+      <div class="login-logo cover" style="padding-left:10px;">
+        <img src="<?php echo base_url('includes/logo.png')?>" width="200" height="200";>
+        <br><a class="oxygen600"><b>E-</b>VISITOR</a>
         <h4 class="opensans" style="font-size:16px;">Sistem Informasi Pengunjung</h4>
-        <h4 class="opensans" style="font-weight:600;">Dinas Kearsipan</h4>
+        <h4 class="opensans" style="font-size:16px;"><center>Dinas Kearsipan dan Perpustakaan Provinsi Jawa Tengah</center></h4>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Masukan Username dan Password anda untuk Log In</p>

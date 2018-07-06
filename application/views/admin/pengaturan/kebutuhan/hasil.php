@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="container">
-        <p class="lead">Tabulasi Nilai</p>
+        <p class="lead"><b>Tabulasi Nilai</b></p>
         <div class="col-xs-12 centered">
           <table class="table table-bordered table-striped table-hover">
             <thead>
@@ -59,11 +59,11 @@
                 <?php }} ?>
               <tr>
                 <td colspan="2">Total</td>
-                <td><?=$listpertanyaan['hasil2']?></td>
+                <td colspan="3"><?=$listpertanyaan['hasil2']?></td>
               </tr>
               <tr>
                 <td colspan="2">Hasil</td>
-                <td id="hasilakhir"><?php if ($count==0){
+                <td colspan="3" id="hasilakhir"><?php if ($count==0){
                   echo "Netral";
                 }else if ($count>0){
                   echo "Puas";
@@ -76,9 +76,9 @@
         </div>
       </div>
       <div class="container">
-        <p class="lead">Data Responden</p>
+        <p class="lead"><b>Data Responden</b></p>
         <div class="col-xs-12 centered">
-          <table class="table table-bordered table-striped">
+          <table id="table" class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th>NO</th>
@@ -104,8 +104,8 @@
         </div>
       </div>
       <div class="container">
-        <p class="lead">Prosentase Pertanyaan</p>
-        <div class="col-xs-10 centered">
+        <p class="lead"><b>Prosentase Pertanyaan</b></p>
+        <div class="col-xs-8 centered">
           <table class="table table-bordered style-striped">
             <thead>
               <tr>
@@ -137,4 +137,7 @@
 </div>
 <script>
   $('#hasilsementara').html($('#hasilakhir').html());
+  $(document).ready(function(){
+    $('#table').DataTable();
+  })
 </script>
