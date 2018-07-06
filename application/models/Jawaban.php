@@ -35,7 +35,7 @@ class Jawaban extends CI_Model{
     $query="DELETE FROM jawaban WHERE id_jawaban='$id'";
     return $this->db->query($query);
   }
-
+  
 }
 
  ?>

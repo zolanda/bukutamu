@@ -242,7 +242,9 @@
       if($listpertanyaan!=false){
         $hitung=$this->hitungNilaiTotal($listpertanyaan);
       }
+      $data['kebutuhan']=$kebutuhan;
       $data['listpertanyaan']=$hitung;
+      $data['prosentase']=$this->prosentase($idkebutuhan);
       $data['content']='admin/pengaturan/kebutuhan/hasil';
       $this->load->view('template/admin_template',$data);
     }
@@ -266,6 +268,31 @@
       $hasil['hasil']=$arraynilai;
       $hasil['hasil2']=$total;
       return $hasil;
+    }
+    function prosentase($idkebutuhan){
+      $objekpertanyaan=array();
+      $all=array();
+      $listpertanyaan=$this->listpertanyaan->getListPertanyaanByKebutuhan($idkebutuhan);
+      if($listpertanyaan!=false){
+        foreach ($listpertanyaan as $listtanya){
+          $getjawaban=$this->Jawaban->getJawabanByPertanyaan($listtanya->id_pertanyaan);
+          if ($getjawaban!=false){
+            $arrayjawaban=array();
+            $total=0;
+            foreach($getjawaban as $jawaban){
+              $objekjawaban['namajawaban']=$jawaban->jawaban;
+              $objekjawaban['responden']=$this->JawabanPengunjung->countRespondenByJawaban($jawaban->id_jawaban)['hitungresponden'];
+              $total=$total+$objekjawaban['responden'];
+              array_push($arrayjawaban,$objekjawaban);
+            }
+            $objekpertanyaan['pertanyaan']=$listtanya->pertanyaan;
+            $objekpertanyaan['jawaban']=$arrayjawaban;
+            $objekpertanyaan['totalresponden']=$total;
+          }
+          array_push($all,$objekpertanyaan);
+        }
+      }
+      return $all;
     }
   }
   ?>
