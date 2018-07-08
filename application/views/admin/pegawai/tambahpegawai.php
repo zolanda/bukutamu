@@ -14,15 +14,15 @@
           <?=form_open('',array('method'=>'post','id'=>'formtambahpegawai','role'=>'form'))?>
               <div class="form-group">
                  <label for="nip">Nomor Induk</label>
-                 <input type="text" class="form-control" name="nip" placeholder="Nomor Induk Pegawai">
+                 <input type="text" class="form-control" name="nip" placeholder="Nomor Induk Pegawai" data-validation="required number">
               </div>
               <div class="form-group">
                  <label for="namapegawai">Nama Pegawai</label>
-                 <input type="text" class="form-control" name="namapegawai" placeholder="Nama Lengkap Pegawai">
+                 <input type="text" class="form-control" name="namapegawai" placeholder="Nama Lengkap Pegawai" data-validation="custom required" data-validation-regexp="^([a-zA-Z]+)([\s.,a-zA-Z]*)$">
               </div>
               <div class="form-group">
                 <label for="bagian">Bagian</label>
-                  <select class="form-control input-lg" name="bagian" width="100%">
+                  <select class="form-control input-lg" data-validation="required" name="bagian" width="100%">
                     <option value="">--Pilih Bagian--</option>
                     <?php if($bagian!=FALSE){
                       foreach ($bagian as $key) { ?>
@@ -49,3 +49,6 @@
     </div>
   </section>
 </div>
+<script type="text/javascript">
+  $.validate({})
+</script>

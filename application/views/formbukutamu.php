@@ -24,7 +24,7 @@
                       </div>
                       <div class="form-group">
                         <label class="fpns">INSTANSI / ALAMAT <em>(Wajib Diisi)</em></label>
-                        <input type="text" class="form-control input-lg" id="alamat" name="instansi" placeholder="Instansi anda bekerja / Alamat anda">
+                        <input type="text" class="form-control input-lg" id="alamat" name="instansi" placeholder="Instansi anda bekerja / Alamat anda" required>
                         <span class="err" id="invalid-alamat"></span>
                       </div>
                       <div class="form-group">
@@ -199,12 +199,11 @@
     number:true,
     minlength:7
   },
-  alamat: 'required',
+  instansi: 'required',
   nama: 'required',
-  // nomortelepon :'required',
+  nomortelepon :'required',
   keperluan: 'required',
   lainlain: 'required',
-  // pejabat: 'required',
   issendirian:'required',
   jumlahpengunjung:{
     required:true,
@@ -220,12 +219,11 @@
     number:"<i class='fa fa-close'></i> Format harus angka.",
     minlength:"<i class='fa fa-close'></i> Minimal 7 angka."
   },
-  alamat:"<i class='fa fa-close'></i> Anda belum menuliskan alamat.",
+  instansi:"<i class='fa fa-close'></i> Anda belum menuliskan alamat.",
   nama:"<i class='fa fa-close'></i> Anda belum menuliskan nama.",
-  // nomortelepon : "<i></i> Anda belum menuliskan nomor telepon",
+  nomortelepon : "<i class='fa fa-close'></i> Anda belum menuliskan nomor telepon",
   keperluan:"<i class='fa fa-close'></i> Anda belum menuliskan keperluan",
   lainlain:"<i class='fa fa-close'></i> Mohon di spesifik kembali keperluan anda",
-  // pejabat : "<i></i> Anda belum menuliskan pejabat yang ingin ditemui",
   issendirian:"<i class='fa fa-close'></i> Anda belum mengisi keterangan pengunjung.",
   jumlahpengunjung:{
     required:"<i class='fa fa-close'></i> Anda belum mengisi jumlah pengunjung.",

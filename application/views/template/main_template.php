@@ -16,7 +16,9 @@
   <link href="<?= base_url()?>/includes/home/font/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?= base_url()?>/includes/logo.png" rel="shortcut icon">
   <link href="<?= base_url()?>/includes/library/chosen/chosen.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <style type="text/css">
     .error{
       font-size:18px;
@@ -82,8 +84,9 @@
 </footer>
 </body>
 <script type="text/javascript" src="<?=base_url()?>includes/template_admin/chartjs/chart.js">
-
 </script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
 <script type="text/javascript">
     $("#place").hide();
     $('#webTicker').webTicker();

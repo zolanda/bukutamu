@@ -24,7 +24,6 @@
   background-color: #4CAF50;
 }
 </style>
-
 <div class="content-wrapper">
   <div class="container">
     <section id="wizard" style="font-size:18px; margin-top:20px;" >
@@ -54,15 +53,17 @@
                       <div class="container row">
                         <ul class="nav nav-pil ls">
                           <li>Konfirmasi</li>
+
                         </ul>
                       </div>
 
                     </div>
                   </div>
-              <div id="bar" class="progess active">
-                <div class="progress-bar progress-bar-warning progress-bar striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width : 0%;"> Konfirmasi
-                </div>
-              </div>
+                  <div class="progress ">
+                   <div class="progress-bar progress-bar-green" id='progressbar' style="width:" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                     <!-- <span class="sr-only">40% Complete</span> -->
+                   </div>
+                 </div>
               <form id="form" method="post">
                 <?php if($pertanyaan!=FALSE){
                   // die(/print_r($bykpertanyaan));
@@ -76,7 +77,7 @@
                     <div class="panel panel-default">
                       <div class="panel-body" style="padding:10px;">
                         <input type="hidden" name="idlistper" value="idlistper">
-                        <input type="radio" class="check" name="<?=$key ->id_pertanyaan ?>" value="<?=$j->id_jawaban?>" id="check" oninput="this.className = ''">
+                        <input type="radio" class="check inputan"  name="<?=$key ->id_pertanyaan ?>" value="<?=$j->id_jawaban?>" id="check" oninput="this.className = ''">
                         <?=$j->jawaban?>
                       </div>
                     </div>
@@ -114,16 +115,20 @@ $(document).ready(function(){
 $('[name="next"]').click(function(){
   if(i!=banyakkues){
     i++;
+    var progress = i/banyakkues*100;
     $('#kues'+i).show();
     $('#kues'+(i-1)).hide();
+    $('#progressbar').attr('style','width:'+progress+'%');
   }
 });
 
 $('[name="prev"]').click(function(){
   if(i!=1){
     i--;
+    var progress = i/banyakkues*100;
     $('#kues'+i).show();
     $('#kues'+(i+1)).hide();
+    $('#progressbar').attr('style','width:'+progress+'%');
   }
 });
 
@@ -132,6 +137,8 @@ function init(){
   for(j=2;j<=banyakkues;j++){
     $('#kues'+j).hide();
   }
+  var progress = 1/banyakkues*100;
+  $('#progressbar').attr('style','width:'+progress+'%');
 }
 
 </script>
