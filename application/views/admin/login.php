@@ -6,16 +6,16 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link href="<?= base_url()?>/includes/backend-lte/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url()?>/includes/backend-lte/css/adminlte.min.css" rel="stylesheet">
-  <link href="<?= base_url()?>/includes/backend-material/font-awesome/css/font-awesome.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oxygen:400,300,700|Muli:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
   <link href="<?= base_url()?>/includes/backend-lte/css/_all-skins.min.css" rel="stylesheet">
   <link href="<?= base_url()?>/includes/backend-lte/css/animate.css" rel="stylesheet">
-  <script src="<? base_url()?>/includes/backend-lte/js/jquery.js"></script>
+  <script src="<?= base_url()?>/includes/backend-lte/js/jquery.js"></script>
   <script src="<?= base_url()?>/includes/backend-lte/js/select2.full.min.js"></script>
   <script src="<?= base_url()?>/includes/backend-lte/js/bootstrap.min.js"></script>
   <script src="<?= base_url()?>includes/backend-lte/js/app.min.js"></script>
   <script src="<?= base_url()?>/includes/backend-lte/js/bootstrap-notify.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <script type="text/javascript">
     function notify(jenis,pesan){
@@ -124,14 +124,62 @@
             <button id="submit" name="login_user" value="Submit" class="btn bg-orange btn-block btn-lg btn-flat">Masuk</button>
           </div>
       </div>
-      <div class="login-box-footer"><div class="row">
+      <a id="resetpassword" data-toggle="modal" data-target="#ModalResetPassword"><center>Lupa Password ? Reset disini </center></a><br>
+      <div class="login-box-footer">
+        <div class="row">
             <div class="col-xs-12">
               Dinas Kearsipan Dan Perpustakaan Prov. Jateng
             </div>
-          </div></div>
+          </div>
+        </div>
       <?php echo form_close()?>
         </form>
     </div>
 </div>
+<div id="ModalResetPassword" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Reset Password</h4>
+      </div>
+      <div class="modal-body">
+        <input id="inputemail" class="form-control" type="text" name="resetpassword" placeholder="Masukkan email">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
+        <button type="button" class="btn btn-info" name="kirimemail" id="btnkirim">Kirim</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover({
+    trigger:"hover"
+  });
+});
+
+$('#btnkirim').click(function(){
+  // alert();
+  var email=$('#inputemail').val();
+  // swal();
+  $.ajax({
+    method:'post',
+    url:"<?= base_url('ResetPassword')?>",
+    dataType:'json',
+    data:{'email':email},
+    success:function(data){
+      console.log(data);
+      console.log('masuk')
+      // $('#ModalResetPassword').
+    },
+    complete:function(){
+
+    }, error:function(err){
+      console.log(err);
+    }
+  })
+})
+</script>
 </body>
 </html>

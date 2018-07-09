@@ -16,7 +16,7 @@
         $no_induk=$this->input->post('nip',TRUE);
         $nama_pegawai=$this->input->post('namapegawai',TRUE);
         $id_bagian=$this->input->post('bagian',TRUE);
-
+        
         $insert=$this->Pegawai->insert($no_induk,$nama_pegawai,$id_bagian);
         if($insert){
           $this->session->set_flashdata(array('msg'=>'success'));
