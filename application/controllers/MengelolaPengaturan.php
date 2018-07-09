@@ -240,7 +240,7 @@
       // die(print_r($data['responden']));
       $listpertanyaan=$this->listpertanyaan->getListPertanyaanByKebutuhan($idkebutuhan);
       if($listpertanyaan!=false){
-        $hitung=$this->hitungNilaiTotal($listpertanyaan);
+        $hitung=$this->hitungNilaiTotal($listpertanyaan,$kebutuhan['tahun']);
       }
       $data['kebutuhan']=$kebutuhan;
       $data['listpertanyaan']=$hitung;
@@ -248,7 +248,7 @@
       $data['content']='admin/pengaturan/kebutuhan/hasil';
       $this->load->view('template/admin_template',$data);
     }
-    function hitungNilaiTotal($listpertanyaan){
+    function hitungNilaiTotal($listpertanyaan,$tahun){
       $arraynilai=array();
       $objek=array();
       $hasil=array();
@@ -256,7 +256,7 @@
       foreach($listpertanyaan as $listtanya){
         $objek['pertanyaan']=$listtanya->pertanyaan;
         $objek['nilai']=$this->JawabanPengunjung->getNilaiTotal($listtanya->id_pertanyaan)['nilai'];
-        $nilai2=$this->JawabanPengunjung->countResponden($listtanya->id_pertanyaan)['jmlresponden'];
+        $nilai2=$this->JawabanPengunjung->countResponden($listtanya->id_pertanyaan,$tahun)['jmlresponden'];
         if($nilai2 == 0){
           $objek['rata']=0;
         }else{

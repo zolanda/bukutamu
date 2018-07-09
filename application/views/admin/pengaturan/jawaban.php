@@ -37,7 +37,7 @@
                 foreach($jawaban as $jawab){?>
                   <tr>
                     <td><center><?=$i++;?></center></td>
-                    <td><?=$jawab->jawaban?><td>
+                    <td><?=$jawab->jawaban?></td>
                     <td><?=$jawab->poin?></td>
                     <td>
                         <center>

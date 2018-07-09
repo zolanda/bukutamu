@@ -14,7 +14,7 @@
           <?=form_open('',array('method'=>'post','id'=>'formtambahpegawai','role'=>'form'))?>
               <div class="form-group">
                  <label for="namapegawai">Nama Bagian</label>
-                 <input type="text" class="form-control" name="namabagian" placeholder="Masukan Bagian Kepegawaian">
+                 <input type="text" class="form-control" name="namabagian" placeholder="Masukan Bagian Kepegawaian" data-validation="custom required" data-validation-regexp="^([a-zA-Z]+)([\s.,a-zA-Z]*)$">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-success" name="submit">Simpan</button>
@@ -136,4 +136,5 @@ function hapusBagian(value){
   $('#deletebagian').val(value);
   $('#ModalHapusBagian').modal('show');
 }
+$.validate({})
 </script>

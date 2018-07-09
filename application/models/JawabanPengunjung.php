@@ -18,8 +18,8 @@ class JawabanPengunjung extends CI_Model{
         return FALSE;
       }
     }
-    public function countResponden($idpertanyaan){
-      $query="SELECT COUNT(*) as jmlresponden FROM jawaban_pengunjung LEFT JOIN Jawaban ON jawaban_pengunjung.id_jawaban=jawaban.id_jawaban LEFT JOIN list_pertanyaan ON jawaban.id_pertanyaan=list_pertanyaan.id_pertanyaan WHERE jawaban.id_pertanyaan = '$idpertanyaan'";
+    public function countResponden($idpertanyaan,$tahun){
+      $query="SELECT COUNT(*) as jmlresponden FROM jawaban_pengunjung LEFT JOIN Jawaban ON jawaban_pengunjung.id_jawaban=jawaban.id_jawaban LEFT JOIN list_pertanyaan ON jawaban.id_pertanyaan=list_pertanyaan.id_pertanyaan WHERE jawaban.id_pertanyaan = '$idpertanyaan' AND SUBSTRING_INDEX(waktu,'-',1)='$tahun'";
       $result=$this->db->query($query);
       if($result->num_rows()>0){
         return $result->row_array();

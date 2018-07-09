@@ -8,6 +8,9 @@
       $this->load->model('Bagian');
       $this->load->model('Pertanyaan');
       $this->load->model('Jawaban');
+      $this->load->model('JawabanPengunjung');
+      $this->load->model('Kebutuhan');
+      $this->load->model('listpertanyaan');
       $this->load->library('form_validation');
       $this->load->library('session');
       if(!$this->session->userdata('masuk_admin')){
@@ -18,6 +21,33 @@
       $this->load->view('template/admin_template');
     }
     function dashboard(){
+      $kebutuhan=$this->Kebutuhan->getAllData();
+      $arraykebutuhan = array();
+      $total=0;
+      if($kebutuhan!=FALSE){
+        foreach($kebutuhan as $kb){
+          $objkebutuhan['kebutuhan']=$kb->purpose;
+          $objkebutuhan['tahun']=$kb->tahun;
+          $objkebutuhan['pertanyaan']=$this->listpertanyaan->countPertanyaanByKebutuhan($kb->id_kebutuhan)['jumlah'];
+          $temppertanyaan=$this->listpertanyaan->getListPertanyaanByKebutuhan($kb->id_kebutuhan);
+          if($temppertanyaan!=FALSE){
+            foreach ($temppertanyaan as $temp){
+              $hitung= $this->JawabanPengunjung->countresponden($temp->id_pertanyaan,$kb->tahun)['jmlresponden'];
+              $total=$total+$hitung;
+            }
+            $objkebutuhan['responden']=$total;
+          }
+          else{
+            $objkebutuhan['responden']=0;
+          }
+          $objkebutuhan['hasil']='-';
+          array_push($arraykebutuhan,$objkebutuhan);
+        }
+
+      }
+      // $data['responden']=$this->Tamu->getResponden($kebutuhan['tahun']);
+      $data['kebutuhan']=$arraykebutuhan;
+      // $data['listpertanyaan']=$hitung;
       $data['content']='admin/dashboard';
       $this->load->view('template/admin_template',$data);
     }

@@ -102,11 +102,11 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a href="<?=base_url()?>admin/dashboard">
+          <a href="<?=base_url()?>Admin/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview">
+        <!-- <li class="treeview">
           <a href="#">
             <i class="fa fa-credit-card"></i>
             <span>Akun Pengguna</span>
@@ -120,7 +120,7 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Role Pengguna</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Informasi Pengguna</a></li>
           </ul>
-        </li>
+        </li> -->
         <li class="treeview">
           <a href="#">
             <i class="fa fa-wrench"></i>
