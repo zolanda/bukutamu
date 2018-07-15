@@ -101,8 +101,8 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="<?=base_url()?>Admin/dashboard">
+        <li>
+          <a href="<?=base_url()?>admin/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -116,7 +116,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-circle-o"></i> Akun Pengguna </a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Grup Pengguna</a></li>
+            <li><a href="#"><i class="fa fa-circ le-o"></i> Grup Pengguna</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Role Pengguna</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Informasi Pengguna</a></li>
           </ul>
