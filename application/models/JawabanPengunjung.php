@@ -4,9 +4,9 @@ class JawabanPengunjung extends CI_Model{
       parent::__construct();
     }
 
-    public function insert($jawaban, $id_pengunjung){
-      $query="INSERT INTO jawaban_pengunjung(id_jawaban, id_pengunjung, waktu) VALUES
-      ('$jawaban', '$id_pengunjung',NOW())";
+    public function insert($jawaban, $id_tamu){
+      $query="INSERT INTO jawaban_pengunjung(id_jawaban, id_tamu, waktu) VALUES
+      ('$jawaban', '$id_tamu',NOW())";
       return $this->db->query($query);
     }
     public function getNilaiTotal($idpertanyaan){

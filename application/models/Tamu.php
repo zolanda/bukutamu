@@ -77,7 +77,7 @@
     }
 
     public function getResponden($waktu){
-      $query="SELECT * FROM tamu WHERE no_pengunjung!='' AND SUBSTRING_INDEX(waktu,'-',1)='$waktu'";
+      $query="SELECT * FROM tamu LEFT JOIN jawaban_pengunjung ON tamu.id_tamu=jawaban_pengunjung.id_tamu WHERE no_pengunjung!='' AND SUBSTRING_INDEX(tamu.waktu,'-',1)='$waktu' AND jawaban_pengunjung.waktu!='' GROUP BY tamu.id_tamu";
       $result=$this->db->query($query);
       if($result->num_rows()>0){
         return $result->result();
@@ -85,6 +85,7 @@
         return FALSE;
       }
     }
+
     public function getTamuByKeperluan($val){
       $query="SELECT COUNT(*) AS data, keperluan.nama_keperluan AS name FROM tamu LEFT JOIN keperluan ON tamu.id_keperluan=keperluan.id_keperluan WHERE SUBSTRING_INDEX(waktu,'-',2)='$val' GROUP BY nama_keperluan ";
       $result=$this->db->query($query);

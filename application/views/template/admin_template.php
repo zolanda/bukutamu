@@ -24,7 +24,6 @@
   <link rel="stylesheet" href="<?=base_url()?>template_admin/dist/css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/morris.js/morris.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/jvectormap/jquery-jvectormap.css">
-  <script src="<?=base_url()?>includes/library/js/bootstrap-datepicker.js"></script>
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="<?=base_url()?>includes/library/css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
@@ -33,6 +32,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+<script src="<?=base_url()?>includes/library/js/bootstrap-datepicker.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

@@ -249,6 +249,7 @@
       $this->load->view('template/admin_template',$data);
     }
     function hitungNilaiTotal($listpertanyaan,$tahun){
+      // die(print_r($listpertanyaan));s
       $arraynilai=array();
       $objek=array();
       $hasil=array();
@@ -257,6 +258,7 @@
         $objek['pertanyaan']=$listtanya->pertanyaan;
         $objek['nilai']=$this->JawabanPengunjung->getNilaiTotal($listtanya->id_pertanyaan)['nilai'];
         $nilai2=$this->JawabanPengunjung->countResponden($listtanya->id_pertanyaan,$tahun)['jmlresponden'];
+        // die(print_r($nilai2));
         if($nilai2 == 0){
           $objek['rata']=0;
         }else{
@@ -265,6 +267,8 @@
         $total=$total+$objek['nilai'];
         array_push($arraynilai,$objek);
       }
+      die(print_r($arraynilai));
+      // die(print_r(sizeof($listpertanyaan)));
       $hasil['hasil']=$arraynilai;
       $hasil['hasil2']=$total;
       return $hasil;

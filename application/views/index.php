@@ -52,10 +52,10 @@
                     <div class="col-lg-12">
                       <div>
                         <center>
-                          <a href="<?=base_url()?>MengelolaLaporan/laporangrafik"class="btn btn-app bg-orange">
+                          <a href="<?=base_url()?>MengelolaTamu/laporangrafik"class="btn btn-app bg-orange">
                             <i class="fa fa-bar-chart-o"></i> Grafik Pengunjung
                           </a>
-                          <a href="<?=base_url()?>MengelolaLaporan/laporanhasilkuesioner"class="btn btn-app bg-olive">
+                          <a href="<?=base_url()?>MengelolaTamu/laporanhasilkuesioner"class="btn btn-app bg-olive">
                             <i class="fa fa-bar-chart-o"></i> Hasil Kuesioner
                           </a>
                         </center>
