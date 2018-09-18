@@ -18,7 +18,7 @@
                   <!-- <form method="post" action='' role="form" id="formbukutamu"> -->
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="fpns">IDENTITAS <em>(Wajib Diisi)</em></label>
+                        <label class="fpns">NOMOR IDENTITAS <em>(Wajib Diisi)</em></label>
                         <input type="text" class="form-control input-lg" id="identitas" name="identitas" placeholder="Kartu Tanda Penduduk / SIM / Kartu Pelajar">
                         <span class="err" id="invalid-identitas"></span>
                       </div>

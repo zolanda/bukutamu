@@ -114,12 +114,10 @@
       echo "<script>window.location.replace('".base_url()."MengelolaPengaturan/pertanyaan')</script>";
   }
     function jawaban($idpertanyaan){
-      // die(print_r($_POST['simpanjawaban' ]));
       if(isset($_POST['simpanjawaban' ])){
         $jawaban=$this->input->post('jawaban',TRUE);
         $id_pertanyaan=$this->input->post('idpertanyaan',TRUE);
         $point=$this->input->post('point',TRUE);
-        // die(print_r($point));
         $insert=$this->Jawaban->insert($jawaban,$id_pertanyaan,$point);
         if($insert){
           $this->session->set_flashdata(array('msg'=>'success'));
@@ -237,7 +235,6 @@
     function hasil($idkebutuhan){
       $kebutuhan=$this->Kebutuhan->getKebutuhanById($idkebutuhan);
       $data['responden']=$this->Tamu->getResponden($kebutuhan['tahun']);
-      // die(print_r($data['responden']));
       $listpertanyaan=$this->listpertanyaan->getListPertanyaanByKebutuhan($idkebutuhan);
       if($listpertanyaan!=false){
         $hitung=$this->hitungNilaiTotal($listpertanyaan,$kebutuhan['tahun']);
@@ -249,26 +246,25 @@
       $this->load->view('template/admin_template',$data);
     }
     function hitungNilaiTotal($listpertanyaan,$tahun){
-      // die(print_r($listpertanyaan));s
       $arraynilai=array();
       $objek=array();
       $hasil=array();
       $total=0;
       foreach($listpertanyaan as $listtanya){
         $objek['pertanyaan']=$listtanya->pertanyaan;
-        $objek['nilai']=$this->JawabanPengunjung->getNilaiTotal($listtanya->id_pertanyaan)['nilai'];
-        $nilai2=$this->JawabanPengunjung->countResponden($listtanya->id_pertanyaan,$tahun)['jmlresponden'];
+        // die(print_r($listtanya));
+        $banyak_pertanyaan = $this->listpertanyaan->countPertanyaan($listtanya->id_pertanyaan)['jumlah'];
+        $objek['nilai']=$this->JawabanPengunjung->getNilaiTotal($listtanya->id_pertanyaan)['nilai']/$banyak_pertanyaan;
+        $nilai2=$this->JawabanPengunjung->countResponden($listtanya->id_pertanyaan,$tahun)['jmlresponden']/$banyak_pertanyaan;
         // die(print_r($nilai2));
         if($nilai2 == 0){
           $objek['rata']=0;
         }else{
-          $objek['rata']=$objek['nilai']/ $nilai2;
+          $objek['rata']=$objek['nilai']/$nilai2;
         }
-        $total=$total+$objek['nilai'];
+        $total=$total+($objek['nilai']);
         array_push($arraynilai,$objek);
       }
-      die(print_r($arraynilai));
-      // die(print_r(sizeof($listpertanyaan)));
       $hasil['hasil']=$arraynilai;
       $hasil['hasil2']=$total;
       return $hasil;

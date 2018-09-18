@@ -41,7 +41,6 @@
                 </thead>
                 <tbody>
                   <?php if($kebutuhan!=FALSE){
-                    // die(print_r($pertanyaan));
                     $i=1;
                     foreach ($kebutuhan as $kbutuhn) { ?>
                       <tr>

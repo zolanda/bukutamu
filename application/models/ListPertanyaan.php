@@ -33,5 +33,15 @@ class ListPertanyaan extends CI_Model{
       return FALSE;
     }
   }
+
+  public function countPertanyaan($idpertanyaan){
+    $query="SELECT COUNT(*) AS jumlah FROM list_pertanyaan WHERE id_pertanyaan = '$idpertanyaan' ";
+    $result=$this->db->query($query);
+    if($result->num_rows()>0){
+      return $result->row_array();
+    }else{
+      return FALSE;
+    }
+  }
 }
  ?>

@@ -51,10 +51,10 @@
                   <div class="navbar">
                     <div class="navbar-inner">
                       <div class="container row">
-                        <ul class="nav nav-pil ls">
+                        <!-- <ul class="nav nav-pil ls">
                           <li>Konfirmasi</li>
 
-                        </ul>
+                        </ul> -->
                       </div>
 
                     </div>
