@@ -23,14 +23,14 @@
                         <span class="err" id="invalid-identitas"></span>
                       </div>
                       <div class="form-group">
-                        <label class="fpns">INSTANSI / ALAMAT <em>(Wajib Diisi)</em></label>
-                        <input type="text" class="form-control input-lg" id="alamat" name="instansi" placeholder="Instansi anda bekerja / Alamat anda" required>
-                        <span class="err" id="invalid-alamat"></span>
-                      </div>
-                      <div class="form-group">
                         <label class="fpns">NAMA <em>(Wajib Diisi)</em></label>
                         <input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Nama Lengkap Anda">
                         <span class="err" id="invalid-nama"></span>
+                      </div>
+                      <div class="form-group">
+                        <label class="fpns">INSTANSI / ALAMAT <em>(Wajib Diisi)</em></label>
+                        <input type="text" class="form-control input-lg" id="alamat" name="instansi" placeholder="Instansi anda bekerja / Alamat anda" required>
+                        <span class="err" id="invalid-alamat"></span>
                       </div>
                       <div class="form-group">
                         <label class="fpns">NOMOR HP <em>(Data akan kami jaga kerahasiaannya)</em></label>

@@ -76,8 +76,8 @@
                   <?php foreach($jawaban[$key->id_pertanyaan] as $j){?>
                     <div class="panel panel-default">
                       <div class="panel-body" style="padding:10px;">
-                        <input type="hidden" name="idlistper" value="idlistper">
-                        <input type="radio" class="check inputan"  name="<?=$key ->id_pertanyaan ?>" value="<?=$j->id_jawaban?>" id="check" oninput="this.className = ''">
+                        <!-- <input type="hidden" name="idlistper" value="idlistper"> -->
+                        <input type="radio" class="check inputan"  name="<?=$key ->id_pertanyaan ?>" value="<?=$j->id_jawaban?>" id="check" oninput="this.className = ''" onchange="validate(this)">
                         <?=$j->jawaban?>
                       </div>
                     </div>
@@ -120,6 +120,7 @@ $('[name="next"]').click(function(){
     $('#kues'+(i-1)).hide();
     $('#progressbar').attr('style','width:'+progress+'%');
   }
+  $('[name="next"]').hide();
 });
 
 $('[name="prev"]').click(function(){
@@ -130,15 +131,37 @@ $('[name="prev"]').click(function(){
     $('#kues'+(i+1)).hide();
     $('#progressbar').attr('style','width:'+progress+'%');
   }
+  $('[name="next"]').show();
 });
 
 function init(){
+  $('[name="next"]').hide();
   $('#kues').show();
   for(j=2;j<=banyakkues;j++){
     $('#kues'+j).hide();
   }
   var progress = 1/banyakkues*100;
   $('#progressbar').attr('style','width:'+progress+'%');
+}
+
+function validate(e){
+  // console.log(e.name);
+  var valid = false;
+  var iterate=0;
+  var name = $("[name="+e.name+"]");
+  // console.log(name[0].checked)
+  for(iterate=0; iterate<name.length; iterate++){
+    if(name[iterate].checked==true){
+      valid = true;
+      iterate ++
+    }
+  }
+  if(valid==true){
+    $('[name="next"]').show();
+  }else{
+    $('[name="next"]').hide();
+  }
+
 }
 
 </script>
