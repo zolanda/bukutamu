@@ -75,7 +75,7 @@
           <p>Kebutuhan IKM</p>
           <?=form_open('',array('method'=>'post','id'=>'selection','role'=>'form'))?>
           <div class="form-group">
-            <input class="form-control" type="text" name="kebutuhan" placeholder="Deskripsikan dengan singkat kebutuhan IKM">
+            <input class="form-control" type="text" name="kebutuhan" placeholder="Deskripsikan dengan singkat kebutuhan IKM" required>
           </div>
             <div class="form-group ">
               <select class="form-control" type="text" name="tahunkebutuhan">
@@ -90,11 +90,10 @@
           <label><span style="margin-left:18px"> Centang Pertanyaan</span></label>
           <?php foreach($pertanyaan as $data) {?>
           <blockquote>
-            <input type="checkbox"  name="pertanyaan[]" value="<?=$data->id_pertanyaan ?>"> <?=ucwords($data->pertanyaan)?>
+            <input type="checkbox"  name="pertanyaan[]" value="<?=$data->id_pertanyaan ?>" required> <?=ucwords($data->pertanyaan)?>
           </blockquote>
         <?php } ?>
         </div>
-
         <div class="modal-footer">
           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tidak</button>
           <input type="submit" class="btn btn-info" name="submit" value="Ya">

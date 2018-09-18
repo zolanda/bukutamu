@@ -113,11 +113,11 @@
             <div class="alert alert-success" role="alert"><p class="error_msg"><i class="fa fa-check"></i> Succesfully login, Redirecting..</p></div>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" name="username" id="identity" class="form-control input-lg opensans16" placeholder="Username">
+            <input type="text" name="username" id="identity" class="form-control input-lg opensans16" placeholder="Username" required>
             <span class="fa fa-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" id="password" name="password" class="opensans16 form-control input-lg" placeholder="Password">
+            <input type="password" id="password" name="password" class="opensans16 form-control input-lg" placeholder="Password" required>
             <span class="fa fa-lock form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">

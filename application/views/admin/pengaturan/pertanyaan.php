@@ -73,7 +73,7 @@
           <div class="modal-body">
             <p>Pertanyaan</p>
             <?=form_open('',array('method'=>'post','id'=>'selection','role'=>'form'))?>
-            <input class="form-control" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan">
+            <input class="form-control" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" required>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>

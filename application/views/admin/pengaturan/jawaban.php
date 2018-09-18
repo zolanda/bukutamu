@@ -65,10 +65,10 @@
       <div class="modal-body">
         <p>Jawaban</p>
         <?=form_open('',array('method'=>'post','id'=>'selection','role'=>'form'))?>
-        <input class="form-control" type="text" name="jawaban" placeholder="Masukkan Jawaban">
+        <input class="form-control" type="text" name="jawaban" placeholder="Masukkan Jawaban" required>
         <input class="form-control" type="hidden" name="idpertanyaan" value="<?=$idpertanyaan?>">
         <br>
-        <input class="form-control" type="number" name="point" placeholder="Masukkan Poin dari Jawaban" value="">
+        <input class="form-control" type="number" name="point" placeholder="Masukkan Poin dari Jawaban" value="" required>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
