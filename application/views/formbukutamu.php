@@ -61,15 +61,16 @@
                         <input type="text" class="form-control input-lg" placeholder="Diskusi" id="lainlain" name="lainlain">
                         <span class="err" id="invalid-lainlain"></span>
                       </div>
-                      <div class="form-group">
-                        <label class="fpns">PEGAWAI YANG INGIN ANDA TEMUI ?</label>
-                        <select type="text" class="form-control input-lg" placeholder="Boleh tidak diisi" id="pejabat" name="pejabat">
-                          <option value="0">--Pilih--</option>
+                      <div class="form-group" id="pegawai">
+                        <label class="fpns">PEGAWAI YANG INGIN ANDA TEMUI ? <em>(Boleh Dikosongi)</em></label>
+                        <select class="form-control input-lg" id="pejabat" placeholder="Pilih Pejabat" name="pejabat">
+                          <!-- <option value="0">--Pilih--</option> -->
                           <?php if($pegawai!=FALSE){
                             foreach ($pegawai as $key){?>
                               <option value="<?= $key->no_induk?>"> <?= $key->nama_pegawai?> </option>
                             <?php }} ?>
                         </select>
+                        <span class="err" id="invalid-pejabat"></span>
                       </div>
                       <div class="form-group">
                         <label class="fpns">ANDA SENDIRIAN ? <em>(Wajib Diisi)</em></label>
@@ -148,6 +149,7 @@
   });
   $("#jumlah").hide();
   $("#menemui").hide();
+  // $("#pegawai").hide();
   $("#nomorpeng").hide();
   $("#issendirian").change(function(){
   if($(this).val() == 0){
@@ -256,6 +258,9 @@
   });
   }
   });
-  $("#pejabat").chosen({height:"1000%"});
+  // $("#pejabat").chosen({height:"1000%"});
+  $("#pejabat").selectize({
+    create: true,
+  });
   </script>
   <script src="<?php echo base_url('includes/library/js/demo.js')?>"></script>

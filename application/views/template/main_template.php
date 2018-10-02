@@ -15,10 +15,12 @@
   <link href="<?= base_url()?>/includes/library/css/themes/pacecounter.css" rel="stylesheet">
   <link href="<?= base_url()?>/includes/home/font/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?= base_url()?>/includes/logo.png" rel="shortcut icon">
-  <link href="<?= base_url()?>/includes/library/chosen/chosen.min.css" rel="stylesheet">
+  <!-- <link href="<?= base_url()?>/includes/library/chosen/chosen.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="<?php echo base_url('includes/library/js/selectize.min.js')?>"></script>
+  <link href="<?= base_url()?>/includes/library/css/selectize.css" rel="stylesheet">
   <style type="text/css">
     .error{
       font-size:18px;
@@ -34,7 +36,6 @@
       font-family: 'nova regular';
     }
   </style>
-  <script src="<?= base_url()?>/includes/library/js/jquery.js"></script>
   <script src="<?= base_url()?>/includes/home/js/jsKeyboard.js"></script>
   <script src="<?= base_url()?>/includes/library/js/bootstrap.min.js"></script>
 
@@ -48,8 +49,8 @@
   <script src="<?= base_url()?>/includes/library/js/new.js"></script>
   <script src="<?= base_url()?>/includes/backend-lte/js/pace.min.js"></script>
   <script src="<?= base_url()?>/includes/home/js/wow.min.js"></script>
-  <script src="<?= base_url()?>/includes/library/chosen/chosen.jquery.min.js"></script>
-  <script src="<?= base_url()?>/includes/library/chosen/chosen.proto.min.js"></script>
+  <!-- <script src="<?= base_url()?>/includes/library/chosen/chosen.jquery.min.js"></script>
+  <script src="<?= base_url()?>/includes/library/chosen/chosen.proto.min.js"></script> -->
 </head>
 <body class="skin-green-light layout-top-nav animsition-overlay">
   <div class="wrapper">
@@ -83,10 +84,6 @@
     <!-- /.container -->
 </footer>
 </body>
-<script type="text/javascript" src="<?=base_url()?>includes/template_admin/chartjs/chart.js">
-</script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
 <script type="text/javascript">
     $("#place").hide();
     $('#webTicker').webTicker();

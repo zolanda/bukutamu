@@ -44,6 +44,7 @@
       $datapengunjung=$this->Tamu->getTamuByTanggal($tanggal);
       // die(print_r($datapengunjung));
       $stringtable='';
+      $jumlah=0;
       if($datapengunjung!=FALSE){
         $stringloop='';
         $i=1;
@@ -57,6 +58,7 @@
           <td width="100" align="center">'.$peng->nama_pegawai.'</td>
           <td width="60" align="center">'.$peng->banyak_tamu.'</td>
           </tr>';
+          $jumlah+=$peng->banyak_tamu;
           $i++;
           $stringtable=$stringtable.''.$stringloop;
         }
@@ -75,7 +77,7 @@
       $stringtable.'
       <tr height="10">
       <td width="480" align="right">JUMLAH</td>
-      <td width="60" align="center">0</td>
+      <td width="60" align="center">'.$jumlah.'</td>
       </tr>
       </table>
       ';
@@ -97,6 +99,7 @@
       if($datapengunjung!=FALSE){
         $stringloop='';
         $i=1;
+        $jumlah=0;
         foreach ($datapengunjung as $peng) {
           $stringloop='<tr>
           <td height="30" width="30" align="center">'.$i.' </td>
@@ -107,6 +110,7 @@
           <td width="100" align="center">'.$peng->nama_pegawai.'</td>
           <td width="60" align="center">'.$peng->banyak_tamu.'</td>
           </tr>';
+          $jumlah+=$peng->banyak_tamu;
           $i++;
           $stringtable=$stringtable.''.$stringloop;
         }
@@ -125,7 +129,7 @@
       $stringtable.'
       <tr height="10">
       <td width="480" align="right">JUMLAH</td>
-      <td width="60" align="center">0</td>
+      <td width="60" align="center">'.$jumlah.'</td>
       </tr>
       </table>
       ';
@@ -147,6 +151,7 @@
       if($datapengunjung!=FALSE){
         $stringloop='';
         $i=1;
+        $jumlah=0;
         foreach ($datapengunjung as $peng) {
           $stringloop=$stringloop.'<tr>
           <td height="30" width="30" align="center">'.$i.' </td>
@@ -157,6 +162,7 @@
           <td width="100" align="center">'.$peng->nama_pegawai.'</td>
           <td width="60" align="center">'.$peng->banyak_tamu.'</td>
           </tr>';
+          $jumlah+=$peng->banyak_tamu;
           $i++;
         }
       }
@@ -173,7 +179,7 @@
       </tr>'.$stringloop.'
       <tr height="10">
       <td width="480" align="right">JUMLAH</td>
-      <td width="60" align="center">0</td>
+      <td width="60" align="center">'.$jumlah.'</td>
       </tr>
       </table>
       ';
@@ -196,6 +202,7 @@
       if($datapengunjung!=FALSE){
         $stringloop='';
         $i=1;
+        $jumlah=0;
         foreach ($datapengunjung as $peng) {
           $stringloop='<tr>
           <td height="30" width="30" align="center">'.$i.' </td>
@@ -206,6 +213,7 @@
           <td width="100" align="center">'.$peng->nama_pegawai.'</td>
           <td width="60" align="center">'.$peng->banyak_tamu.'</td>
           </tr>';
+          $jumlah+=$peng->banyak_tamu;
           $i++;
           $stringtable=$stringtable.''.$stringloop;
         }
@@ -224,7 +232,7 @@
       $stringtable.'
       <tr height="10">
       <td width="480" align="right">JUMLAH</td>
-      <td width="60" align="center">0</td>
+      <td width="60" align="center">'.$jumlah.'</td>
       </tr>
       </table>
       ';

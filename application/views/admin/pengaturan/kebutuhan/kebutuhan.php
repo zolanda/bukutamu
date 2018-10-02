@@ -90,7 +90,7 @@
           <label><span style="margin-left:18px"> Centang Pertanyaan</span></label>
           <?php foreach($pertanyaan as $data) {?>
           <blockquote>
-            <input type="checkbox"  name="pertanyaan[]" value="<?=$data->id_pertanyaan ?>" required> <?=ucwords($data->pertanyaan)?>
+            <input type="checkbox"  name="pertanyaan[]" value="<?=$data->id_pertanyaan ?>"> <?=ucwords($data->pertanyaan)?>
           </blockquote>
         <?php } ?>
         </div>
