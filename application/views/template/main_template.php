@@ -87,6 +87,7 @@
 <script type="text/javascript">
     $("#place").hide();
     $('#webTicker').webTicker();
+
     $(document).ready(function() {
       $(".animsition-overlay").animsition({
         inClass: 'overlay-slide-in-top',

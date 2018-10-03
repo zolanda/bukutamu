@@ -46,7 +46,7 @@
                     <td><?=$i++?></td>
                     <td><?=$listper['pertanyaan']?></td>
                     <td><?=$listper['nilai']?></td>
-                    <td><?=$listper['rata']?></td>
+                    <td><?=number_format((float)$listper['rata'], 2, '.', '')?></td>
                     <td><?php if(($listper['rata'])>=1.5){
                       echo "Puas";
                       $count=$count+1;

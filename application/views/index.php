@@ -124,6 +124,17 @@
                     </div>
                   </div>
                 </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <div class="row">
+              <div class="col-lg-12">
+                <center><h3 class="fpns"><i class="fa fa-keyboard-o"></i> KEYBOARD</h3></center>
+                <div id="virtualKeyboard">
+
+                </div>
               </div>
             </div>
           </div>
@@ -132,6 +143,16 @@
   </div>
 </div>
 <script>
+    $(function () {
+    jsKeyboard.init("virtualKeyboard");
+
+    //first input focus
+    var $firstInput = $(':input').first();
+    console.log($firstInput);
+    jsKeyboard.currentElement = $firstInput;
+    jsKeyboard.currentElementCursorPosition = 0;
+    new WOW().init();
+    });
     $("[name='notfound']").hide();
     $("[name='found']").hide();
     // $('#webTicker').webTicker();

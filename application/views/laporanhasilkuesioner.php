@@ -1,13 +1,13 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-6 col-lg-6">
+  <div class="col-xs-12 col-sm-6 col-lg-12">
     <div class="box">
-      <div class="box-header with-border">
+      <div class="box-header with-border" style="text-align:center !important">
         <h3 class="box-title"><i class="fa fa-bar-chart"></i>Indeks Kepuasan Masyarakat</h3>
         <div class="box-title pull-right">
         </div>
       </div>
       <div class="box-body">
-        <div class="col-xs-12 col-sm-6 col-lg-6">
+        <div class="col-xs-12 col-sm-6 col-lg-6 col-md-offset-3" style="height:550px !important">
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -43,5 +43,4 @@
       </div>
     </div>
   </div>
-
 </div>

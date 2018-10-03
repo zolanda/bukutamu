@@ -123,6 +123,7 @@
   jsKeyboard.currentElementCursorPosition = 0;
   new WOW().init();
   });
+
   $(document).ready(function() {
   $(".animsition-overlay").animsition({
   inClass: 'overlay-slide-in-top',

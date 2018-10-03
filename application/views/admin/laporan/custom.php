@@ -38,9 +38,8 @@
       $('#download').show();
     }
   })
-  $('#custom').daterangepicker({
 
-  },
+  $('#custom').daterangepicker({},
   function (start,end,label) {
     var start=start.format('YYYY-MM-DD');
     var end=end.format('YYYY-MM-DD');

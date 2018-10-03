@@ -96,10 +96,10 @@
       $datapengunjung=$this->Tamu->getTamuByTanggal($tanggal);
       // die(print_r($datapengunjung));
       $stringtable='';
+      $jumlah=0;
       if($datapengunjung!=FALSE){
         $stringloop='';
         $i=1;
-        $jumlah=0;
         foreach ($datapengunjung as $peng) {
           $stringloop='<tr>
           <td height="30" width="30" align="center">'.$i.' </td>
@@ -148,10 +148,10 @@
       $datapengunjung=$this->Tamu->getTamuByTahun($tahun);
       // die(print_r($datapengunjung));
       // $stringtable='';
+      $jumlah=0;
       if($datapengunjung!=FALSE){
         $stringloop='';
         $i=1;
-        $jumlah=0;
         foreach ($datapengunjung as $peng) {
           $stringloop=$stringloop.'<tr>
           <td height="30" width="30" align="center">'.$i.' </td>
@@ -198,11 +198,11 @@
       $html='<br><br><h4>Daftar Pengunjung pada tanggal : '.$stringdate.' s/d '.$stringdate2.'</h4>';
       $datapengunjung=$this->Tamu->getTamuByRangeTanggal($tanggal,$tanggal2);
       // die(print_r($datapengunjung));
+      $jumlah=0;
       $stringtable='';
       if($datapengunjung!=FALSE){
         $stringloop='';
         $i=1;
-        $jumlah=0;
         foreach ($datapengunjung as $peng) {
           $stringloop='<tr>
           <td height="30" width="30" align="center">'.$i.' </td>

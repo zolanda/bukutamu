@@ -6,7 +6,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <script src="<?=base_url()?>template_admin/bower_components/jquery/dist/jquery-3.3.1.min.js"></script>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<!-- <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script> -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <link rel="shortcut icon" href="<?php echo base_url('includes/logo.png')?>">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
@@ -14,9 +15,9 @@
 <!-- <script src="<?=base_url()?>template_admin/chartjs/Chart.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
 <!-- Include Date Range Picker -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<!-- <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script> -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-  <!-- <script src="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script> -->
+  <script src="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/Ionicons/css/ionicons.min.css">
@@ -24,13 +25,12 @@
   <link rel="stylesheet" href="<?=base_url()?>template_admin/dist/css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/morris.js/morris.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/jvectormap/jquery-jvectormap.css">
-  <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/bootstrap-daterangepicker/daterangepicker.css"> -->
   <link rel="stylesheet" href="<?=base_url()?>includes/library/css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="<?=base_url()?>template_admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 <script src="<?=base_url()?>includes/library/js/bootstrap-datepicker.js"></script>
 </head>
